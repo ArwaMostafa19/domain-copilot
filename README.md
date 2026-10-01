@@ -16,7 +16,9 @@
 
 # \- Twist: T0 (Multi-tenancy)
 
-# \- Source: stated in the invitation email
+# \-Source: derived from the National ID, as the brief allows
+\- Domain rule: last two digits mod 7 = 5, so D5
+\- Twist rule: sum of all digits mod 8 = 0, so T0
 
 # 
 
