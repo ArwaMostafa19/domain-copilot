@@ -1,0 +1,749 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4643 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 50 768.0 Tm
+(BETA-HP-200 Hydraulic Press - Energy Control Program) Tj
+/F1 4 Tf
+1 0 0 1 50 754.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 742.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+(| Field | Value |) Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+(| --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(| Tenant | Beta Manufacturing \(tenant-beta\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(| Site | Harbor Works, Line 1 \(imperial documentation\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(| Document identifier | BETA-SAF-HP200-ECP-1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(| Source identifier | BM-DOC-2231 |) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(| Equipment | BETA-HP-200 |) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(| Also covers | BETA-HP-200S \(additional requirements under Additional requirements for BETA-HP-200S\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(| Document type | Safety / energy isolation procedure |) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(| Revision | Rev 1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(| Effective date | 2023-03-01 |) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(| Status | current |) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(| Applies to | Assets listed under equipment |) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(| Related documents | BETA-MAN-HP200-B, BETA-PM-HP200-B, BETA-DIA-P100-1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(| Document owner | EHS and Maintenance Engineering |) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 538.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 526.0 Tm
+(Purpose and scope) Tj
+/F1 4 Tf
+1 0 0 1 50 512.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 500.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+(This program describes how electrical, hydraulic, die cushion and) Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+(gravitational energy are made safe on the BETA-HP-200 press before any person) Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(opens a guard, enters the die area, touches a tie rod, handles a hose or) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+(fitting, or opens the manifold.) Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+(It applies to BETA-HP-200 and to BETA-HP-200S.) Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(Rule 1. No person may open a guard, enter the die area or break a hydraulic) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(line on this press unless this program has been completed for the specific) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+(task and the red verification tag is attached.) Tj
+/F1 9 Tf
+1 0 0 1 50 368.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 356.0 Tm
+(Rule 2. On this press a two-person rule applies. The person performing the) Tj
+/F1 9 Tf
+1 0 0 1 50 344.0 Tm
+(work and a second authorised person who watches the energy control steps) Tj
+/F1 9 Tf
+1 0 0 1 50 332.0 Tm
+(must both sign the verification tag. This rule is not a formality: the) Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+(die cushion stores energy that is not visible from the operating station.) Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 296.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 284.0 Tm
+(Energy sources on this machine) Tj
+/F1 4 Tf
+1 0 0 1 50 270.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 258.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 246.0 Tm
+(| Energy | Source | Isolation point |) Tj
+/F1 9 Tf
+1 0 0 1 50 234.0 Tm
+(| --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 222.0 Tm
+(| Electrical, 460 V three phase | Feeder BM-MCC-3 | Panel 3B-11, breaker 7 |) Tj
+/F1 9 Tf
+1 0 0 1 50 210.0 Tm
+(| Electrical, control 24 V DC | Control transformer in panel 3B-11 | Breaker 9 |) Tj
+/F1 9 Tf
+1 0 0 1 50 198.0 Tm
+(| Hydraulic, main circuit | Power unit P-100, pumps A and B | Ball valves HX-301 and HX-302 |) Tj
+/F1 9 Tf
+1 0 0 1 50 186.0 Tm
+(| Hydraulic, tool clamp circuit | Clamp manifold | Ball valve HX-311 |) Tj
+/F1 9 Tf
+1 0 0 1 50 174.0 Tm
+(| Stored pressure, accumulator AC-2 | Nitrogen pre-charge, 1000 psi as built | Manual bleed valve BV-321 into) Tj
+/F1 9 Tf
+1 0 0 1 50 162.0 Tm
+(drain drum DD-2 |) Tj
+/F1 9 Tf
+1 0 0 1 50 150.0 Tm
+(| Stored pressure, die cushion | Cushion cylinder | Cushion release valve RV-330, then cushion block CB-9 |) Tj
+/F1 9 Tf
+1 0 0 1 50 138.0 Tm
+(| Gravitational | Ram mass, about 900 lb | Ram block RB-6 plus tie-off |) Tj
+/F1 9 Tf
+1 0 0 1 50 126.0 Tm
+(| Pneumatic, control only | Instrument air at 60 psi | Ball valve AV-315 |) Tj
+/F1 9 Tf
+1 0 0 1 50 114.0 Tm
+(| Residual | Disconnected hoses | Cap on removal, blank plug before work |) Tj
+/F1 9 Tf
+1 0 0 1 50 102.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 90.0 Tm
+(The die cushion is the difference between this press and the four-post presses) Tj
+/F1 9 Tf
+1 0 0 1 50 78.0 Tm
+(elsewhere on the site. Blocking the ram alone does not make the cushion safe.) Tj
+/F1 9 Tf
+1 0 0 1 50 66.0 Tm
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4846 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 780.0 Tm
+(Required sequence) Tj
+/F1 4 Tf
+1 0 0 1 50 766.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 754.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 742.0 Tm
+(Perform these steps in order. Skipping a step is a reportable event.) Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+(1. Notify. Inform the Line 1 shift supervisor and the press operators that the) Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(press will be down, and record it on permit LOTO-4410.) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(2. Stop normally. Press stop at the operator station and allow the pumps to run) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(down for the full 60 seconds. Do not use the emergency stop as a normal) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(stopping method.) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(3. Isolate electrical energy. Open panel 3B-11, set breaker 7 to OFF and the) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(isolator handle to the locked position, and fit a personal lock and tag.) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(Isolate the control supply at breaker 9. Use the lock box when more than one) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(person is working.) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(4. Isolate the hydraulic supply. Close HX-301 and HX-302, and lock both. Close) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(HX-311 on the clamp circuit and lock it. Close instrument air at AV-315.) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+(5. Dissipate the die cushion energy. Open cushion release valve RV-330 and) Tj
+/F1 9 Tf
+1 0 0 1 50 526.0 Tm
+(let the cushion extend. Fit the cushion block CB-9 in the ram yoke before) Tj
+/F1 9 Tf
+1 0 0 1 50 514.0 Tm
+(the ram is moved. The cushion pressure is only released when RV-330 is open) Tj
+/F1 9 Tf
+1 0 0 1 50 502.0 Tm
+(and the ram yoke has dropped onto CB-9.) Tj
+/F1 9 Tf
+1 0 0 1 50 490.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 478.0 Tm
+(6. Dissipate the accumulator energy. Open bleed valve BV-321 and discharge) Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+(accumulator AC-2 into drain drum DD-2. Never vent a charged accumulator to) Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+(atmosphere. Continue bleeding until the accumulator gauge reads 10 psi or) Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+(less. If the gauge will not come below 10 psi, stop and escalate; the) Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(accumulator or the gauge is defective and the circuit must be treated as) Tj
+/F1 9 Tf
+1 0 0 1 50 418.0 Tm
+(charged.) Tj
+/F1 9 Tf
+1 0 0 1 50 406.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 394.0 Tm
+(7. Fit the ram block and tie-off. Fit ram block RB-6 under the ram yoke and fit) Tj
+/F1 9 Tf
+1 0 0 1 50 382.0 Tm
+(the tie-off. Both must be fitted before hands enter the die area.) Tj
+/F1 9 Tf
+1 0 0 1 50 370.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 358.0 Tm
+(8. Verify the zero-energy state. Perform all five verifications:) Tj
+/F1 9 Tf
+1 0 0 1 50 346.0 Tm
+(- Attempt start from the operator station: nothing moves.) Tj
+/F1 9 Tf
+1 0 0 1 50 334.0 Tm
+(- Attempt to operate the locked ball valves: they do not move.) Tj
+/F1 9 Tf
+1 0 0 1 50 322.0 Tm
+(- Attempt to move the ram by hand at the ram crown: it does not move.) Tj
+/F1 9 Tf
+1 0 0 1 50 310.0 Tm
+(- Confirm the cushion pressure gauge at the cushion manifold reads 0 psi.) Tj
+/F1 9 Tf
+1 0 0 1 50 298.0 Tm
+(- Confirm the accumulator gauge reads 10 psi or less and the main pressure) Tj
+/F1 9 Tf
+1 0 0 1 50 286.0 Tm
+(gauge reads 0 psi.) Tj
+/F1 9 Tf
+1 0 0 1 50 274.0 Tm
+(Attach the red verification tag. Both the technician and the second) Tj
+/F1 9 Tf
+1 0 0 1 50 262.0 Tm
+(authorised person sign it.) Tj
+/F1 9 Tf
+1 0 0 1 50 250.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 238.0 Tm
+(The attempt start verification is recorded on permit LOTO-4410 and is audited) Tj
+/F1 9 Tf
+1 0 0 1 50 226.0 Tm
+(monthly.) Tj
+/F1 9 Tf
+1 0 0 1 50 214.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 202.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 190.0 Tm
+(Rules that are frequently broken) Tj
+/F1 4 Tf
+1 0 0 1 50 176.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 164.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 152.0 Tm
+(Working on a hose or fitting because the pump motor is off. Motor off is) Tj
+/F1 9 Tf
+1 0 0 1 50 140.0 Tm
+(not isolation.) Tj
+/F1 9 Tf
+1 0 0 1 50 128.0 Tm
+(Blocking the ram without releasing the cushion. The cushion can still drive) Tj
+/F1 9 Tf
+1 0 0 1 50 116.0 Tm
+(the ram down.) Tj
+/F1 9 Tf
+1 0 0 1 50 104.0 Tm
+(One person signing the verification tag.) Tj
+/F1 9 Tf
+1 0 0 1 50 92.0 Tm
+(Assuming the accumulator is empty because it was bled on a previous job.) Tj
+/F1 9 Tf
+1 0 0 1 50 80.0 Tm
+(The gauge reading on the day, by that person, is the evidence.) Tj
+/F1 9 Tf
+1 0 0 1 50 68.0 Tm
+(Removing a hose and leaving the port open. Cap the port the same hour.) Tj
+/F1 9 Tf
+1 0 0 1 50 56.0 Tm
+(Leaving a personal lock off during a break. Every break means re-verification.) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4705 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(Bypassing the light curtain to run the press in setup mode. Prohibited.) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 768.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 756.0 Tm
+(Return to service) Tj
+/F1 4 Tf
+1 0 0 1 50 742.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+(1. Remove tools, blanks and test pieces from the die area. Fit all guards.) Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(2. Close BV-321, remove drain drum DD-2, close RV-330 after confirming the) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(cushion is recharged on the next cycle.) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(3. Remove the cushion block CB-9, the ram block RB-6 and the tie-off and return) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(them to the store.) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(4. Remove locks one at a time; each person removes their own lock.) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(5. Notify the Line 1 supervisor that the press is released.) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(6. Restore panel 3B-11 and close HX-301, HX-302, HX-311 and AV-315.) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(7. Recharge accumulator AC-2 through the charging point. The pre-charge value) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(is the as-built value on the data plate. Do not charge from a figure copied) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(from another press on this site.) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(8. Run a dry cycle with the die area empty and hands clear. Confirm the cushion) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(recharges, the clamp pressure proves, the ram raises and lowers normally and) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(there is no leak.) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+(9. Record the return to service on permit LOTO-4410 and on the work order.) Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 526.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 514.0 Tm
+(Additional requirements for BETA-HP-200S) Tj
+/F1 4 Tf
+1 0 0 1 50 500.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+(The straight-side variant has a fixed guard and a two-tool clamp arrangement.) Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(Before work on its clamp circuit, both clamp circuits must be isolated and) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+(bled separately, because the two clamp circuits are cross connected upstream) Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+(of HX-311.) Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+(Work instruction WI-2204 covers the HP-200S and is not part of this document) Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(collection. Where this program and WI-2204 differ, raise a documentation) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(conflict; do not choose between them in the field.) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 368.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 356.0 Tm
+(Incident reporting) Tj
+/F1 4 Tf
+1 0 0 1 50 342.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 330.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 318.0 Tm
+(Report to EHS before the next shift, even if nobody was hurt:) Tj
+/F1 9 Tf
+1 0 0 1 50 306.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 294.0 Tm
+(A guard was opened or a fitting loosened while the circuit was charged.) Tj
+/F1 9 Tf
+1 0 0 1 50 282.0 Tm
+(A person entered the die area with the cushion charged.) Tj
+/F1 9 Tf
+1 0 0 1 50 270.0 Tm
+(An attempt start produced any movement of the ram.) Tj
+/F1 9 Tf
+1 0 0 1 50 258.0 Tm
+(A tag was found without a lock, or a lock was found unlocked.) Tj
+/F1 9 Tf
+1 0 0 1 50 246.0 Tm
+(Work was performed without a two-person verification.) Tj
+/F1 9 Tf
+1 0 0 1 50 234.0 Tm
+(A safety device was found bypassed, taped or missing.) Tj
+/F1 9 Tf
+1 0 0 1 50 222.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 210.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 198.0 Tm
+(Appendix: Energy isolation point schedule) Tj
+/F1 4 Tf
+1 0 0 1 50 184.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 172.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 160.0 Tm
+(The energy isolation points for the BETA-HP-200 press and its hydraulic power) Tj
+/F1 9 Tf
+1 0 0 1 50 148.0 Tm
+(unit are listed below. Every point is locked and tagged before work begins.) Tj
+/F1 9 Tf
+1 0 0 1 50 136.0 Tm
+(The schedule is verified against the as-built drawing at each annual review.) Tj
+/F1 9 Tf
+1 0 0 1 50 124.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 112.0 Tm
+(| Ref | Energy source | Device | Location | Method | Verification |) Tj
+/F1 9 Tf
+1 0 0 1 50 100.0 Tm
+(| --- | --- | --- | --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 88.0 Tm
+(| HV-101 | Electrical, main | Isolator | Panel 1A-02 | Lock open | Test for dead at motor terminals |) Tj
+/F1 9 Tf
+1 0 0 1 50 76.0 Tm
+(| HV-201 | Electrical, control | Isolator | Panel 1A-02 | Lock open | Test control voltage absent |) Tj
+/F1 9 Tf
+1 0 0 1 50 64.0 Tm
+(| HY-1 | Hydraulic, stored | Relief and drain valve | Manifold | Open and drain | Gauge reads zero |) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 3151 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(| AC-1 | Pneumatic, accumulator | Block valve BV-103 | Manifold | Open to drain vessel | Accumulator gauge reads) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(zero |) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+(| ME-1 | Mechanical, gravity | Ram block and tie-off | Frame | Fit mechanical stop | Ram cannot move under load |) Tj
+/F1 9 Tf
+1 0 0 1 50 756.0 Tm
+(| TH-1 | Thermal | Oil cooler | Power unit | Allow to cool | Below 104 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 744.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 732.0 Tm
+(Isolation is not complete until every point has been applied and the) Tj
+/F1 9 Tf
+1 0 0 1 50 720.0 Tm
+(zero-energy state has been verified by attempting to start the press and) Tj
+/F1 9 Tf
+1 0 0 1 50 708.0 Tm
+(confirming nothing moves. The attempt is recorded with date, time and name.) Tj
+/F1 9 Tf
+1 0 0 1 50 696.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 684.0 Tm
+(Two people are required: the person who applied the isolation and a second) Tj
+/F1 9 Tf
+1 0 0 1 50 672.0 Tm
+(person who confirms the zero-energy state independently.) Tj
+/F1 9 Tf
+1 0 0 1 50 660.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 648.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 636.0 Tm
+(Appendix: Permit and record retention) Tj
+/F1 4 Tf
+1 0 0 1 50 622.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(The isolation permit is raised for each job and closed only after the) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(isolation has been removed and the press returned to service. The permit) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(identifies the asset, the work order, the isolation points applied, the) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(verifying person and the time of removal.) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+(Records are retained for seven years. The record set for each job contains:) Tj
+/F1 9 Tf
+1 0 0 1 50 526.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 514.0 Tm
+(the raised permit and the lock and tag numbers issued;) Tj
+/F1 9 Tf
+1 0 0 1 50 502.0 Tm
+(the zero-energy verification record with the attempted-start result;) Tj
+/F1 9 Tf
+1 0 0 1 50 490.0 Tm
+(the list of isolation points and how each was proven dead;) Tj
+/F1 9 Tf
+1 0 0 1 50 478.0 Tm
+(the name of the person who applied the isolation and the verifier;) Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+(the time the isolation was removed and the press returned to service;) Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+(any deviation and the approval that authorized it.) Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(A permit that cannot be produced when requested is treated as an unverified) Tj
+/F1 9 Tf
+1 0 0 1 50 418.0 Tm
+(isolation and the work is stopped until the record is reconstructed and) Tj
+/F1 9 Tf
+1 0 0 1 50 406.0 Tm
+(re-verified.) Tj
+/F1 9 Tf
+1 0 0 1 50 394.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 382.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 370.0 Tm
+(Revision history) Tj
+/F1 4 Tf
+1 0 0 1 50 356.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 344.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 332.0 Tm
+(| Revision | Effective date | Summary |) Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+(| --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(| Rev 1 | 2023-03-01 | First controlled issue, issued with the energy control program audit. |) Tj
+ET
+endstream
+endobj
+xref
+0 13
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000140 00000 n 
+0000000237 00000 n 
+0000000339 00000 n 
+0000000475 00000 n 
+0000005170 00000 n 
+0000005306 00000 n 
+0000010204 00000 n 
+0000010341 00000 n 
+0000015099 00000 n 
+0000015237 00000 n 
+trailer
+<< /Size 13 /Root 1 0 R >>
+startxref
+18441
+%%EOF
