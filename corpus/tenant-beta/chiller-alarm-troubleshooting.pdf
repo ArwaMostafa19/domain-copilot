@@ -1,0 +1,977 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R] /Count 5 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4541 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 50 768.0 Tm
+(BETA-CH-450 Air Cooled Chiller - Alarm and Fault Troubleshooting Guide) Tj
+/F1 4 Tf
+1 0 0 1 50 754.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 742.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+(| Field | Value |) Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+(| --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(| Tenant | Beta Manufacturing \(tenant-beta\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(| Site | Harbor Works, Line 1 \(imperial documentation\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(| Document identifier | BETA-TS-CH450-1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(| Source identifier | BM-DOC-2312 |) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(| Equipment | BETA-CH-450 |) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(| Also covers | none |) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(| Document type | Troubleshooting guide |) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(| Revision | Rev 1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(| Effective date | 2024-09-09 |) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(| Status | current |) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(| Applies to | Assets listed under equipment |) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(| Related documents | BM-MAN-CH450-1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(| Document owner | Maintenance Engineering |) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 538.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 526.0 Tm
+(Purpose) Tj
+/F1 4 Tf
+1 0 0 1 50 512.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 500.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+(This guide covers the alarm and fault handling of the BETA-CH-450 air cooled) Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+(screw chiller, 450 kW, serving the process cooling in the Line 1 machining) Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(cell.) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+(The alarm code set of this controller is the F, H and E set listed under Alarm) Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+(codes used by this controller. It is not the A-series set used on chiller controllers from other) Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+(manufacturers. Confirm the code set from the controller display before using) Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(Alarm codes used by this controller, and never quote an alarm code from another) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(unit's guide.) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 368.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 356.0 Tm
+(Technical data) Tj
+/F1 4 Tf
+1 0 0 1 50 342.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 330.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 318.0 Tm
+(| Parameter | Value |) Tj
+/F1 9 Tf
+1 0 0 1 50 306.0 Tm
+(| --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 294.0 Tm
+(| Nominal capacity, at rating condition | 450 kW cooling at 45 degF leaving water, 95 degF ambient |) Tj
+/F1 9 Tf
+1 0 0 1 50 282.0 Tm
+(| Refrigerant | R-1234ze |) Tj
+/F1 9 Tf
+1 0 0 1 50 270.0 Tm
+(| Chilled water flow | 82 m3/h |) Tj
+/F1 9 Tf
+1 0 0 1 50 258.0 Tm
+(| Chilled water, supply set point, operating value | 46 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 246.0 Tm
+(| Chilled water, return, design | 56 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 234.0 Tm
+(| Maximum ambient for full capacity | 95 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 222.0 Tm
+(| Design condenser air flow | 5.4 m/s across the coil |) Tj
+/F1 9 Tf
+1 0 0 1 50 210.0 Tm
+(| Glycol | inhibited glycol, 25 percent minimum by volume |) Tj
+/F1 9 Tf
+1 0 0 1 50 198.0 Tm
+(| Controller firmware | 5.x series uses the F, H and E alarm codes |) Tj
+/F1 9 Tf
+1 0 0 1 50 186.0 Tm
+(| Freeze protection | trip when evaporator outlet water is 44 degF or lower |) Tj
+/F1 9 Tf
+1 0 0 1 50 174.0 Tm
+(| High head pressure trip | discharge at or above 217 psi |) Tj
+/F1 9 Tf
+1 0 0 1 50 162.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 150.0 Tm
+(The nominal capacity of 450 kW is the manufacturer's rating condition: the duty the) Tj
+/F1 9 Tf
+1 0 0 1 50 138.0 Tm
+(unit is certified to deliver at 45 degF leaving water and 95 degF ambient. The supply) Tj
+/F1 9 Tf
+1 0 0 1 50 126.0 Tm
+(set point of 46 degF is the operating value the plant control runs to day to day.) Tj
+/F1 9 Tf
+1 0 0 1 50 114.0 Tm
+(These two figures answer different questions and are not in conflict. The unit is) Tj
+/F1 9 Tf
+1 0 0 1 50 102.0 Tm
+(rated one degree below its normal operating temperature, so at the 46 degF set point) Tj
+/F1 9 Tf
+1 0 0 1 50 90.0 Tm
+(it delivers at least the rated 450 kW. A question about what the machine is) Tj
+/F1 9 Tf
+1 0 0 1 50 78.0 Tm
+(capable of must be answered with the 45 degF rating condition; a question about) Tj
+/F1 9 Tf
+1 0 0 1 50 66.0 Tm
+(what the plant is running to must be answered with the 46 degF operating set point.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4928 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(The 95 degF ambient limit is a hard limit. Above it the unit cannot make its) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+(rated capacity and will eventually trip on high head pressure. A day when the) Tj
+/F1 9 Tf
+1 0 0 1 50 756.0 Tm
+(site maximum ambient exceeded 95 degF must be recorded before the fault is) Tj
+/F1 9 Tf
+1 0 0 1 50 744.0 Tm
+(attributed to the machine.) Tj
+/F1 9 Tf
+1 0 0 1 50 732.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 720.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 708.0 Tm
+(Alarm codes used by this controller) Tj
+/F1 4 Tf
+1 0 0 1 50 694.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(| Code | Text on display | Meaning |) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(| --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(| F-13 | COMPRESSOR HP | Compressor tripped on high discharge pressure, 217 psi or above |) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(| F-21 | OIL LEVEL LOW | Oil level switch open, or oil differential low |) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(| F-32 | SUCTION LP | Suction pressure below the low limit |) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(| F-44 | COMP STARTSW | Compressor failed to start within the start time |) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(| F-51 | COMM LOSS | Controller lost communication with the plant module |) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(| H-04 | E-HEAT STAGE | Electric heater stage fault or lockout |) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(| E-07 | FREEZE STAT | Evaporator outlet water at or below 44 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(| E-12 | FLOW SW OPEN | Evaporator flow switch did not prove |) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+(| E-19 | COND FAN | Condenser fan speed or feedback fault |) Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 526.0 Tm
+(A code that is not in this table is not documented here. Record the code,) Tj
+/F1 9 Tf
+1 0 0 1 50 514.0 Tm
+(photograph the display, and raise a documentation request.) Tj
+/F1 9 Tf
+1 0 0 1 50 502.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 490.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 478.0 Tm
+(Section 4: the unit trips intermittently, repeated F-13) Tj
+/F1 4 Tf
+1 0 0 1 50 464.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+(The most common report on this unit is "it trips at random". The code is) Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+(F-13, high head pressure, and it has at least seven documented causes:) Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(1. Ambient air above 95 degF. Check the site weather station reading for the) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(trip time first. This is the most frequent cause and it is not a machine) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+(fault.) Tj
+/F1 9 Tf
+1 0 0 1 50 368.0 Tm
+(2. Condenser coil fouled with dust or process debris. Check the fin face.) Tj
+/F1 9 Tf
+1 0 0 1 50 356.0 Tm
+(3. Condenser fan failure or fan speed below set point. Check E-19 in the) Tj
+/F1 9 Tf
+1 0 0 1 50 344.0 Tm
+(history.) Tj
+/F1 9 Tf
+1 0 0 1 50 332.0 Tm
+(4. Refrigerant overcharge, or a non-condensable gas in the system.) Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+(5. Glycol concentration below 25 percent, or the wrong glycol, causing poor) Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(heat transfer at the evaporator and high suction pressure.) Tj
+/F1 9 Tf
+1 0 0 1 50 296.0 Tm
+(6. Partially blocked evaporator plate heat exchanger from scale.) Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+(7. Safety valve lifting and not reseating, or a pressure transmitter out of) Tj
+/F1 9 Tf
+1 0 0 1 50 272.0 Tm
+(calibration.) Tj
+/F1 9 Tf
+1 0 0 1 50 260.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 248.0 Tm
+(Discriminating steps, in order:) Tj
+/F1 9 Tf
+1 0 0 1 50 236.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 224.0 Tm
+(1. Read the site ambient temperature at the trip time from the history. If it) Tj
+/F1 9 Tf
+1 0 0 1 50 212.0 Tm
+(was above 95 degF, the cause is external conditions; the machine is not) Tj
+/F1 9 Tf
+1 0 0 1 50 200.0 Tm
+(diagnosed before the conditions are corrected.) Tj
+/F1 9 Tf
+1 0 0 1 50 188.0 Tm
+(2. Read the discharge pressure and the saturated condensing temperature from) Tj
+/F1 9 Tf
+1 0 0 1 50 176.0 Tm
+(the trend history for the 15 minutes before the trip.) Tj
+/F1 9 Tf
+1 0 0 1 50 164.0 Tm
+(3. Check the condenser coil from the ground. Do not climb the unit.) Tj
+/F1 9 Tf
+1 0 0 1 50 152.0 Tm
+(4. Check the glycol concentration with a refractometer for the inhibitor) Tj
+/F1 9 Tf
+1 0 0 1 50 140.0 Tm
+(package, not for ethylene glycol.) Tj
+/F1 9 Tf
+1 0 0 1 50 128.0 Tm
+(5. Compare the evaporator approach temperature. A large approach with a clean) Tj
+/F1 9 Tf
+1 0 0 1 50 116.0 Tm
+(condenser indicates a refrigerant side or a glycol side problem, not a) Tj
+/F1 9 Tf
+1 0 0 1 50 104.0 Tm
+(compressor problem.) Tj
+/F1 9 Tf
+1 0 0 1 50 92.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 80.0 Tm
+(Do not reset the unit and leave it. Three F-13 trips in one shift stops the) Tj
+/F1 9 Tf
+1 0 0 1 50 68.0 Tm
+(unit until the cause is established.) Tj
+/F1 9 Tf
+1 0 0 1 50 56.0 Tm
+() Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4352 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 780.0 Tm
+(Section 5: repeated E-07 freeze protection trips) Tj
+/F1 4 Tf
+1 0 0 1 50 766.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 754.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 742.0 Tm
+(Causes, in order:) Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+(1. Chilled water flow too low because a pump is on manual, a strainer is) Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(blocked, or a valve is closed.) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(2. Set point too low for the load. Check the supply set point against the) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(design value in Technical data.) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(3. Thermistor drift. Compare the evaporator outlet water temperature on the) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(control panel with a calibrated contact thermometer at the same point. A) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(difference above 3 degF is a sensor fault, not a process fault.) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(4. Low glycol concentration or air in the water circuit.) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(5. Thermostat or capillary failure causing the valve to close late.) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(A freeze trip resets automatically once the water is above 48 degF. If it) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(repeats, the automatic reset is not an acceptance criterion; establish the) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(cause first.) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 550.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 538.0 Tm
+(Section 6: E-12 flow switch open) Tj
+/F1 4 Tf
+1 0 0 1 50 524.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 512.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 500.0 Tm
+(Causes: pump on manual, strainer blocked, flow switch not proved, valve) Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+(closed, or a pump in the parallel pair that has failed.) Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(Check the pump status and the strainer differential first. A flow switch) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+(failure is confirmed only after the flow path has been proven clear.) Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 428.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 416.0 Tm
+(Section 7: F-21 oil level low) Tj
+/F1 4 Tf
+1 0 0 1 50 402.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 390.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 378.0 Tm
+(Causes: oil level switch fault, genuine oil loss from a leak, oil carryover) Tj
+/F1 9 Tf
+1 0 0 1 50 366.0 Tm
+(to the evaporator, or an oil drain valve left open.) Tj
+/F1 9 Tf
+1 0 0 1 50 354.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 342.0 Tm
+(Confirm the oil level in the compressor sight glass first. If oil is present) Tj
+/F1 9 Tf
+1 0 0 1 50 330.0 Tm
+(and the switch is open, the switch is faulty; if oil is low, find the leak. An) Tj
+/F1 9 Tf
+1 0 0 1 50 318.0 Tm
+(oil drain valve left open has caused two F-21 calls on this unit.) Tj
+/F1 9 Tf
+1 0 0 1 50 306.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 294.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 282.0 Tm
+(Section 8: H-04 electric heater stage fault) Tj
+/F1 4 Tf
+1 0 0 1 50 268.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 256.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 244.0 Tm
+(The unit uses an electric heater stage in the evaporator for low load control) Tj
+/F1 9 Tf
+1 0 0 1 50 232.0 Tm
+(and freeze protection. Causes: open heater element, failed contactor, failed) Tj
+/F1 9 Tf
+1 0 0 1 50 220.0 Tm
+(high limit thermostat, or a control fault.) Tj
+/F1 9 Tf
+1 0 0 1 50 208.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 196.0 Tm
+(Check the high limit thermostat first: a stuck closed thermostat presents as a) Tj
+/F1 9 Tf
+1 0 0 1 50 184.0 Tm
+(heater stage fault with a healthy element. The heater element resistance values) Tj
+/F1 9 Tf
+1 0 0 1 50 172.0 Tm
+(are in the vendor manual and are not in this document collection.) Tj
+/F1 9 Tf
+1 0 0 1 50 160.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 148.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 136.0 Tm
+(Escalation) Tj
+/F1 4 Tf
+1 0 0 1 50 122.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 110.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 98.0 Tm
+(Escalate to Maintenance Engineering and the controls engineer when: three) Tj
+/F1 9 Tf
+1 0 0 1 50 86.0 Tm
+(trips of the same code occur in one shift; a trip cannot be explained by the) Tj
+/F1 9 Tf
+1 0 0 1 50 74.0 Tm
+(ambient conditions or the set points; the controller firmware does not match) Tj
+/F1 9 Tf
+1 0 0 1 50 62.0 Tm
+(Technical data; or the required figure is not in the controlled document set. The) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 4639 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(work order carries documentation status "insufficient information" in those) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(cases.) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 756.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 744.0 Tm
+(Documentation gaps) Tj
+/F1 4 Tf
+1 0 0 1 50 730.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(Not contained in this guide:) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(The alarm code map for controllers with firmware 4.x and earlier, which used) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(a different code set. The map is Appendix 3 of the vendor manual, which is) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(not in this document collection.) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(The refrigerant charge quantity for this unit, which is on the equipment) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(nameplate.) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(The glycol inhibitor package specification and the interval for adding) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(inhibitor.) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(The pressure transmitter calibration procedure.) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(The heater element resistance values.) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 562.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 550.0 Tm
+(Appendix: Extended alarm and fault matrix) Tj
+/F1 4 Tf
+1 0 0 1 50 536.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 524.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 512.0 Tm
+(This matrix extends the alarm codes and symptoms in the main sections with the) Tj
+/F1 9 Tf
+1 0 0 1 50 500.0 Tm
+(verification steps and the most likely cause for each.) Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+(| Code | Verification step | Most likely cause | First action |) Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(| --- | --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+(| F-13 | Read ambient and discharge pressure | Ambient above 95 degF | Record conditions, do not reset |) Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+(| F-13 | Check the condenser coil | Coil fouled | Clean the coil |) Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+(| F-21 | Read the oil level at the sight glass | Low oil level | Top up and find the leak |) Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+(| F-32 | Check the suction pressure | Low charge | Leak test and recharge |) Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(| F-44 | Check the compressor start sequence | Start fault | Investigate the contactor |) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(| F-51 | Check the communication cable | Module fault | Reset or replace the module |) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+(| H-04 | Check the heater stage and high limit | Stuck high limit | Replace the thermostat |) Tj
+/F1 9 Tf
+1 0 0 1 50 368.0 Tm
+(| E-07 | Compare the thermistor to a contact thermometer | Thermistor drift | Replace the thermistor |) Tj
+/F1 9 Tf
+1 0 0 1 50 356.0 Tm
+(| E-12 | Check the flow switch and strainer | Strainer blocked | Clean the strainer |) Tj
+/F1 9 Tf
+1 0 0 1 50 344.0 Tm
+(| E-19 | Check the fan feedback | Fan or feedback fault | Repair the fan circuit |) Tj
+/F1 9 Tf
+1 0 0 1 50 332.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+(A code that is not in the table is recorded with a photograph and reported as) Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(an undocumented code. The controller firmware version is recorded with the) Tj
+/F1 9 Tf
+1 0 0 1 50 296.0 Tm
+(code because the code set changes between versions.) Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 272.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 260.0 Tm
+(Appendix: Seasonal and condition-based checks) Tj
+/F1 4 Tf
+1 0 0 1 50 246.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 234.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 222.0 Tm
+(Chiller faults cluster around weather and load. This appendix lists the checks) Tj
+/F1 9 Tf
+1 0 0 1 50 210.0 Tm
+(brought forward when the season changes or when the load changes.) Tj
+/F1 9 Tf
+1 0 0 1 50 198.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 186.0 Tm
+(Before the warm season:) Tj
+/F1 9 Tf
+1 0 0 1 50 174.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 162.0 Tm
+(Clean the condenser coil and confirm the airflow is unobstructed.) Tj
+/F1 9 Tf
+1 0 0 1 50 150.0 Tm
+(Test the condenser fans and confirm the speed feedback.) Tj
+/F1 9 Tf
+1 0 0 1 50 138.0 Tm
+(Confirm the refrigerant charge by the subcooling and superheat method.) Tj
+/F1 9 Tf
+1 0 0 1 50 126.0 Tm
+(Confirm the glycol concentration for the expected minimum temperature.) Tj
+/F1 9 Tf
+1 0 0 1 50 114.0 Tm
+(Test the high-pressure trip and confirm the set point.) Tj
+/F1 9 Tf
+1 0 0 1 50 102.0 Tm
+(Confirm the ambient sensor reads correctly against a reference.) Tj
+/F1 9 Tf
+1 0 0 1 50 90.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 78.0 Tm
+(Before the cold season:) Tj
+/F1 9 Tf
+1 0 0 1 50 66.0 Tm
+() Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 3817 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(Confirm the freeze protection set point and test the trip.) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(Confirm the glycol concentration for the lower ambient.) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+(Confirm the heater stage, if fitted, operates and the high limit is set.) Tj
+/F1 9 Tf
+1 0 0 1 50 756.0 Tm
+(Confirm the water circuit is protected against freezing when idle.) Tj
+/F1 9 Tf
+1 0 0 1 50 744.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 732.0 Tm
+(After a load change:) Tj
+/F1 9 Tf
+1 0 0 1 50 720.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 708.0 Tm
+(Re-check the flow against the design value.) Tj
+/F1 9 Tf
+1 0 0 1 50 696.0 Tm
+(Re-check the approach temperatures against the baseline.) Tj
+/F1 9 Tf
+1 0 0 1 50 684.0 Tm
+(Re-check the compressor current against the nameplate.) Tj
+/F1 9 Tf
+1 0 0 1 50 672.0 Tm
+(Re-check the controller set points against the design values.) Tj
+/F1 9 Tf
+1 0 0 1 50 660.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 648.0 Tm
+(Each check is recorded with the date and the measured value. A check that is) Tj
+/F1 9 Tf
+1 0 0 1 50 636.0 Tm
+(not recorded is treated as not done.) Tj
+/F1 9 Tf
+1 0 0 1 50 624.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 612.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 600.0 Tm
+(Appendix: Refrigerant, instrumentation and electrical reference) Tj
+/F1 4 Tf
+1 0 0 1 50 586.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(| Item | Value |) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+(| --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+(| Refrigerant | R-134a, charge 31 lb |) Tj
+/F1 9 Tf
+1 0 0 1 50 526.0 Tm
+(| Refrigerant top-up | by weight only, never by pressure |) Tj
+/F1 9 Tf
+1 0 0 1 50 514.0 Tm
+(| Low pressure switch | 29 psi cut-out, 51 psi cut-in |) Tj
+/F1 9 Tf
+1 0 0 1 50 502.0 Tm
+(| High pressure switch | 348 psi cut-out, manual reset |) Tj
+/F1 9 Tf
+1 0 0 1 50 490.0 Tm
+(| High head pressure alarm | F-13 |) Tj
+/F1 9 Tf
+1 0 0 1 50 478.0 Tm
+(| Running current, compressor | 42 A per phase |) Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+(| Supply | 460 V, 3 phase, 60 Hz |) Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+(| Ambient limit | 95 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+(| Leaving water set point | 46 degF |) Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(| Freeze protection | 48 degF reset |) Tj
+/F1 9 Tf
+1 0 0 1 50 418.0 Tm
+(| Glycol minimum | 25 percent by volume |) Tj
+/F1 9 Tf
+1 0 0 1 50 406.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 394.0 Tm
+(Refrigerant is added by weight from a calibrated cylinder and the quantity is) Tj
+/F1 9 Tf
+1 0 0 1 50 382.0 Tm
+(recorded in the refrigeration log. Adding refrigerant until the suction) Tj
+/F1 9 Tf
+1 0 0 1 50 370.0 Tm
+(pressure looks right is prohibited because it hides a leak and overcharges the) Tj
+/F1 9 Tf
+1 0 0 1 50 358.0 Tm
+(circuit. A circuit that needs a top-up twice in a season is leak tested before) Tj
+/F1 9 Tf
+1 0 0 1 50 346.0 Tm
+(it is returned to service.) Tj
+/F1 9 Tf
+1 0 0 1 50 334.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 322.0 Tm
+(Instrumentation used for fault finding must be within its calibration date.) Tj
+/F1 9 Tf
+1 0 0 1 50 310.0 Tm
+(Pressure gauges are read at the service port with the schrader core depressed) Tj
+/F1 9 Tf
+1 0 0 1 50 298.0 Tm
+(for no longer than necessary. Clamp meters are placed on a single conductor;) Tj
+/F1 9 Tf
+1 0 0 1 50 286.0 Tm
+(placing the clamp around a cable carrying both supply and return reads zero and) Tj
+/F1 9 Tf
+1 0 0 1 50 274.0 Tm
+(is not a valid measurement.) Tj
+/F1 9 Tf
+1 0 0 1 50 262.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 250.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 238.0 Tm
+(Revision history) Tj
+/F1 4 Tf
+1 0 0 1 50 224.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 212.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 200.0 Tm
+(| Revision | Effective date | Summary |) Tj
+/F1 9 Tf
+1 0 0 1 50 188.0 Tm
+(| --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 176.0 Tm
+(| Rev 1 | 2024-09-09 | First controlled issue, compiled from Line 1 fault history 2022 to 2024. |) Tj
+ET
+endstream
+endobj
+xref
+0 15
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000147 00000 n 
+0000000244 00000 n 
+0000000346 00000 n 
+0000000482 00000 n 
+0000005075 00000 n 
+0000005211 00000 n 
+0000010191 00000 n 
+0000010328 00000 n 
+0000014733 00000 n 
+0000014871 00000 n 
+0000019563 00000 n 
+0000019701 00000 n 
+trailer
+<< /Size 15 /Root 1 0 R >>
+startxref
+23571
+%%EOF
