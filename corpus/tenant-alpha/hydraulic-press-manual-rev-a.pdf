@@ -1,0 +1,1112 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R] /Count 6 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 4567 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+() Tj
+/F2 14 Tf
+1 0 0 1 50 768.0 Tm
+(ALPHA-HP-200 Hydraulic Press - Equipment Manual) Tj
+/F1 4 Tf
+1 0 0 1 50 754.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 742.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+(| Field | Value |) Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+(| --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(| Tenant | Alpha Manufacturing \(tenant-alpha\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(| Site | Ridgeway Works, Building 2 \(metric documentation\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(| Document identifier | ALPHA-MAN-HP200-A |) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(| Source identifier | AM-DOC-1042 |) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(| Equipment | ALPHA-HP-200 |) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(| Also covers | ALPHA-HP-200B \(variant differences listed under Variant coverage\) |) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(| Document type | Equipment manual |) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(| Revision | Rev A |) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(| Effective date | 2023-03-01 |) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(| Status | superseded |) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(| Applies to | Assets listed under equipment |) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(| Related documents | ALPHA-SAF-HP200-LOTO-1, ALPHA-PM-HP200-A, ALPHA-DIA-P100-1 |) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(| Document owner | Maintenance Engineering |) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 538.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 526.0 Tm
+(Purpose) Tj
+/F1 4 Tf
+1 0 0 1 50 512.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 500.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+(This manual describes the design, rated limits and safe operation of the) Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+(ALPHA-HP-200 four-post hydraulic press \(serial range 2004-1xx\) installed in) Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(Bay 2 of Ridgeway Works.) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+(It is the controlled reference that maintenance technicians use when they build) Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+(a work order for this press. Every set point, torque and interval stated here is) Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+(authorised for this press only. Values taken from another press, from the) Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(as-built drawings, from a vendor brochure or from memory are not authorised) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(values and must not be substituted.) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 368.0 Tm
+(This manual does not cover the following equipment:) Tj
+/F1 9 Tf
+1 0 0 1 50 356.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 344.0 Tm
+(ALPHA-HP-210, the 1000 kN bench press. It has a different frame, a different) Tj
+/F1 9 Tf
+1 0 0 1 50 332.0 Tm
+(relief valve set point and a different guard arrangement. It has its own) Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+(manual, AM-MAN-HP210.) Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(ALPHA-HP-200B, an ALPHA-HP-200 with the 300 mm extended ram kit fitted. The) Tj
+/F1 9 Tf
+1 0 0 1 50 296.0 Tm
+(differences are listed under Variant coverage. A work order that ignores those) Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+(differences is a defective work order.) Tj
+/F1 9 Tf
+1 0 0 1 50 272.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 260.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 248.0 Tm
+(Equipment overview) Tj
+/F1 4 Tf
+1 0 0 1 50 234.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 222.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 210.0 Tm
+(The press is a four-post, single-ram unit fed from hydraulic power unit) Tj
+/F1 9 Tf
+1 0 0 1 50 198.0 Tm
+(ALPHA-P-100 \(30 kW, fixed displacement pump, 63 l/min\). The ram is located and) Tj
+/F1 9 Tf
+1 0 0 1 50 186.0 Tm
+(guided by four tie rods and four adjustable gib blocks; ram parallelism is) Tj
+/F1 9 Tf
+1 0 0 1 50 174.0 Tm
+(maintained by adjusting the gib blocks, not by the hydraulic system.) Tj
+/F1 9 Tf
+1 0 0 1 50 162.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 150.0 Tm
+(Tooling is supported on an upper bolster carried by the ram and a fixed lower) Tj
+/F1 9 Tf
+1 0 0 1 50 138.0 Tm
+(bolster. Both bolsters are T-slotted on 36 mm centres. Tool holding is by) Tj
+/F1 9 Tf
+1 0 0 1 50 126.0 Tm
+(bolster clamping screws; the press has no die cushion, so the tool and the) Tj
+/F1 9 Tf
+1 0 0 1 50 114.0 Tm
+(closed ram are left under full stored load whenever the ram is down. The) Tj
+/F1 9 Tf
+1 0 0 1 50 102.0 Tm
+(counterbalance cylinders hold the ram weight only while the pump is running.) Tj
+/F1 9 Tf
+1 0 0 1 50 90.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 78.0 Tm
+(Control is a hard-wired pendant with a monitored two-hand control, a safety) Tj
+/F1 9 Tf
+1 0 0 1 50 66.0 Tm
+(relay cabinet in panel 3A-04 and a mechanical die height sensor on the ram.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4662 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(There is no closed-loop position control; ram position is derived from the) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(sensor, not from the valve.) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 756.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 744.0 Tm
+(Technical data) Tj
+/F1 4 Tf
+1 0 0 1 50 730.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(| Parameter | Value |) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(| --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(| Rated press force at full daylight | 2000 kN |) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(| Relief valve set point \(main circuit\) | 240 bar |) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(| Maximum permissible working pressure | 235 bar |) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(| Hard-wired high pressure trip | 250 bar |) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(| Secondary \(tool clamp\) circuit set point | 180 bar |) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(| Rated capacity daylight | 1200 mm |) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(| Stroke | 800 mm |) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(| Die closing height | 120 mm minimum, 1100 mm maximum |) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+(| Bed size | 1400 mm x 1200 mm, T-slots on 36 mm centres |) Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(| Ram speed, approach | 60 mm/s |) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(| Ram speed, working | 25 mm/s |) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+(| Ram speed, final 25 mm of stroke | 10 mm/s maximum |) Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+(| Motor | 30 kW, 400 V, three phase, 1460 rpm |) Tj
+/F1 9 Tf
+1 0 0 1 50 526.0 Tm
+(| Pump | fixed displacement, 63 l/min |) Tj
+/F1 9 Tf
+1 0 0 1 50 514.0 Tm
+(| Hydraulic oil | ISO VG 46 mineral, Alpha specification AM-H46 |) Tj
+/F1 9 Tf
+1 0 0 1 50 502.0 Tm
+(| Reservoir | 260 l, sight gauge plus high and low level switches |) Tj
+/F1 9 Tf
+1 0 0 1 50 490.0 Tm
+(| Return line filtration | 10 micron, element AM-FL-10 |) Tj
+/F1 9 Tf
+1 0 0 1 50 478.0 Tm
+(| Tie-rod nut torque | 340 N.m, re-torque every 4000 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+(| Die height sensor calibration | every 1000 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+(| Hydraulic oil analysis | every 500 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+(| Ram parallelism | 0.5 mm maximum per metre of die face |) Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(| Mass | 4200 kg |) Tj
+/F1 9 Tf
+1 0 0 1 50 418.0 Tm
+(| Noise at operator position | 82 dB\(A\) during working stroke |) Tj
+/F1 9 Tf
+1 0 0 1 50 406.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 394.0 Tm
+(Running hours are read from the hour meter at the pendant. The hour meter) Tj
+/F1 9 Tf
+1 0 0 1 50 382.0 Tm
+(counts only while the pump motor is energised; it does not count standby time.) Tj
+/F1 9 Tf
+1 0 0 1 50 370.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 358.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 346.0 Tm
+(Operating conditions) Tj
+/F1 4 Tf
+1 0 0 1 50 332.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(Ambient air temperature: 5 degC to 35 degC. The press must not be started) Tj
+/F1 9 Tf
+1 0 0 1 50 296.0 Tm
+(with oil temperature below 15 degC; warm the oil with the pump in bypass.) Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+(Hydraulic oil temperature: 20 degC to 55 degC continuous. Above 60 degC the) Tj
+/F1 9 Tf
+1 0 0 1 50 272.0 Tm
+(oil viscosity drops below the value the seals depend on.) Tj
+/F1 9 Tf
+1 0 0 1 50 260.0 Tm
+(The press is rated for indoor, non-corrosive service. It must not be used) Tj
+/F1 9 Tf
+1 0 0 1 50 248.0 Tm
+(outdoors or in a wash-down area.) Tj
+/F1 9 Tf
+1 0 0 1 50 236.0 Tm
+(The press may be used for pressing, coining, rivet setting and plastic) Tj
+/F1 9 Tf
+1 0 0 1 50 224.0 Tm
+(compression up to 120 degC tool temperature. Hot forging, welding and any) Tj
+/F1 9 Tf
+1 0 0 1 50 212.0 Tm
+(operation that puts sparks near the ram seals is prohibited.) Tj
+/F1 9 Tf
+1 0 0 1 50 200.0 Tm
+(Maximum tool mass per station is 250 kg. Heavier tools must be handled with) Tj
+/F1 9 Tf
+1 0 0 1 50 188.0 Tm
+(the overhead crane ALPHA-OC-5T and a spreader beam; the bolster clamp screws) Tj
+/F1 9 Tf
+1 0 0 1 50 176.0 Tm
+(must not be used to lift anything.) Tj
+/F1 9 Tf
+1 0 0 1 50 164.0 Tm
+(Maximum combined tool height is limited by the 1100 mm die closing height.) Tj
+/F1 9 Tf
+1 0 0 1 50 152.0 Tm
+(A tool set-up that leaves less than 120 mm die closing height must be) Tj
+/F1 9 Tf
+1 0 0 1 50 140.0 Tm
+(re-calculated by Maintenance Engineering before use.) Tj
+/F1 9 Tf
+1 0 0 1 50 128.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 116.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 104.0 Tm
+(Safeguards and control system) Tj
+/F1 4 Tf
+1 0 0 1 50 90.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 78.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 66.0 Tm
+(Two-hand control: monitored, safety-rated, mounted so that both hands must) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 5403 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(be detected within the same 600 ms window. The minimum hold-to-run time is) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(600 ms; releasing either hand before 600 ms must not produce any ram motion.) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+(Safety-rated stop time, controls to ram stop: 250 ms maximum.) Tj
+/F1 9 Tf
+1 0 0 1 50 756.0 Tm
+(Performance level of the two-hand control and the stop function: category 3,) Tj
+/F1 9 Tf
+1 0 0 1 50 744.0 Tm
+(PL d, per the press safety circuit assessment.) Tj
+/F1 9 Tf
+1 0 0 1 50 732.0 Tm
+(Upper ram stop switch and lower ram stop switch are independent of the) Tj
+/F1 9 Tf
+1 0 0 1 50 720.0 Tm
+(die height sensor.) Tj
+/F1 9 Tf
+1 0 0 1 50 708.0 Tm
+(Die height sensor: mechanical plunger type, part AM-DHS-22. It is a) Tj
+/F1 9 Tf
+1 0 0 1 50 696.0 Tm
+(protective measure, not a positioning device.) Tj
+/F1 9 Tf
+1 0 0 1 50 684.0 Tm
+(Counterbalance pressure must be present before the main relief opens. Loss) Tj
+/F1 9 Tf
+1 0 0 1 50 672.0 Tm
+(of counterbalance with the ram down causes the ram to drop.) Tj
+/F1 9 Tf
+1 0 0 1 50 660.0 Tm
+(The two-hand control must never be defeated, jumpered, taped over or bridged.) Tj
+/F1 9 Tf
+1 0 0 1 50 648.0 Tm
+(Any diagnostic that requires defeating the safety circuit needs a documented) Tj
+/F1 9 Tf
+1 0 0 1 50 636.0 Tm
+(risk assessment, a permit and a second authorised person present.) Tj
+/F1 9 Tf
+1 0 0 1 50 624.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 612.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 600.0 Tm
+(Operating limits and permitted range) Tj
+/F1 4 Tf
+1 0 0 1 50 586.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(1. Working pressure must not exceed 235 bar at the manifold. The relief valve) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+(is set at 240 bar and is not adjustable in service. Any requirement to) Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+(reduce pressure is raised as a work order for Maintenance Engineering.) Tj
+/F1 9 Tf
+1 0 0 1 50 526.0 Tm
+(2. Pressing force is limited to 2000 kN at 1200 mm daylight. The force falls) Tj
+/F1 9 Tf
+1 0 0 1 50 514.0 Tm
+(off as the die closes, because the pressure transducer used for the) Tj
+/F1 9 Tf
+1 0 0 1 50 502.0 Tm
+(displayed force is calibrated for full daylight. Do not use the displayed) Tj
+/F1 9 Tf
+1 0 0 1 50 490.0 Tm
+(force as a control value during a low daylight operation.) Tj
+/F1 9 Tf
+1 0 0 1 50 478.0 Tm
+(3. Point loading outside the bolster T-slots is not permitted. The load must) Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+(be spread over the bolster area.) Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+(4. The ram must not be left resting on a tool with the pump stopped unless the) Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+(tool is mechanically locked, because a loss of counterbalance with the pump) Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(stopped allows the ram to descend.) Tj
+/F1 9 Tf
+1 0 0 1 50 418.0 Tm
+(5. Ram parallelism must be within 0.5 mm per metre of die face before a) Tj
+/F1 9 Tf
+1 0 0 1 50 406.0 Tm
+(precision operation. An operation that would damage the tool if the press) Tj
+/F1 9 Tf
+1 0 0 1 50 394.0 Tm
+(is out of parallelism must not start until the ram parallelism check in) Tj
+/F1 9 Tf
+1 0 0 1 50 382.0 Tm
+(Maintenance and inspection requirements is complete and recorded.) Tj
+/F1 9 Tf
+1 0 0 1 50 370.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 358.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 346.0 Tm
+(Routine operator checks before use) Tj
+/F1 4 Tf
+1 0 0 1 50 332.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(Performed by the operator, in this order, before the first cycle of a shift:) Tj
+/F1 9 Tf
+1 0 0 1 50 296.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+(1. Check the reservoir oil level on the sight gauge. The oil must be between) Tj
+/F1 9 Tf
+1 0 0 1 50 272.0 Tm
+(the two marks. A low level is a stop condition, not a top-up condition.) Tj
+/F1 9 Tf
+1 0 0 1 50 260.0 Tm
+(2. Check that there is no oil on the floor under the press, the power unit or) Tj
+/F1 9 Tf
+1 0 0 1 50 248.0 Tm
+(the manifold. Any leakage is reported before the press is used.) Tj
+/F1 9 Tf
+1 0 0 1 50 236.0 Tm
+(3. Check that the tie rods, gib blocks, bolsters and the ram crown are free of) Tj
+/F1 9 Tf
+1 0 0 1 50 224.0 Tm
+(visible damage and that no tools or scrap are inside the die area.) Tj
+/F1 9 Tf
+1 0 0 1 50 212.0 Tm
+(4. Check the two-hand control: operate it with the press in manual, confirm) Tj
+/F1 9 Tf
+1 0 0 1 50 200.0 Tm
+(the safety relay reports a healthy chain in the diagnostics menu.) Tj
+/F1 9 Tf
+1 0 0 1 50 188.0 Tm
+(5. Confirm the die height sensor reading against the mechanical position) Tj
+/F1 9 Tf
+1 0 0 1 50 176.0 Tm
+(indicator on the ram with the ram at the upper stop.) Tj
+/F1 9 Tf
+1 0 0 1 50 164.0 Tm
+(6. Run three complete cycles with the die area empty and observe the ram for) Tj
+/F1 9 Tf
+1 0 0 1 50 152.0 Tm
+(side movement. More than 2 mm of side movement is a stop condition.) Tj
+/F1 9 Tf
+1 0 0 1 50 140.0 Tm
+(7. Check the audible warning and the emergency stop at the pendant.) Tj
+/F1 9 Tf
+1 0 0 1 50 128.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 116.0 Tm
+(Any failed check means the press is not released for production. Raise a work) Tj
+/F1 9 Tf
+1 0 0 1 50 104.0 Tm
+(order and apply the isolation requirement in ALPHA-SAF-HP200-LOTO-1 if the ram,) Tj
+/F1 9 Tf
+1 0 0 1 50 92.0 Tm
+(the bolsters or the hydraulic circuit have to be touched.) Tj
+/F1 9 Tf
+1 0 0 1 50 80.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 68.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 56.0 Tm
+(Variant coverage) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 4640 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+(ALPHA-HP-200B is an ALPHA-HP-200 retrofitted with the 300 mm extended ram kit) Tj
+/F1 9 Tf
+1 0 0 1 50 756.0 Tm
+(\(kit AM-KIT-R300\). If the asset plate on the press carries the suffix B, the) Tj
+/F1 9 Tf
+1 0 0 1 50 744.0 Tm
+(following values differ from Technical data and Variant coverage in this manual:) Tj
+/F1 9 Tf
+1 0 0 1 50 732.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 720.0 Tm
+(| Parameter | ALPHA-HP-200 | ALPHA-HP-200B |) Tj
+/F1 9 Tf
+1 0 0 1 50 708.0 Tm
+(| --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 696.0 Tm
+(| Rated daylight | 1200 mm | 1500 mm |) Tj
+/F1 9 Tf
+1 0 0 1 50 684.0 Tm
+(| Stroke | 800 mm | 800 mm |) Tj
+/F1 9 Tf
+1 0 0 1 50 672.0 Tm
+(| Tie-rod nut torque | 340 N.m | 390 N.m |) Tj
+/F1 9 Tf
+1 0 0 1 50 660.0 Tm
+(| Tie-rod re-torque interval | 4000 running hours | 3000 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 648.0 Tm
+(| Bolsters required | standard HP-BOL-12 | HP-BOL-15 |) Tj
+/F1 9 Tf
+1 0 0 1 50 636.0 Tm
+(| Pressing force at full daylight | 2000 kN | 2000 kN |) Tj
+/F1 9 Tf
+1 0 0 1 50 624.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 612.0 Tm
+(Using the 340 N.m figure on an HP-200B is a recognised cause of tie-rod) Tj
+/F1 9 Tf
+1 0 0 1 50 600.0 Tm
+(failure. If the asset plate is missing or unreadable, stop and raise a work) Tj
+/F1 9 Tf
+1 0 0 1 50 588.0 Tm
+(order; do not guess the variant.) Tj
+/F1 9 Tf
+1 0 0 1 50 576.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 564.0 Tm
+(ALPHA-HP-210 is not a variant of this press and nothing in this manual applies) Tj
+/F1 9 Tf
+1 0 0 1 50 552.0 Tm
+(to it. See AM-MAN-HP210.) Tj
+/F1 9 Tf
+1 0 0 1 50 540.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 528.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 516.0 Tm
+(Maintenance and inspection requirements) Tj
+/F1 4 Tf
+1 0 0 1 50 502.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 490.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 478.0 Tm
+(The full preventive maintenance programme is in AM-PM-HP200. The items below) Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+(are the limits from this manual that the programme must satisfy:) Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+(Hydraulic oil analysis every 500 running hours.) Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(Tie-rod re-torque every 4000 running hours.) Tj
+/F1 9 Tf
+1 0 0 1 50 418.0 Tm
+(Die height sensor calibration every 1000 running hours.) Tj
+/F1 9 Tf
+1 0 0 1 50 406.0 Tm
+(Ram parallelism check every 2000 running hours.) Tj
+/F1 9 Tf
+1 0 0 1 50 394.0 Tm
+(Structural inspection of the four post welds every 6000 running hours.) Tj
+/F1 9 Tf
+1 0 0 1 50 382.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 370.0 Tm
+(Work on the hydraulic circuit, the bolsters, the tie rods or the ram requires) Tj
+/F1 9 Tf
+1 0 0 1 50 358.0 Tm
+(the zero-energy state defined in ALPHA-SAF-HP200-LOTO-1 first. There is no task) Tj
+/F1 9 Tf
+1 0 0 1 50 346.0 Tm
+(in this manual that may be started while the circuit is charged.) Tj
+/F1 9 Tf
+1 0 0 1 50 334.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 322.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 310.0 Tm
+(Documentation gaps) Tj
+/F1 4 Tf
+1 0 0 1 50 296.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 272.0 Tm
+(The following values are not contained in this manual. They are recorded on) Tj
+/F1 9 Tf
+1 0 0 1 50 260.0 Tm
+(the as-built documentation held by Maintenance Engineering and that) Tj
+/F1 9 Tf
+1 0 0 1 50 248.0 Tm
+(documentation is not part of this document collection:) Tj
+/F1 9 Tf
+1 0 0 1 50 236.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 224.0 Tm
+(Gib block and wedge clearance setting for this serial number: recorded on) Tj
+/F1 9 Tf
+1 0 0 1 50 212.0 Tm
+(commissioning sheet CM-HP200-01.) Tj
+/F1 9 Tf
+1 0 0 1 50 200.0 Tm
+(Manifold fitting torque values: on the fitting vendor data sheets, not in) Tj
+/F1 9 Tf
+1 0 0 1 50 188.0 Tm
+(this document.) Tj
+/F1 9 Tf
+1 0 0 1 50 176.0 Tm
+(Accelerometer alarm thresholds used by the optional ram monitoring system:) Tj
+/F1 9 Tf
+1 0 0 1 50 164.0 Tm
+(set in the condition monitoring configuration, not in this manual.) Tj
+/F1 9 Tf
+1 0 0 1 50 152.0 Tm
+(Nitrogen pre-charge pressure of accumulator AC-1: as-built, see) Tj
+/F1 9 Tf
+1 0 0 1 50 140.0 Tm
+(ALPHA-SAF-HP200-LOTO-1 required sequence, accumulator bleed-down step, for the) Tj
+/F1 9 Tf
+1 0 0 1 50 128.0 Tm
+(bleed-down requirement.) Tj
+/F1 9 Tf
+1 0 0 1 50 116.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 104.0 Tm
+(If a technician needs one of these values and cannot read it from the) Tj
+/F1 9 Tf
+1 0 0 1 50 92.0 Tm
+(controlled documents available at the machine, the correct action is a work) Tj
+/F1 9 Tf
+1 0 0 1 50 80.0 Tm
+(order with documentation status "insufficient information", not a measured) Tj
+/F1 9 Tf
+1 0 0 1 50 68.0 Tm
+(substitute.) Tj
+/F1 9 Tf
+1 0 0 1 50 56.0 Tm
+() Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 4828 >>
+stream
+BT
+/F1 4 Tf
+1 0 0 1 50 792.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 780.0 Tm
+(Escalation conditions) Tj
+/F1 4 Tf
+1 0 0 1 50 766.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 754.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 742.0 Tm
+(Escalate immediately, before continuing the diagnosis, when any of the) Tj
+/F1 9 Tf
+1 0 0 1 50 730.0 Tm
+(following occurs:) Tj
+/F1 9 Tf
+1 0 0 1 50 718.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 706.0 Tm
+(Hydraulic pressure above 235 bar with no tooling load in the die.) Tj
+/F1 9 Tf
+1 0 0 1 50 694.0 Tm
+(Audible knocking from the pump that does not stop when the relief opens.) Tj
+/F1 9 Tf
+1 0 0 1 50 682.0 Tm
+(Visible hydraulic oil in the die area, on the tie rods or inside the frame.) Tj
+/F1 9 Tf
+1 0 0 1 50 670.0 Tm
+(Ram side movement above 2 mm, or a parallelism reading outside 0.5 mm per) Tj
+/F1 9 Tf
+1 0 0 1 50 658.0 Tm
+(metre.) Tj
+/F1 9 Tf
+1 0 0 1 50 646.0 Tm
+(Any broken wire, cracked bolster clamp or damaged guard discovered during an) Tj
+/F1 9 Tf
+1 0 0 1 50 634.0 Tm
+(inspection.) Tj
+/F1 9 Tf
+1 0 0 1 50 622.0 Tm
+(Repeated tripping of the safety circuit on the same cycle of the two-hand) Tj
+/F1 9 Tf
+1 0 0 1 50 610.0 Tm
+(control.) Tj
+/F1 9 Tf
+1 0 0 1 50 598.0 Tm
+(A required value is missing from the controlled document set.) Tj
+/F1 9 Tf
+1 0 0 1 50 586.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 574.0 Tm
+(Escalation route: Level 2 Maintenance Engineering, then the Production) Tj
+/F1 9 Tf
+1 0 0 1 50 562.0 Tm
+(Supervisor, then EHS for anything involving stored energy or structural) Tj
+/F1 9 Tf
+1 0 0 1 50 550.0 Tm
+(damage.) Tj
+/F1 9 Tf
+1 0 0 1 50 538.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 526.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 514.0 Tm
+(Appendix: Recommended spares and consumables) Tj
+/F1 4 Tf
+1 0 0 1 50 500.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 488.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 476.0 Tm
+(The following spares are held for the ALPHA-HP-200 press. Quantities are the) Tj
+/F1 9 Tf
+1 0 0 1 50 464.0 Tm
+(minimum stock for a single unit; increase them if a second press shares the) Tj
+/F1 9 Tf
+1 0 0 1 50 452.0 Tm
+(same hydraulic power unit. Consumables are listed with the approved) Tj
+/F1 9 Tf
+1 0 0 1 50 440.0 Tm
+(specification so that a substitute is never fitted without engineering) Tj
+/F1 9 Tf
+1 0 0 1 50 428.0 Tm
+(approval.) Tj
+/F1 9 Tf
+1 0 0 1 50 416.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 404.0 Tm
+(| Item | Part or specification | Minimum stock | Replacement interval |) Tj
+/F1 9 Tf
+1 0 0 1 50 392.0 Tm
+(| --- | --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 380.0 Tm
+(| Main relief valve cartridge | RV-200-A, 240 bar setting | 1 | On failure or at overhaul |) Tj
+/F1 9 Tf
+1 0 0 1 50 368.0 Tm
+(| Counterbalance valve | CB-200, pilot ratio 4.5:1 | 1 | On failure |) Tj
+/F1 9 Tf
+1 0 0 1 50 356.0 Tm
+(| Ram seal kit | SK-200-80, nitrile and PTFE | 2 | At 8000 running hours or on leak |) Tj
+/F1 9 Tf
+1 0 0 1 50 344.0 Tm
+(| Gib wear strip set | GW-200, bronze faced | 1 set | At 12000 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 332.0 Tm
+(| Suction strainer element | 63 micron, 63 l/min | 2 | Every 1000 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 320.0 Tm
+(| Return filter element | 10 micron absolute | 3 | Every 500 running hours |) Tj
+/F1 9 Tf
+1 0 0 1 50 308.0 Tm
+(| Accumulator bladder | AC-1, 6 l, nitrogen | 1 | Every 5 years |) Tj
+/F1 9 Tf
+1 0 0 1 50 296.0 Tm
+(| Pressure transducer | 0 to 400 bar, 4 to 20 mA | 1 | On calibration failure |) Tj
+/F1 9 Tf
+1 0 0 1 50 284.0 Tm
+(| Two-hand control relay | Category 4 safety relay | 1 | On proof-test failure |) Tj
+/F1 9 Tf
+1 0 0 1 50 272.0 Tm
+(| Limit switch | IP67, roller lever | 2 | On failure |) Tj
+/F1 9 Tf
+1 0 0 1 50 260.0 Tm
+(| Hydraulic oil | ISO VG 46, AM-H46 | 520 l | Every 2000 hours or on analysis |) Tj
+/F1 9 Tf
+1 0 0 1 50 248.0 Tm
+(| Way lubricant | ISO VG 68 | 20 l | Top up as required |) Tj
+/F1 9 Tf
+1 0 0 1 50 236.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 224.0 Tm
+(Spares fitted must be recorded on the work order with the part number and the) Tj
+/F1 9 Tf
+1 0 0 1 50 212.0 Tm
+(asset serial number. A spare whose specification differs from the table is a) Tj
+/F1 9 Tf
+1 0 0 1 50 200.0 Tm
+(non-conformance and must be raised with Maintenance Engineering before fitting.) Tj
+/F1 9 Tf
+1 0 0 1 50 188.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 176.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 164.0 Tm
+(Appendix: Commissioning and first-start checks) Tj
+/F1 4 Tf
+1 0 0 1 50 150.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 138.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 126.0 Tm
+(This appendix lists the checks required after any work that opens the) Tj
+/F1 9 Tf
+1 0 0 1 50 114.0 Tm
+(hydraulic circuit, disturbs the frame or replaces a safety device. The checks) Tj
+/F1 9 Tf
+1 0 0 1 50 102.0 Tm
+(are performed in order and the measured value is recorded, not a pass or fail) Tj
+/F1 9 Tf
+1 0 0 1 50 90.0 Tm
+(mark. Work that has not been through this sequence is not returned to) Tj
+/F1 9 Tf
+1 0 0 1 50 78.0 Tm
+(production.) Tj
+/F1 9 Tf
+1 0 0 1 50 66.0 Tm
+() Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 2667 >>
+stream
+BT
+/F1 9 Tf
+1 0 0 1 50 792.0 Tm
+(1. Confirm the reservoir is filled to the mid to high mark with ISO VG 46 oil) Tj
+/F1 9 Tf
+1 0 0 1 50 780.0 Tm
+(and that the suction strainer and return filter are new or proven.) Tj
+/F1 9 Tf
+1 0 0 1 50 768.0 Tm
+(2. Confirm every frame fastener is torqued to the values in the technical data) Tj
+/F1 9 Tf
+1 0 0 1 50 756.0 Tm
+(table and that the tie-rod nuts are re-torqued if the frame was disturbed.) Tj
+/F1 9 Tf
+1 0 0 1 50 744.0 Tm
+(3. Confirm the accumulator AC-1 is charged to its specified nitrogen) Tj
+/F1 9 Tf
+1 0 0 1 50 732.0 Tm
+(pre-charge and that the safety block is open.) Tj
+/F1 9 Tf
+1 0 0 1 50 720.0 Tm
+(4. Run the pump with the relief valve backed off and confirm the pump develops) Tj
+/F1 9 Tf
+1 0 0 1 50 708.0 Tm
+(pressure smoothly with no cavitation noise. Record suction pressure.) Tj
+/F1 9 Tf
+1 0 0 1 50 696.0 Tm
+(5. Set the main relief valve to 240 bar using a calibrated gauge at test point) Tj
+/F1 9 Tf
+1 0 0 1 50 684.0 Tm
+(TP-3. Record the lift-off and reseat pressure.) Tj
+/F1 9 Tf
+1 0 0 1 50 672.0 Tm
+(6. Confirm the hard-wired high-pressure trip operates at 250 bar and that the) Tj
+/F1 9 Tf
+1 0 0 1 50 660.0 Tm
+(circuit cannot be reset below 230 bar.) Tj
+/F1 9 Tf
+1 0 0 1 50 648.0 Tm
+(7. Confirm the two-hand control holds for 900 ms and that releasing either) Tj
+/F1 9 Tf
+1 0 0 1 50 636.0 Tm
+(button stops the ram within the documented stopping performance.) Tj
+/F1 9 Tf
+1 0 0 1 50 624.0 Tm
+(8. Confirm the light curtain and guard interlocks stop the ram when broken and) Tj
+/F1 9 Tf
+1 0 0 1 50 612.0 Tm
+(that the press cannot be restarted until the guard is closed and reset.) Tj
+/F1 9 Tf
+1 0 0 1 50 600.0 Tm
+(9. Cycle the press ten times at working speed and confirm the ram stops at the) Tj
+/F1 9 Tf
+1 0 0 1 50 588.0 Tm
+(bottom of the stroke without drift for five minutes.) Tj
+/F1 9 Tf
+1 0 0 1 50 576.0 Tm
+(10. Record oil temperature at the end of the run and confirm it is below the) Tj
+/F1 9 Tf
+1 0 0 1 50 564.0 Tm
+(alarm set point.) Tj
+/F1 9 Tf
+1 0 0 1 50 552.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 540.0 Tm
+(Every value is entered on the commissioning record and countersigned by the) Tj
+/F1 9 Tf
+1 0 0 1 50 528.0 Tm
+(person who authorized the work.) Tj
+/F1 9 Tf
+1 0 0 1 50 516.0 Tm
+() Tj
+/F1 4 Tf
+1 0 0 1 50 504.0 Tm
+() Tj
+/F2 11 Tf
+1 0 0 1 50 492.0 Tm
+(Revision history) Tj
+/F1 4 Tf
+1 0 0 1 50 478.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 466.0 Tm
+() Tj
+/F1 9 Tf
+1 0 0 1 50 454.0 Tm
+(| Revision | Effective date | Summary |) Tj
+/F1 9 Tf
+1 0 0 1 50 442.0 Tm
+(| --- | --- | --- |) Tj
+/F1 9 Tf
+1 0 0 1 50 430.0 Tm
+(| Rev A | 2023-03-01 | First controlled issue for ALPHA-HP-200 after the 2023 press rebuild. |) Tj
+ET
+endstream
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000154 00000 n 
+0000000251 00000 n 
+0000000353 00000 n 
+0000000489 00000 n 
+0000005108 00000 n 
+0000005244 00000 n 
+0000009958 00000 n 
+0000010095 00000 n 
+0000015551 00000 n 
+0000015689 00000 n 
+0000020382 00000 n 
+0000020520 00000 n 
+0000025401 00000 n 
+0000025539 00000 n 
+trailer
+<< /Size 17 /Root 1 0 R >>
+startxref
+28259
+%%EOF
