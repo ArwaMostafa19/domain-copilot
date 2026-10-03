@@ -206,6 +206,9 @@ tempCodeRunnerFile.py
 # Ruff stuff:
 .ruff_cache/
 
+# Corpus exports produced by scripts/export_corpus_pdf.py
+corpus/_export/
+
 # PyPI configuration file
 .pypirc
 
@@ -216,3 +219,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+CORPUS-IMPLEMENTATION-REPORT.md
+CORPUS-QUALITY-REVIEW.md
