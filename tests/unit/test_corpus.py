@@ -566,3 +566,87 @@ def test_pdf_format_samples_parse_and_yield_text_with_pypdf():
         )
         assert text, f"{sample['path']} has no extractable text"
         assert sample["title"] in text, f"{sample['path']} does not contain its own title"
+
+
+def test_appendix_consistency():
+    """Verify appendix values match main body values."""
+    from pathlib import Path
+
+    root = Path(__file__).resolve().parents[2]
+    corpus = root / "corpus"
+
+    # Alpha air-compressor PM
+    alpha_ac = (corpus / "tenant-alpha" / "air-compressor-preventive-maintenance.md").read_text(encoding="utf-8")
+    assert "ISO VG 100 synthetic ester, Alpha specification AM-CO-100S" in alpha_ac
+    assert "Compressor oil | ISO VG 100 synthetic ester, Alpha specification AM-CO-100S" in alpha_ac
+    assert "AM-C46" not in alpha_ac
+    assert "Air filter element | pleated, class F7 | 1 | every 4000 running hours" in alpha_ac
+
+    # Beta conveyor/gearmotor
+    beta_cv = (corpus / "tenant-beta" / "gearmotor-and-conveyor-maintenance.md").read_text(encoding="utf-8")
+    assert "Gearmotor lubricant | 6000 h" in beta_cv
+    assert "Belt tracking | Weekly | Belt centred within 0.25 in" in beta_cv
+
+
+SAFETY_PREREQUISITES_HEADING = "## Safety prerequisites"
+
+# Documents that are dedicated lockout / energy-control procedures rather than
+# maintenance or diagnostic procedures. They state their own isolation sequence
+# and are deliberately excluded from the prerequisites structure check.
+DEDICATED_ENERGY_CONTROL_DOCUMENTS = (
+    "hydraulic-press-lockout-tagout.md",
+    "hydraulic-press-energy-control.md",
+)
+
+# Documents that must be covered by the structural check. The tenant-alpha
+# gearmotor and conveyor maintenance procedure was added here when its heading
+# was normalized from "Energy isolation for this conveyor" to
+# "## Safety prerequisites"; the tenant-beta document already used the
+# standardized heading.
+SAFETY_PREREQUISITES_REQUIRED = {
+    "tenant-alpha": ("gearmotor-and-conveyor-maintenance.md",),
+    "tenant-beta": ("gearmotor-and-conveyor-maintenance.md",),
+}
+
+
+def test_safety_prerequisites_structure():
+    """Every applicable maintenance/diagnostic procedure must have ## Safety prerequisites followed by numbered list."""
+    section_pattern = re.compile(
+        rf"^{re.escape(SAFETY_PREREQUISITES_HEADING)}[ \t]*$.*?(?=^## |\Z)",
+        re.MULTILINE | re.DOTALL,
+    )
+    # "1. item" is the required shape; any other valid numbered start also passes.
+    numbered_item = re.compile(r"^[ \t]*\d+\.[ \t]+\S", re.MULTILINE)
+    # Bullet syntax inside the section is rejected. Wrapped continuation lines of
+    # a numbered item are indented plain text and are not matched here.
+    bullet_item = re.compile(r"^[ \t]*[-*+][ \t]+\S", re.MULTILINE)
+
+    checked: dict[str, list[str]] = {tenant: [] for tenant in TENANTS}
+    for tenant in TENANTS:
+        for path in documents_of(tenant):
+            name = path.name
+            if name in DEDICATED_ENERGY_CONTROL_DOCUMENTS:
+                continue
+            text = path.read_text(encoding="utf-8")
+            match = section_pattern.search(text)
+            if match is None:
+                continue
+            section = match.group(0)
+            where = f"{tenant}/{name}"
+            assert numbered_item.search(section), (
+                f"{where}: '## Safety prerequisites' has no numbered list item"
+            )
+            bullets = bullet_item.findall(section)
+            assert not bullets, (
+                f"{where}: '## Safety prerequisites' contains bullet items "
+                f"instead of numbered ones: {bullets}"
+            )
+            checked[tenant].append(name)
+
+    for tenant, names in SAFETY_PREREQUISITES_REQUIRED.items():
+        for name in names:
+            assert name in checked[tenant], (
+                f"{tenant}/{name} must be covered by the "
+                f"'## Safety prerequisites' structure check"
+            )
+    assert checked["tenant-alpha"] and checked["tenant-beta"]
