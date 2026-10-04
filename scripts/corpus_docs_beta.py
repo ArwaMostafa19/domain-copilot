@@ -969,15 +969,15 @@ Running hours are read from the hour meter at the operator station.
         (
             "Safety prerequisites",
             """
-The weekly, 1000 hour, 2000 hour and 4000 hour tasks are inside the guard or
+1. The weekly, 1000 hour, 2000 hour and 4000 hour tasks are inside the guard or
 inside the die area and may not be started before BETA-SAF-HP200-ECP-1 has been
 completed for the specific task, including the red verification tag and both
 signatures.
 
-The 2000 hour hose inspection and the 3000 hour tie-rod re-torque require the
+2. The 2000 hour hose inspection and the 3000 hour tie-rod re-torque require the
 full zero-energy state, the cushion block and a permit LOTO-4410.
 
-The oil analysis sample at SP-2 is the only task that may be done with the
+3. The oil analysis sample at SP-2 is the only task that may be done with the
 circuit live, and only below the maximum working pressure in the press manual,
 with the nozzle cap fitted and the sample taken into an approved container.
 """,
@@ -1202,15 +1202,15 @@ Running hours are read from the hour meter at the operator station.
         (
             "Safety prerequisites",
             """
-The weekly, 1000 hour, 1500 hour and 2000 hour tasks are inside the guard or
+1. The weekly, 1000 hour, 1500 hour and 2000 hour tasks are inside the guard or
 inside the die area and may not be started before BETA-SAF-HP200-ECP-1 has been
 completed for the specific task, including the red verification tag and both
 signatures.
 
-The 1000 hour hose inspection and the 1500 hour tie-rod re-torque require the
+2. The 1000 hour hose inspection and the 1500 hour tie-rod re-torque require the
 full zero-energy state, the cushion block and a permit LOTO-4410.
 
-The oil analysis sample at SP-2 is the only task that may be done with the
+3. The oil analysis sample at SP-2 is the only task that may be done with the
 circuit live, and only below the maximum working pressure in the press manual,
 with the nozzle cap fitted and the sample taken into an approved container.
 
@@ -2913,16 +2913,16 @@ unloaded running time.
         (
             "Safety prerequisites",
             """
-- The air receiver is a pressure vessel. Any work that opens the receiver
+1. The air receiver is a pressure vessel. Any work that opens the receiver
   requires the receiver to be drained, vented to atmosphere through the
   receiver vent and verified at 0 psi on the receiver gauge with a calibrated
   test gauge. Isolating the compressor does not isolate the receiver.
-- Isolate the compressor at wall box WB-COMP-1 breaker 3, locked and tagged,
+2. Isolate the compressor at wall box WB-COMP-1 breaker 3, locked and tagged,
   with attempt start verified from the local panel, before any guard, belt or
   coupling work.
-- The inlet air filter is under negative pressure while the unit is running.
+3. The inlet air filter is under negative pressure while the unit is running.
   Clean the housing with a vacuum, never with compressed air.
-- Allow 45 minutes of cooling before touching the oil cooler or the oil
+4. Allow 45 minutes of cooling before touching the oil cooler or the oil
   drain.
 """,
         ),
@@ -3172,16 +3172,16 @@ Documentation gaps.
         (
             "Safety prerequisites",
             """
-- Never lubricate with the spindle running. Lock the spindle from the control
+1. Never lubricate with the spindle running. Lock the spindle from the control
   panel and confirm the lock is active before opening the enclosure.
-- After a power failure or an emergency stop the spindle coasts down for up to
+2. After a power failure or an emergency stop the spindle coasts down for up to
   6 minutes on this machine. Do not open the enclosure until the spindle has
   been at rest for 8 minutes, confirmed through the window.
-- Never put a hand or a tool into the side magazine while it is indexing, and
+3. Never put a hand or a tool into the side magazine while it is indexing, and
   never while the magazine door is open.
-- The coolant tank is pressurised by a pump. Depressurise before opening the
+4. The coolant tank is pressurised by a pump. Depressurise before opening the
   tank lid.
-- Swarf is sharp. Gloves and eye protection for any manual greasing point.
+5. Swarf is sharp. Gloves and eye protection for any manual greasing point.
 """,
         ),
         (
@@ -3729,7 +3729,7 @@ the frame. A sag figure from another conveyor is not a tension figure.
 """,
         ),
         (
-            "Energy isolation for this conveyor",
+            "Safety prerequisites",
             """
 Before any work on the conveyor, the gearmotor or the belt:
 
@@ -3768,7 +3768,7 @@ Tension, fixed section:
 
 - Target sag 2 percent of the span at the marked measuring points, using a
   tension gauge.
-- Adjust the screw take-up in 0.4 in increments, never more than 4 in in one
+- Adjust the screw take-up in 0.25 in increments, never more than 4 in in one
   adjustment.
 - If the screw take-up reaches the end of its travel, the belt is too short or
   the take-up has been set wrong. Do not shorten the belt to compensate. Raise
@@ -3866,9 +3866,10 @@ to close each task.
 
 | Component | Interval | Acceptance criterion | Evidence |
 | --- | --- | --- | --- |
-| Gearmotor lubricant | 5000 h or 12 months | Correct grade and level | Product and volume |
+| Gearmotor lubricant | 6000 h or 12 months | Correct grade and level | Product and 
+volume |
 | Gearmotor breather | 2000 h | Clean and clear | Part number |
-| Belt tracking | Weekly | Belt centred within 0.4 in | Photograph |
+| Belt tracking | Weekly | Belt centred within 0.25 in | Photograph |
 | Belt tension | Monthly | Within the deflection limit | Measured deflection |
 | Belt condition | Monthly | No splits, no exposed plies | Photograph |
 | Roller bearings | 4000 h | Free rotation, no noise | Grease record |
