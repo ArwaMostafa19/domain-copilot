@@ -65,7 +65,7 @@ energy is the main hazard on this machine.
 Belt tension is measured with a tension gauge at the marked measuring points on
 the frame. A sag figure from another conveyor is not a tension figure.
 
-## Energy isolation for this conveyor
+## Safety prerequisites
 
 Before any work on the conveyor, the gearmotor or the belt:
 
@@ -102,7 +102,7 @@ Tension, fixed section:
 
 - Target sag 2 percent of the span at the marked measuring points, using a
   tension gauge.
-- Adjust the screw take-up in 0.4 in increments, never more than 4 in in one
+- Adjust the screw take-up in 0.25 in increments, never more than 4 in in one
   adjustment.
 - If the screw take-up reaches the end of its travel, the belt is too short or
   the take-up has been set wrong. Do not shorten the belt to compensate. Raise
@@ -190,9 +190,10 @@ to close each task.
 
 | Component | Interval | Acceptance criterion | Evidence |
 | --- | --- | --- | --- |
-| Gearmotor lubricant | 5000 h or 12 months | Correct grade and level | Product and volume |
+| Gearmotor lubricant | 6000 h or 12 months | Correct grade and level | Product and 
+volume |
 | Gearmotor breather | 2000 h | Clean and clear | Part number |
-| Belt tracking | Weekly | Belt centred within 0.4 in | Photograph |
+| Belt tracking | Weekly | Belt centred within 0.25 in | Photograph |
 | Belt tension | Monthly | Within the deflection limit | Measured deflection |
 | Belt condition | Monthly | No splits, no exposed plies | Photograph |
 | Roller bearings | 4000 h | Free rotation, no noise | Grease record |

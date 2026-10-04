@@ -90,7 +90,7 @@ python scripts/export_corpus_pdf.py
 ```
 
 The current run prints `30 documents, 150 pages`. The 30 Markdown documents
-contain 65,250 words. Page count depends on the exporter layout, while the word
+contain 65,259 words. Page count depends on the exporter layout, while the word
 count is the layout-independent measure.
 
 ## Revision pairs

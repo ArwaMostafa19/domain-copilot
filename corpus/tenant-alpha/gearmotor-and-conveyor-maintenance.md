@@ -65,7 +65,7 @@ take-up. That stored energy is the main hazard on this machine.
 Belt tension is measured with a tension gauge at the marked measuring points
 on the frame. A sag figure from another conveyor is not a tension figure.
 
-## Energy isolation for this conveyor
+## Safety prerequisites
 
 Before any work on the conveyor, the gearmotor or the belt:
 

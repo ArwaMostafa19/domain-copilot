@@ -76,15 +76,15 @@ Running hours are read from the hour meter at the operator station.
 
 ## Safety prerequisites
 
-The weekly, 1000 hour, 1500 hour and 2000 hour tasks are inside the guard or
+1. The weekly, 1000 hour, 1500 hour and 2000 hour tasks are inside the guard or
 inside the die area and may not be started before BETA-SAF-HP200-ECP-1 has been
 completed for the specific task, including the red verification tag and both
 signatures.
 
-The 1000 hour hose inspection and the 1500 hour tie-rod re-torque require the
+2. The 1000 hour hose inspection and the 1500 hour tie-rod re-torque require the
 full zero-energy state, the cushion block and a permit LOTO-4410.
 
-The oil analysis sample at SP-2 is the only task that may be done with the
+3. The oil analysis sample at SP-2 is the only task that may be done with the
 circuit live, and only below the maximum working pressure in the press manual,
 with the nozzle cap fitted and the sample taken into an approved container.
 

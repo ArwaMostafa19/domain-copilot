@@ -49,7 +49,7 @@
         "Appendix: Compressor lubrication and fluid reference",
         "Revision history"
       ],
-      "sha256": "a9df9af3cf5a7f24d0a072b0f965b67d60bfe58525c681809ddc11d61bac7d9f"
+      "sha256": "7849cf52ad55f27da2cceb964bc3add7dc62505cd85b36667fa7686cc4aee28d"
     },
     {
       "doc_id": "ALPHA-TS-CH450-1",
@@ -99,7 +99,7 @@
       "sections": [
         "Purpose",
         "Technical data",
-        "Energy isolation for this conveyor",
+        "Safety prerequisites",
         "Belt tensioning and tracking",
         "Gearmotor maintenance",
         "Belt and pulleys",
@@ -109,7 +109,7 @@
         "Appendix: Gearmotor fault diagnosis",
         "Revision history"
       ],
-      "sha256": "96d1f39210d469234d6b3009d907f902a7fa69fa876f10f278d99cf064025c5c"
+      "sha256": "ebe91ba6d2baf61ea4eec8921bdef3f8c7e67e2ce3c33cf8b07e6b53fb59082b"
     },
     {
       "doc_id": "ALPHA-DIA-P100-1",
@@ -256,7 +256,7 @@
         "Appendix: Oil condition monitoring and limits",
         "Revision history"
       ],
-      "sha256": "560ed939f47192cd85a9e0bf295fa479a079144f7e6124a709dcf79ba90d030f"
+      "sha256": "95700ef662e1d7f2b355f0226c84002e60c944cd4151af85fcc738cb683b868c"
     },
     {
       "doc_id": "ALPHA-PM-HP200-B",
@@ -283,7 +283,7 @@
         "Appendix: Verification and documentation requirements",
         "Revision history"
       ],
-      "sha256": "921ec5f007e25e82365f43f81b6eab4d46bde3d673387b5c1566079094cb244c"
+      "sha256": "20a75b61365eef2fa1b7216f7e3f020e5562dab9845366b6f17110abfeaef68d"
     },
     {
       "doc_id": "ALPHA-TS-HP200-1",
@@ -347,7 +347,7 @@
         "Appendix: Lubricant, coolant and grease reference",
         "Revision history"
       ],
-      "sha256": "734610e8c3c5922ddec0090c0c63b28c3322bc34f8fd0cd078302f31ccd9c4b3"
+      "sha256": "4a65c97fe4f8710f8f7cbdf8b1571acccd4b03d81ea4f1e573a6c61a653d458c"
     },
     {
       "doc_id": "ALPHA-SAF-OC5T-INS-1",
@@ -490,7 +490,7 @@
         "Appendix: Compressor lubrication and fluid reference",
         "Revision history"
       ],
-      "sha256": "03d722175be48d059bb4ea2051d5086a07c34b1163afd4a298639145b4511811"
+      "sha256": "3e061f09695d8cb1086a6fe253f89abf657e8af7b2d9bd7df03e1157ec451534"
     },
     {
       "doc_id": "BETA-TS-CH450-1",
@@ -539,7 +539,7 @@
       "sections": [
         "Purpose",
         "Technical data",
-        "Energy isolation for this conveyor",
+        "Safety prerequisites",
         "Belt tensioning and tracking",
         "Gearmotor maintenance",
         "Belt and pulleys",
@@ -549,7 +549,7 @@
         "Appendix: Gearmotor fault diagnosis",
         "Revision history"
       ],
-      "sha256": "20c8d2be8716a8ead8d79e42749d6cd1ee88e0fa135af4d3c0628f93d7f196ed"
+      "sha256": "19a707622d38bb1dca102021a859563e60a3faeca3f4848a8231d017f15922a1"
     },
     {
       "doc_id": "BETA-DIA-P100-1",
@@ -697,7 +697,7 @@
         "Appendix: Oil condition monitoring and limits",
         "Revision history"
       ],
-      "sha256": "fbce57220c03a6a7b1d6ea69a660faf189c00a393b3584776544735106a59b40"
+      "sha256": "69d551b96e1e0de1c732bb969066665d1215f6f47a8bc5dcaf667ae3ef9c8e2f"
     },
     {
       "doc_id": "BETA-PM-HP200-B",
@@ -724,7 +724,7 @@
         "Appendix: Verification and documentation requirements",
         "Revision history"
       ],
-      "sha256": "4ef21c6d1b6ab0c80777ea50e7e8b23431c613e861c604010952e31aabf134db"
+      "sha256": "41a10b700798b98ade59e8104c7e44b78b46c1d2be1c16673342e78af05fd586"
     },
     {
       "doc_id": "BETA-TS-HP200-1",
@@ -789,7 +789,7 @@
         "Appendix: Lubricant, coolant and grease reference",
         "Revision history"
       ],
-      "sha256": "7953e1457e56e1e0acab11709c6aa8240f6581dbb6ba6defad7e5743778a33df"
+      "sha256": "acd42a2c7a023ecfcd2ef9e92ec0e2c265214a065f5d9e1b0b33cf9bcf3d0a6a"
     },
     {
       "doc_id": "BETA-SAF-OC5T-INS-1",
