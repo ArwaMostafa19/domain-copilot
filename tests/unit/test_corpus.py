@@ -568,24 +568,501 @@ def test_pdf_format_samples_parse_and_yield_text_with_pypdf():
         assert sample["title"] in text, f"{sample['path']} does not contain its own title"
 
 
+# --- Appendix hour-interval consistency (D6) --------------------------------
+#
+# Every hour interval stated in a document's appendices has to agree with the
+# interval the same document states in its body, or, for a Revision A to
+# Revision B change table, with the post-revision interval in the document that
+# carries it. Each entry names the document, the row, the interval that row must
+# carry and the row that authorises it, so a regression points at one row
+# instead of diffing whole files.
+
+# (document, appendix row fragment, interval it must state, body row that authorises it)
+APPENDIX_BODY_HOUR_INTERVALS = (
+    (
+        "tenant-alpha/air-compressor-preventive-maintenance.md",
+        "| Compressor oil | ISO VG 100 synthetic ester, Alpha specification AM-CO-100S | 18 l |",
+        "every 4000 running hours",
+        "| Oil change | Every 4000 running hours |",
+    ),
+    (
+        "tenant-alpha/air-compressor-preventive-maintenance.md",
+        "| Air filter element | pleated, class F7 |",
+        "every 4000 running hours",
+        "| Inlet air filter element, service side | Every 4000 running hours |",
+    ),
+    (
+        "tenant-alpha/air-compressor-preventive-maintenance.md",
+        "| Oil separator element | coalescing |",
+        "every 4000 running hours",
+        "| Separator element | Every 4000 running hours |",
+    ),
+    (
+        "tenant-alpha/air-compressor-preventive-maintenance.md",
+        "| Oil filter element | 10 micron cartridge |",
+        "every 2000 running hours",
+        "| Oil cooler and after cooler cleaning | Every 2000 running hours |",
+    ),
+    (
+        "tenant-alpha/gearmotor-and-conveyor-maintenance.md",
+        "| Gearmotor lubricant |",
+        "6000 h or 12 months",
+        "| Oil change | Every 6000 running hours |",
+    ),
+    (
+        "tenant-alpha/gearmotor-and-conveyor-maintenance.md",
+        "| Gearmotor breather |",
+        "2000 h",
+        "| Breather clean | Every 2000 running hours |",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-manual-rev-a.md",
+        "| Suction strainer element | 63 micron, 63 l/min |",
+        "Every 1000 running hours",
+        "| Die height sensor calibration | every 1000 running hours |",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 4000 h | Re-torque the tie-rod nuts | 340 N.m, witness marks aligned |",
+        "4000 h",
+        "| Tie-rod re-torque | Every 4000 running hours |",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 2000 h | Change the return filter element |",
+        "2000 h",
+        "| Oil filter element change, return line | Every 2000 running hours |",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 500 h | Sample hydraulic oil |",
+        "500 h",
+        "| Hydraulic oil analysis, sample point SP-1 | Every 500 running hours |",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 1000 h | Clean the suction strainer |",
+        "1000 h",
+        "| Die height sensor calibration | Every 1000 running hours |",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 4000 h | Overhaul the main relief valve |",
+        "4000 h",
+        "| Safety valve pop test | Every 4000 running hours |",
+    ),
+    (
+        "tenant-alpha/machining-centre-lubrication-schedule.md",
+        "| Ball-screw lubrication | grease, AM-B2 |",
+        "every 2000 running hours",
+        "| Spindle bearing re-greasing | Every 2000 running hours |",
+    ),
+    (
+        "tenant-alpha/machining-centre-lubrication-schedule.md",
+        "| Linear guide grease | grease, AM-L2 |",
+        "every 2000 running hours",
+        "| Spindle bearing re-greasing | Every 2000 running hours |",
+    ),
+    (
+        "tenant-beta/air-compressor-preventive-maintenance.md",
+        "| Compressor oil | mineral, BM-1160 |",
+        "every 4000 running hours",
+        "| Oil change | Every 4000 running hours |",
+    ),
+    (
+        "tenant-beta/air-compressor-preventive-maintenance.md",
+        "| Air filter element | pleated, class F7 |",
+        "every 5000 running hours",
+        "| Inlet air filter element, service side | Every 5000 running hours |",
+    ),
+    (
+        "tenant-beta/air-compressor-preventive-maintenance.md",
+        "| Oil separator element | coalescing |",
+        "every 4000 running hours",
+        "| Separator element | Every 4000 running hours |",
+    ),
+    (
+        "tenant-beta/air-compressor-preventive-maintenance.md",
+        "| Condensate drain valve | timed solenoid |",
+        "inspect every 4000 running hours",
+        "| Separator element | Every 4000 running hours |",
+    ),
+    (
+        "tenant-beta/gearmotor-and-conveyor-maintenance.md",
+        "| Gearmotor lubricant |",
+        "6000 h or 12 months",
+        "| Oil change | Every 6000 running hours |",
+    ),
+    (
+        "tenant-beta/gearmotor-and-conveyor-maintenance.md",
+        "| Gearmotor breather |",
+        "2000 h",
+        "| Breather clean | Every 2000 running hours |",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-a.md",
+        "| Suction strainer element | 63 micron, 16 gpm |",
+        "Every 1000 running hours",
+        "| Hydraulic oil analysis | every 1000 running hours |",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 3000 h | Re-torque the tie-rod nuts | 2200 lbf.ft, witness marks aligned |",
+        "3000 h",
+        "| Tie-rod re-torque | Every 3000 running hours |",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 4000 h | Change the return filter element |",
+        "4000 h",
+        "| Return filter element change | Every 4000 running hours |",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 1000 h | Sample hydraulic oil |",
+        "1000 h",
+        "| Hydraulic oil analysis, sample point SP-2 | Every 1000 running hours |",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-a.md",
+        "| 4000 h | Overhaul the main relief valve |",
+        "4000 h",
+        "| Safety valve pop test | Every 4000 running hours |",
+    ),
+    (
+        "tenant-beta/machining-centre-lubrication-schedule.md",
+        "| Tool changer cam | grease, BM-C1 |",
+        "every 3000 running hours",
+        "| Spindle bearing re-greasing | Every 3000 running hours |",
+    ),
+)
+
+# (document with the change table or ladder, revision row fragment,
+#  interval the row must carry after the revision, document that authorises it,
+#  body row that carries that post-revision interval)
+REVISION_TABLE_HOUR_INTERVALS = (
+    (
+        "tenant-alpha/hydraulic-press-manual-rev-b.md",
+        "| Oil analysis interval | 500 running hours | 300 running hours |",
+        "300 running hours",
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Hydraulic oil analysis, sample point SP-1 | Every 300 running hours",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-manual-rev-b.md",
+        "| Tie-rod re-torque interval | 4000 running hours | 2000 running hours |",
+        "2000 running hours",
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Tie-rod re-torque | Every 2000 running hours",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Oil analysis | 500 h | 300 h | Shortened |",
+        "300 h",
+        "tenant-alpha/hydraulic-press-manual-rev-b.md",
+        "| Hydraulic oil analysis | every 300 running hours",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Return filter change | 2000 h | 2000 h | Unchanged |",
+        "2000 h",
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Oil filter element change, return line | Every 2000 running hours",
+    ),
+    (
+        "tenant-alpha/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Tie-rod re-torque | 4000 h | 2000 h | Shortened |",
+        "2000 h",
+        "tenant-alpha/hydraulic-press-manual-rev-b.md",
+        "| Tie-rod nut torque | 340 N.m, re-torque every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Tie-rod re-torque interval | 3000 running hours | 1500 running hours |",
+        "1500 running hours",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Tie-rod re-torque | Every 1500 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Die height sensor calibration | 4000 running hours | 2000 running hours |",
+        "2000 running hours",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Die height sensor calibration | Every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Pressure gauge calibration | 4000 running hours | 2000 running hours |",
+        "2000 running hours",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Pressure gauge calibration | Every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Hydraulic oil analysis | 1000 running hours | 500 running hours, and after any hose failure |",
+        "500 running hours",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Hydraulic oil analysis, sample point SP-2 | Every 500 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Ram parallelism check | 2000 running hours | 1000 running hours |",
+        "1000 running hours",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Ram parallelism check | Every 1000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Frame weld inspection | Not stated in Revision A | Every 3000 running hours, and after any overload event |",
+        "3000 running hours",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Frame weld visual inspection | Every 3000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Hydraulic oil analysis, sample point SP-2 | 1000 h | 500 h, and after any hose failure | Shortened |",
+        "500 h",
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Hydraulic oil analysis | every 500 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Ram parallelism check | 2000 h | 1000 h | Shortened |",
+        "1000 h",
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Ram parallelism check | every 1000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Hydraulic hose inspection | 2000 h, visual | 1000 h, detailed | Shortened |",
+        "1000 h",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Hydraulic hose detailed inspection | Every 1000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Tie-rod re-torque | 3000 h | 1500 h | Shortened |",
+        "1500 h",
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Tie-rod nut torque | 2200 lbf.ft, re-torque every 1500 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Die height sensor calibration | 4000 h | 2000 h | Shortened |",
+        "2000 h",
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Die height sensor calibration | every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Pressure gauge calibration | 4000 h | 2000 h | Shortened |",
+        "2000 h",
+        "tenant-beta/hydraulic-press-manual-rev-b.md",
+        "| Pressure gauge calibration | every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Return filter element change | 4000 h | 2000 h | Shortened |",
+        "2000 h",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Return filter element change | Every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Safety valve pop test | 4000 h | 2000 h | Shortened |",
+        "2000 h",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Safety valve pop test | Every 2000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Frame weld visual inspection | 6000 h | 3000 h | Shortened |",
+        "3000 h",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Frame weld visual inspection | Every 3000 running hours",
+    ),
+    (
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Oil cooler and breather clean | 2000 h | 2000 h | Unchanged |",
+        "2000 h",
+        "tenant-beta/hydraulic-press-preventive-maintenance-rev-b.md",
+        "| Oil cooler and breather clean | Every 2000 running hours",
+    ),
+)
+
+# Documents whose appendices carry no hour interval at all. These are the
+# troubleshooting guides, the work-order rules, both hydraulic-power-unit
+# procedures, both energy-control procedures, the crane procedures and manuals,
+# and the two chiller guides.
+DOCUMENTS_WITHOUT_APPENDIX_HOUR_INTERVALS = (
+    "tenant-alpha/chiller-alarm-troubleshooting-guide.md",
+    "tenant-alpha/hydraulic-power-unit-diagnostic-procedure.md",
+    "tenant-alpha/hydraulic-press-lockout-tagout.md",
+    "tenant-alpha/hydraulic-press-troubleshooting-guide.md",
+    "tenant-alpha/overhead-crane-inspection-procedure.md",
+    "tenant-alpha/overhead-crane-manual-rev-a.md",
+    "tenant-alpha/overhead-crane-manual-rev-b.md",
+    "tenant-alpha/work-order-and-escalation-rules.md",
+    "tenant-beta/chiller-alarm-troubleshooting.md",
+    "tenant-beta/hydraulic-power-unit-diagnostic-procedure.md",
+    "tenant-beta/hydraulic-press-energy-control.md",
+    "tenant-beta/hydraulic-press-troubleshooting-guide.md",
+    "tenant-beta/overhead-crane-inspection-procedure.md",
+    "tenant-beta/overhead-crane-manual-rev-a.md",
+    "tenant-beta/overhead-crane-manual-rev-b.md",
+    "tenant-beta/work-order-and-escalation-rules.md",
+)
+
+HOUR_INTERVAL_IN_ROW = re.compile(r"\d[\d,]*(?:\.\d+)?\s*(?:running hours|hours|hrs|hr|h)\b")
+
+
+def scoped_table_rows(text: str) -> tuple[list[str], list[str]]:
+    """Split the table rows of one document into (body rows, appendix rows).
+
+    A row belongs to the appendix when it appears under a heading that starts
+    with "Appendix". Variant coverage tables deliberately state a different
+    value for a retrofitted build, so they are left in the body scope and are not
+    used to authorise an appendix interval.
+    """
+    body: list[str] = []
+    appendix: list[str] = []
+    in_appendix = False
+    for line in text.splitlines():
+        if line.startswith("## "):
+            in_appendix = line[3:].strip().lower().startswith("appendix")
+            continue
+        row = line.strip()
+        if not row.startswith("|"):
+            continue
+        if set(row.strip("|").split("|")[0].strip()) <= set("- :"):
+            continue
+        (appendix if in_appendix else body).append(row)
+    return body, appendix
+
+
+def row_with(rows: list[str], fragment: str) -> str | None:
+    return next((row for row in rows if fragment in row), None)
+
+
+def interval_value(text: str) -> str | None:
+    """The first hour figure in a row, so "6000 h or 12 months" reads as 6000.
+
+    Returns the digits only, so "Every 6000 running hours" and "6000 h" compare
+    equal regardless of the wording used around the unit.
+    """
+    match = HOUR_INTERVAL_IN_ROW.search(text)
+    return match.group(0).split()[0].rstrip(",") if match else None
+
+
 def test_appendix_consistency():
-    """Verify appendix values match main body values."""
-    from pathlib import Path
+    """Appendix hour intervals agree with the authoritative body or revision data.
 
-    root = Path(__file__).resolve().parents[2]
-    corpus = root / "corpus"
+    Every generated document is covered: it either pins its appendix intervals to
+    body rows, or it is listed as carrying no appendix hour interval. The
+    coverage assertion fails when a document is added without an entry, so this
+    cannot silently stop checking part of the corpus.
+    """
+    texts = {
+        entry["path"]: (CORPUS / entry["path"]).read_text(encoding="utf-8")
+        for entry in read_manifest()["documents"]
+    }
 
-    # Alpha air-compressor PM
-    alpha_ac = (corpus / "tenant-alpha" / "air-compressor-preventive-maintenance.md").read_text(encoding="utf-8")
-    assert "ISO VG 100 synthetic ester, Alpha specification AM-CO-100S" in alpha_ac
-    assert "Compressor oil | ISO VG 100 synthetic ester, Alpha specification AM-CO-100S" in alpha_ac
-    assert "AM-C46" not in alpha_ac
-    assert "Air filter element | pleated, class F7 | 1 | every 4000 running hours" in alpha_ac
+    for path, appendix_fragment, interval, body_fragment in APPENDIX_BODY_HOUR_INTERVALS:
+        body, appendix = scoped_table_rows(texts[path])
+        appendix_row = row_with(appendix, appendix_fragment)
+        assert appendix_row is not None, f"{path}: no appendix row contains {appendix_fragment!r}"
+        assert (
+            interval in appendix_row
+        ), f"{path}: appendix row {appendix_row!r} must state {interval!r}"
+        expected = interval_value(interval)
+        assert (
+            interval_value(appendix_row) == expected
+        ), f"{path}: appendix row {appendix_row!r} must lead with {expected!r} hours"
+        body_row = row_with(body, body_fragment)
+        assert body_row is not None, (
+            f"{path}: body must carry the authoritative interval in a row "
+            f"containing {body_fragment!r}"
+        )
+        assert interval_value(body_row) == expected, (
+            f"{path}: appendix interval {expected!r} disagrees with body row {body_row!r}"
+        )
 
-    # Beta conveyor/gearmotor
-    beta_cv = (corpus / "tenant-beta" / "gearmotor-and-conveyor-maintenance.md").read_text(encoding="utf-8")
-    assert "Gearmotor lubricant | 6000 h" in beta_cv
-    assert "Belt tracking | Weekly | Belt centred within 0.25 in" in beta_cv
+    for path, revision_fragment, interval, authority, body_fragment in (
+        REVISION_TABLE_HOUR_INTERVALS
+    ):
+        _, appendix = scoped_table_rows(texts[path])
+        revision_row = row_with(appendix, revision_fragment)
+        assert (
+            revision_row is not None
+        ), f"{path}: no revision row contains {revision_fragment!r}"
+        assert (
+            interval in revision_row
+        ), f"{path}: revision row {revision_row!r} must state {interval!r}"
+        authority_body, _ = scoped_table_rows(texts[authority])
+        authority_row = row_with(authority_body, body_fragment)
+        assert authority_row is not None, (
+            f"{authority}: must carry the post-revision interval in a row "
+            f"containing {body_fragment!r}"
+        )
+        assert interval_value(authority_row) == interval_value(interval), (
+            f"{path}: revision row {revision_row!r} states {interval!r} but "
+            f"{authority} body row {authority_row!r} disagrees"
+        )
+
+    for path in DOCUMENTS_WITHOUT_APPENDIX_HOUR_INTERVALS:
+        _, appendix = scoped_table_rows(texts[path])
+        offenders = [row for row in appendix if HOUR_INTERVAL_IN_ROW.search(row)]
+        assert not offenders, f"{path}: appendices must not carry hour intervals: {offenders}"
+
+    covered = (
+        {path for path, *_ in APPENDIX_BODY_HOUR_INTERVALS}
+        | {path for path, *_ in REVISION_TABLE_HOUR_INTERVALS}
+        | set(DOCUMENTS_WITHOUT_APPENDIX_HOUR_INTERVALS)
+    )
+    assert covered == set(texts), (
+        "appendix consistency coverage is out of date; "
+        f"uncovered or unknown documents: {sorted(set(texts) ^ covered)}"
+    )
+
+
+def test_pdf_export_output_does_not_fail_the_generation_check(tmp_path):
+    """PDF export output is not part of the generator's file set.
+
+    scripts/export_corpus_pdf.py writes 30 PDFs under corpus/_export. The
+    generation check compares the corpus against the generator's own output, so
+    it reported those 30 PDFs as unexpected files and could never pass. The
+    exporter output is now ignored, while any other unexpected file is still
+    reported.
+    """
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "generate_corpus", ROOT / "scripts" / "generate_corpus.py"
+    )
+    generator = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(generator)
+    generator.CORPUS_DIR = tmp_path
+
+    files, samples = generator.build()
+    for relative, content in files.items():
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+    for relative, data in samples.items():
+        path = tmp_path / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+    assert generator.verify(files, samples) == 0
+
+    export_pdf = tmp_path / generator.EXPORT_DIR_NAME / "pdf"
+    export_pdf.mkdir(parents=True)
+    for index in range(3):
+        (export_pdf / f"doc-{index}.pdf").write_bytes(b"%PDF-1.4 exporter output\n")
+    assert generator.verify(files, samples) == 0
+
+    stray = tmp_path / "tenant-alpha" / "stray.md"
+    stray.write_text("not generated by the corpus generator\n", encoding="utf-8")
+    assert generator.verify(files, samples) == 1
 
 
 SAFETY_PREREQUISITES_HEADING = "## Safety prerequisites"
