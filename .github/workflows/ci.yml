@@ -8,6 +8,24 @@ on:
 jobs:
   lint-and-test:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_USER: ci_admin
+          POSTGRES_PASSWORD: ci_password # gitleaks:allow
+          POSTGRES_DB: copilot_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ci_admin -d copilot_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      ADMIN_DATABASE_URL: postgresql://ci_admin:ci_password@localhost:5432/copilot_ci # gitleaks:allow
+      APP_DB_PASSWORD: ci_app_password # gitleaks:allow
+      DATABASE_URL: postgresql://copilot_app:ci_app_password@localhost:5432/copilot_ci # gitleaks:allow
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -17,6 +35,8 @@ jobs:
         run: pip install -r requirements.txt -r requirements-dev.txt
       - name: Lint
         run: ruff check .
+      - name: Apply database migrations
+        run: python -m src.infrastructure.migrate
       - name: Tests
         run: python -m pytest
       - name: Dependency audit
