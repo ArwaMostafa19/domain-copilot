@@ -76,15 +76,15 @@ Running hours are read from the hour meter at the operator station.
 
 ## Safety prerequisites
 
-The weekly, 1000 hour, 1500 hour and 2000 hour tasks are inside the guard or
+1. The weekly, 1000 hour, 1500 hour and 2000 hour tasks are inside the guard or
 inside the die area and may not be started before BETA-SAF-HP200-ECP-1 has been
 completed for the specific task, including the red verification tag and both
 signatures.
 
-The 1000 hour hose inspection and the 1500 hour tie-rod re-torque require the
+2. The 1000 hour hose inspection and the 1500 hour tie-rod re-torque require the
 full zero-energy state, the cushion block and a permit LOTO-4410.
 
-The oil analysis sample at SP-2 is the only task that may be done with the
+3. The oil analysis sample at SP-2 is the only task that may be done with the
 circuit live, and only below the maximum working pressure in the press manual,
 with the nozzle cap fitted and the sample taken into an approved container.
 
@@ -213,19 +213,26 @@ This procedure does not specify:
 
 ## Appendix: Revised interval ladder and task mapping
 
-Revision B shortens two intervals. The table maps the old schedule to the new
-one so that a technician working from a Revision A work order can see what has
-changed.
+Revision B shortens nine intervals, leaves one interval unchanged and adds two
+tasks. The table maps the old schedule to the new one so that a technician
+working from a Revision A work order can see what has changed. Every value in
+the table is the interval stated in the interval summary of the revision named
+in the column.
 
 | Task | Revision A interval | Revision B interval | Change |
 | --- | --- | --- | --- |
-| Oil analysis | 500 h | 300 h | Shortened |
-| Return filter change | 500 h | 500 h | Unchanged |
-| Tie-rod re-torque | 4000 h | 2000 h | Shortened |
-| Ram drift check | 1000 h | 1000 h | Unchanged |
-| Relief valve overhaul | 4000 h | 4000 h | Unchanged |
-| Accumulator pre-charge check | 2000 h | 2000 h | Unchanged |
-| Safety proof test | Annual | Annual | Unchanged |
+| Hydraulic oil analysis, sample point SP-2 | 1000 h | 500 h, and after any hose failure | Shortened |
+| Ram parallelism check | 2000 h | 1000 h | Shortened |
+| Hydraulic hose inspection | 2000 h, visual | 1000 h, detailed | Shortened |
+| Tie-rod re-torque | 3000 h | 1500 h | Shortened |
+| Die height sensor calibration | 4000 h | 2000 h | Shortened |
+| Pressure gauge calibration | 4000 h | 2000 h | Shortened |
+| Return filter element change | 4000 h | 2000 h | Shortened |
+| Safety valve pop test | 4000 h | 2000 h | Shortened |
+| Frame weld visual inspection | 6000 h | 3000 h | Shortened |
+| Oil cooler and breather clean | 2000 h | 2000 h | Unchanged |
+| Light curtain column and emitter clean | Not scheduled | Weekly | Added |
+| Hydraulic hose glance check, full length | Not scheduled | Monthly | Added |
 
 The shortened oil analysis interval follows two oil degradation events on the
 press in the year before the revision. Shortening the interval without

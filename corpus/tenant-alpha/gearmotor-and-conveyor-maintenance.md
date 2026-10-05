@@ -65,7 +65,7 @@ take-up. That stored energy is the main hazard on this machine.
 Belt tension is measured with a tension gauge at the marked measuring points
 on the frame. A sag figure from another conveyor is not a tension figure.
 
-## Energy isolation for this conveyor
+## Safety prerequisites
 
 Before any work on the conveyor, the gearmotor or the belt:
 
@@ -196,9 +196,9 @@ to close each task.
 
 | Component | Interval | Acceptance criterion | Evidence |
 | --- | --- | --- | --- |
-| Gearmotor lubricant | 5000 h or 12 months | Correct grade and level | Product and volume |
+| Gearmotor lubricant | 6000 h or 12 months | Correct grade and level | Product and volume |
 | Gearmotor breather | 2000 h | Clean and clear | Part number |
-| Belt tracking | Weekly | Belt centred within 10 mm | Photograph |
+| Belt tracking | Weekly | Belt centred within 5 mm | Photograph |
 | Belt tension | Monthly | Within the deflection limit | Measured deflection |
 | Belt condition | Monthly | No splits, no exposed plies | Photograph |
 | Roller bearings | 4000 h | Free rotation, no noise | Grease record |

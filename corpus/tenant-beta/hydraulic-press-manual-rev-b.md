@@ -232,24 +232,34 @@ damage.
 
 ## Appendix: Revision B change impact assessment
 
-Revision B changed the relief set point and the oil analysis interval from
-Revision A. This appendix records the impact so that a technician holding an
-older work order can see what must be re-checked.
+The table records the ten technical values and intervals that changed between
+Revision A and Revision B and the two requirements that Revision B added. Every
+Revision A and Revision B value below is taken from the technical data table of
+the revision named in the column, so that a technician holding an older work
+order can see what must be re-checked.
 
 | Change | Revision A | Revision B | Impact |
 | --- | --- | --- | --- |
 | Main relief set point | 2000 psi | 1750 psi | Reduce the setting and re-seal |
-| Oil analysis interval | 500 running hours | 300 running hours | Update the PM schedule |
-| Tie-rod re-torque interval | 4000 running hours | 2000 running hours | Update the PM schedule |
-| Accumulator pre-charge | 72 psi | 72 psi | No change |
+| Maximum permissible working pressure | 1900 psi | 1650 psi | Reduce the working pressure limit of the circuit |
+| Hard-wired high pressure trip | 2100 psi | 1850 psi | Recommission the trip at the new set point |
+| Minimum hydraulic clamp pressure | 1500 psi | 1800 psi | Raise the minimum clamp pressure and check the tooling |
+| Die entry speed | 5 in/s maximum | 3 in/s maximum for daylight above 40 in, otherwise 5 in/s | Restrict the die entry speed for large daylight |
+| Tie-rod re-torque interval | 3000 running hours | 1500 running hours | Update the PM schedule; re-torque at the next stop |
+| Die height sensor calibration | 4000 running hours | 2000 running hours | Update the PM schedule |
+| Pressure gauge calibration | 4000 running hours | 2000 running hours | Update the PM schedule |
+| Hydraulic oil analysis | 1000 running hours | 500 running hours, and after any hose failure | Update the PM schedule and the oil budget |
+| Ram parallelism check | 2000 running hours | 1000 running hours | Update the PM schedule |
+| Frame weld inspection | Not stated in Revision A | Every 3000 running hours, and after any overload event | New requirement; add the task to the PM programme |
+| Tie-rod re-torque method | Not stated in Revision A | Three passes in diagonal sequence | Use the three pass method at every re-torque |
 
 The relief valve change is the significant one. A press still set to 2000 psi
 after the revision takes effect will exceed the maximum permissible working
-pressure of the circuit and is a stop condition. The setting is verified at
-every annual service and after any relief valve work.
+pressure of 1650 psi and is a stop condition. The setting is verified at every
+annual service and after any relief valve work.
 
-Work orders raised before the Revision B effective date remain valid until
-worked; a work order that specifies a superseded value must be reissued
+Work orders raised before the Revision B effective date remain valid until they
+are worked; a work order that specifies a superseded value must be reissued
 against Revision B before the work starts.
 
 ## Appendix: Operator daily and weekly checks

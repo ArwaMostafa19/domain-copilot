@@ -791,7 +791,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 14 0 R >>
 endobj
 14 0 obj
-<< /Length 4852 >>
+<< /Length 4796 >>
 stream
 BT
 /F1 9 Tf
@@ -865,7 +865,7 @@ BT
 () Tj
 /F1 9 Tf
 1 0 0 1 50 514.0 Tm
-(Revision B changed three technical values and one inspection interval from) Tj
+(Revision B changed one technical value and two inspection intervals from) Tj
 /F1 9 Tf
 1 0 0 1 50 502.0 Tm
 (Revision A. This appendix records the impact of each change so that a) Tj
@@ -895,91 +895,91 @@ BT
 (stop |) Tj
 /F1 9 Tf
 1 0 0 1 50 394.0 Tm
-(| Accumulator pre-charge | 5 bar | 5 bar | No change |) Tj
+() Tj
 /F1 9 Tf
 1 0 0 1 50 382.0 Tm
-() Tj
-/F1 9 Tf
-1 0 0 1 50 370.0 Tm
 (The relief valve change is the significant one. A press that is still set to) Tj
 /F1 9 Tf
-1 0 0 1 50 358.0 Tm
+1 0 0 1 50 370.0 Tm
 (240 bar after the revision takes effect will exceed the maximum permissible) Tj
 /F1 9 Tf
-1 0 0 1 50 346.0 Tm
+1 0 0 1 50 358.0 Tm
 (working pressure of the circuit and is a stop condition. The setting is) Tj
 /F1 9 Tf
-1 0 0 1 50 334.0 Tm
+1 0 0 1 50 346.0 Tm
 (verified at every annual service and after any relief valve work.) Tj
 /F1 9 Tf
-1 0 0 1 50 322.0 Tm
+1 0 0 1 50 334.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 310.0 Tm
+1 0 0 1 50 322.0 Tm
 (Work orders raised before the Revision B effective date remain valid until) Tj
 /F1 9 Tf
-1 0 0 1 50 298.0 Tm
+1 0 0 1 50 310.0 Tm
 (they are worked; a work order that specifies a superseded value must be) Tj
 /F1 9 Tf
-1 0 0 1 50 286.0 Tm
+1 0 0 1 50 298.0 Tm
 (reissued against Revision B before the work starts.) Tj
 /F1 9 Tf
+1 0 0 1 50 286.0 Tm
+() Tj
+/F1 4 Tf
 1 0 0 1 50 274.0 Tm
 () Tj
-/F1 4 Tf
-1 0 0 1 50 262.0 Tm
-() Tj
 /F2 11 Tf
-1 0 0 1 50 250.0 Tm
+1 0 0 1 50 262.0 Tm
 (Appendix: Operator daily and weekly checks) Tj
 /F1 4 Tf
+1 0 0 1 50 248.0 Tm
+() Tj
+/F1 9 Tf
 1 0 0 1 50 236.0 Tm
 () Tj
 /F1 9 Tf
 1 0 0 1 50 224.0 Tm
-() Tj
-/F1 9 Tf
-1 0 0 1 50 212.0 Tm
 (Daily and weekly checks are the first line of defence against a failure that) Tj
 /F1 9 Tf
-1 0 0 1 50 200.0 Tm
+1 0 0 1 50 212.0 Tm
 (would otherwise be found only at a planned service. They are performed by the) Tj
 /F1 9 Tf
-1 0 0 1 50 188.0 Tm
+1 0 0 1 50 200.0 Tm
 (operator and countersigned by the shift supervisor.) Tj
 /F1 9 Tf
-1 0 0 1 50 176.0 Tm
+1 0 0 1 50 188.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 164.0 Tm
+1 0 0 1 50 176.0 Tm
 (Daily checks before first start:) Tj
 /F1 9 Tf
-1 0 0 1 50 152.0 Tm
+1 0 0 1 50 164.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 140.0 Tm
+1 0 0 1 50 152.0 Tm
 (Confirm the hydraulic oil level is between the low and high marks.) Tj
 /F1 9 Tf
-1 0 0 1 50 128.0 Tm
+1 0 0 1 50 140.0 Tm
 (Confirm the oil temperature is above 20 degC before working at full load.) Tj
 /F1 9 Tf
-1 0 0 1 50 116.0 Tm
+1 0 0 1 50 128.0 Tm
 (Confirm the guard and light curtain are in place and undamaged.) Tj
 /F1 9 Tf
-1 0 0 1 50 104.0 Tm
+1 0 0 1 50 116.0 Tm
 (Confirm the emergency stop is not latched and resets correctly.) Tj
 /F1 9 Tf
-1 0 0 1 50 92.0 Tm
+1 0 0 1 50 104.0 Tm
 (Confirm there is no oil on the floor or on the bolster.) Tj
 /F1 9 Tf
-1 0 0 1 50 80.0 Tm
+1 0 0 1 50 92.0 Tm
 (Confirm the pressure gauge reads zero with the pump stopped.) Tj
 /F1 9 Tf
-1 0 0 1 50 68.0 Tm
+1 0 0 1 50 80.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 56.0 Tm
+1 0 0 1 50 68.0 Tm
 (Weekly checks:) Tj
+/F1 9 Tf
+1 0 0 1 50 56.0 Tm
+() Tj
 ET
 endstream
 endobj
@@ -987,195 +987,195 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 16 0 R >>
 endobj
 16 0 obj
-<< /Length 5085 >>
+<< /Length 5101 >>
 stream
 BT
 /F1 9 Tf
 1 0 0 1 50 792.0 Tm
-() Tj
-/F1 9 Tf
-1 0 0 1 50 780.0 Tm
 (Confirm the pressure gauge reading matches the controller at working) Tj
 /F1 9 Tf
-1 0 0 1 50 768.0 Tm
+1 0 0 1 50 780.0 Tm
 (pressure within 5 bar.) Tj
 /F1 9 Tf
-1 0 0 1 50 756.0 Tm
+1 0 0 1 50 768.0 Tm
 (Confirm the tie-rod nuts show no sign of movement by checking the witness) Tj
 /F1 9 Tf
-1 0 0 1 50 744.0 Tm
+1 0 0 1 50 756.0 Tm
 (marks.) Tj
 /F1 9 Tf
-1 0 0 1 50 732.0 Tm
+1 0 0 1 50 744.0 Tm
 (Confirm the gib adjustment bolts are tight and the ram moves without) Tj
 /F1 9 Tf
-1 0 0 1 50 720.0 Tm
+1 0 0 1 50 732.0 Tm
 (hesitation.) Tj
 /F1 9 Tf
-1 0 0 1 50 708.0 Tm
+1 0 0 1 50 720.0 Tm
 (Confirm the oil in the sight glass is clear and free of milky emulsion.) Tj
 /F1 9 Tf
-1 0 0 1 50 696.0 Tm
+1 0 0 1 50 708.0 Tm
 (Confirm the accumulator safety block is open and tagged.) Tj
 /F1 9 Tf
-1 0 0 1 50 684.0 Tm
+1 0 0 1 50 696.0 Tm
 (Confirm the pump and motor mounts are not loose by checking for movement.) Tj
 /F1 9 Tf
-1 0 0 1 50 672.0 Tm
+1 0 0 1 50 684.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 660.0 Tm
+1 0 0 1 50 672.0 Tm
 (Any check that fails is reported before the next shift. A failed safety check) Tj
 /F1 9 Tf
-1 0 0 1 50 648.0 Tm
+1 0 0 1 50 660.0 Tm
 (stops the press until it is corrected and re-verified.) Tj
 /F1 9 Tf
+1 0 0 1 50 648.0 Tm
+() Tj
+/F1 4 Tf
 1 0 0 1 50 636.0 Tm
 () Tj
-/F1 4 Tf
-1 0 0 1 50 624.0 Tm
-() Tj
 /F2 11 Tf
-1 0 0 1 50 612.0 Tm
+1 0 0 1 50 624.0 Tm
 (Appendix: Torque and fastener reference) Tj
 /F1 4 Tf
+1 0 0 1 50 610.0 Tm
+() Tj
+/F1 9 Tf
 1 0 0 1 50 598.0 Tm
 () Tj
 /F1 9 Tf
 1 0 0 1 50 586.0 Tm
-() Tj
-/F1 9 Tf
-1 0 0 1 50 574.0 Tm
 (The values below apply to fasteners that are replaced or re-torqued during) Tj
 /F1 9 Tf
-1 0 0 1 50 562.0 Tm
+1 0 0 1 50 574.0 Tm
 (maintenance of the ALPHA-HP-200 press. Torque is applied with a calibrated) Tj
 /F1 9 Tf
-1 0 0 1 50 550.0 Tm
+1 0 0 1 50 562.0 Tm
 (torque wrench and the value is recorded on the work order. Lubricated threads) Tj
 /F1 9 Tf
-1 0 0 1 50 538.0 Tm
+1 0 0 1 50 550.0 Tm
 (use the thread lubricant stated in the table; anti-seize paste is not used on) Tj
 /F1 9 Tf
-1 0 0 1 50 526.0 Tm
+1 0 0 1 50 538.0 Tm
 (fasteners in the hydraulic circuit.) Tj
 /F1 9 Tf
-1 0 0 1 50 514.0 Tm
+1 0 0 1 50 526.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 502.0 Tm
+1 0 0 1 50 514.0 Tm
 (| Fastener | Size and thread | Grade | Torque | Thread condition |) Tj
 /F1 9 Tf
-1 0 0 1 50 490.0 Tm
+1 0 0 1 50 502.0 Tm
 (| --- | --- | --- | --- | --- |) Tj
 /F1 9 Tf
-1 0 0 1 50 478.0 Tm
+1 0 0 1 50 490.0 Tm
 (| Frame tie-rod nut | M42 x 4.5 | 10.9 | 340 N.m | dry, three diagonal passes |) Tj
 /F1 9 Tf
-1 0 0 1 50 466.0 Tm
+1 0 0 1 50 478.0 Tm
 (| Crown and base bolt | M24 x 3 | 10.9 | 780 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 454.0 Tm
+1 0 0 1 50 466.0 Tm
 (| Column foot bolt | M30 x 3.5 | 8.8 | 610 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 442.0 Tm
+1 0 0 1 50 454.0 Tm
 (| Ram guide shoe bolt | M16 x 2 | 8.8 | 190 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 430.0 Tm
+1 0 0 1 50 442.0 Tm
 (| Relief valve cartridge | M20 x 1.5 | 8.8 | 60 N.m | hydraulic oil film |) Tj
 /F1 9 Tf
-1 0 0 1 50 418.0 Tm
+1 0 0 1 50 430.0 Tm
 (| Accumulator flange bolt | M24 x 3 | 10.9 | 320 N.m | hydraulic oil film |) Tj
 /F1 9 Tf
-1 0 0 1 50 406.0 Tm
+1 0 0 1 50 418.0 Tm
 (| Pump mounting bolt | M12 x 1.75 | 8.8 | 85 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 394.0 Tm
+1 0 0 1 50 406.0 Tm
 (| Manifold subplate bolt | M10 x 1.5 | 12.9 | 55 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 382.0 Tm
+1 0 0 1 50 394.0 Tm
 (| Guard panel bolt | M8 x 1.25 | 8.8 | 24 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 370.0 Tm
+1 0 0 1 50 382.0 Tm
 (| Two-hand control bracket bolt | M6 x 1 | 8.8 | 10 N.m | dry |) Tj
 /F1 9 Tf
-1 0 0 1 50 358.0 Tm
+1 0 0 1 50 370.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 346.0 Tm
+1 0 0 1 50 358.0 Tm
 (Fasteners removed from a safety device are replaced, not reused. Frame) Tj
 /F1 9 Tf
-1 0 0 1 50 334.0 Tm
+1 0 0 1 50 346.0 Tm
 (fasteners are reused only if the threads are undamaged and the shank is not) Tj
 /F1 9 Tf
-1 0 0 1 50 322.0 Tm
+1 0 0 1 50 334.0 Tm
 (corroded; otherwise they are replaced with a fastener of the same grade. A) Tj
 /F1 9 Tf
-1 0 0 1 50 310.0 Tm
+1 0 0 1 50 322.0 Tm
 (fastener that has been torqued past its yield, identified by a stretched shank) Tj
 /F1 9 Tf
-1 0 0 1 50 298.0 Tm
+1 0 0 1 50 310.0 Tm
 (or a nut that turns freely after it has seated, is scrapped and the reason is) Tj
 /F1 9 Tf
-1 0 0 1 50 286.0 Tm
+1 0 0 1 50 298.0 Tm
 (recorded.) Tj
 /F1 9 Tf
-1 0 0 1 50 274.0 Tm
+1 0 0 1 50 286.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 262.0 Tm
+1 0 0 1 50 274.0 Tm
 (Torque sequence for the four tie-rods is diagonal and is repeated in three) Tj
 /F1 9 Tf
-1 0 0 1 50 250.0 Tm
+1 0 0 1 50 262.0 Tm
 (passes: a first pass at one third of the final value, a second pass at two) Tj
 /F1 9 Tf
-1 0 0 1 50 238.0 Tm
+1 0 0 1 50 250.0 Tm
 (thirds, and a final pass at the full value. The re-torque interval is the one) Tj
 /F1 9 Tf
-1 0 0 1 50 226.0 Tm
+1 0 0 1 50 238.0 Tm
 (stated in the technical data table of the current revision of this manual.) Tj
 /F1 9 Tf
+1 0 0 1 50 226.0 Tm
+() Tj
+/F1 4 Tf
 1 0 0 1 50 214.0 Tm
 () Tj
-/F1 4 Tf
-1 0 0 1 50 202.0 Tm
-() Tj
 /F2 11 Tf
-1 0 0 1 50 190.0 Tm
+1 0 0 1 50 202.0 Tm
 (Appendix: Glossary of hydraulic and control terms) Tj
 /F1 4 Tf
+1 0 0 1 50 188.0 Tm
+() Tj
+/F1 9 Tf
 1 0 0 1 50 176.0 Tm
 () Tj
 /F1 9 Tf
 1 0 0 1 50 164.0 Tm
-() Tj
-/F1 9 Tf
-1 0 0 1 50 152.0 Tm
 (This glossary defines the terms used in this manual. It is written for a) Tj
 /F1 9 Tf
-1 0 0 1 50 140.0 Tm
+1 0 0 1 50 152.0 Tm
 (technician who is competent in mechanical maintenance but not necessarily) Tj
 /F1 9 Tf
-1 0 0 1 50 128.0 Tm
+1 0 0 1 50 140.0 Tm
 (familiar with the press control terminology.) Tj
 /F1 9 Tf
-1 0 0 1 50 116.0 Tm
+1 0 0 1 50 128.0 Tm
 () Tj
 /F1 9 Tf
-1 0 0 1 50 104.0 Tm
+1 0 0 1 50 116.0 Tm
 (Accumulator: a pressure vessel that stores hydraulic energy in a compressed) Tj
 /F1 9 Tf
-1 0 0 1 50 92.0 Tm
+1 0 0 1 50 104.0 Tm
 (gas and smooths pressure peaks in the circuit.) Tj
 /F1 9 Tf
-1 0 0 1 50 80.0 Tm
+1 0 0 1 50 92.0 Tm
 (Counterbalance valve: a valve that holds a vertical load and controls its) Tj
 /F1 9 Tf
-1 0 0 1 50 68.0 Tm
+1 0 0 1 50 80.0 Tm
 (descent, fitted in the return line from the ram.) Tj
 /F1 9 Tf
-1 0 0 1 50 56.0 Tm
+1 0 0 1 50 68.0 Tm
 (Daylight: the open distance between the ram face and the bed with the ram) Tj
+/F1 9 Tf
+1 0 0 1 50 56.0 Tm
+(fully retracted.) Tj
 ET
 endstream
 endobj
@@ -1183,101 +1183,98 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 18 0 R >>
 endobj
 18 0 obj
-<< /Length 2606 >>
+<< /Length 2555 >>
 stream
 BT
 /F1 9 Tf
 1 0 0 1 50 792.0 Tm
-(fully retracted.) Tj
-/F1 9 Tf
-1 0 0 1 50 780.0 Tm
 (Die cushion: an auxiliary hydraulic circuit that supports the workpiece) Tj
 /F1 9 Tf
-1 0 0 1 50 768.0 Tm
+1 0 0 1 50 780.0 Tm
 (during forming; the ALPHA-HP-200 does not have one.) Tj
 /F1 9 Tf
-1 0 0 1 50 756.0 Tm
+1 0 0 1 50 768.0 Tm
 (Hold-to-run: a control principle in which the motion continues only while) Tj
 /F1 9 Tf
-1 0 0 1 50 744.0 Tm
+1 0 0 1 50 756.0 Tm
 (the operator holds the command device.) Tj
 /F1 9 Tf
-1 0 0 1 50 732.0 Tm
+1 0 0 1 50 744.0 Tm
 (Lift-off pressure: the pressure at which a relief valve first opens and) Tj
 /F1 9 Tf
-1 0 0 1 50 720.0 Tm
+1 0 0 1 50 732.0 Tm
 (passes a measurable flow.) Tj
 /F1 9 Tf
-1 0 0 1 50 708.0 Tm
+1 0 0 1 50 720.0 Tm
 (Muting: the deliberate suspension of a protective device during part of the) Tj
 /F1 9 Tf
-1 0 0 1 50 696.0 Tm
+1 0 0 1 50 708.0 Tm
 (machine cycle; muting is prohibited on this press.) Tj
 /F1 9 Tf
-1 0 0 1 50 684.0 Tm
+1 0 0 1 50 696.0 Tm
 (Pilot ratio: the ratio of the pilot pressure area to the main spool area in) Tj
 /F1 9 Tf
-1 0 0 1 50 672.0 Tm
+1 0 0 1 50 684.0 Tm
 (a piloted valve.) Tj
 /F1 9 Tf
-1 0 0 1 50 660.0 Tm
+1 0 0 1 50 672.0 Tm
 (Pre-charge: the nitrogen pressure in an accumulator with the hydraulic side) Tj
 /F1 9 Tf
-1 0 0 1 50 648.0 Tm
+1 0 0 1 50 660.0 Tm
 (depressurised and open to tank.) Tj
 /F1 9 Tf
-1 0 0 1 50 636.0 Tm
+1 0 0 1 50 648.0 Tm
 (Reseat pressure: the pressure at which a relief valve closes after opening;) Tj
 /F1 9 Tf
-1 0 0 1 50 624.0 Tm
+1 0 0 1 50 636.0 Tm
 (it is always below the lift-off pressure.) Tj
 /F1 9 Tf
-1 0 0 1 50 612.0 Tm
+1 0 0 1 50 624.0 Tm
 (Safe working load: the maximum load a lifting accessory or machine may carry,) Tj
 /F1 9 Tf
-1 0 0 1 50 600.0 Tm
+1 0 0 1 50 612.0 Tm
 (as marked on the rating plate.) Tj
 /F1 9 Tf
-1 0 0 1 50 588.0 Tm
+1 0 0 1 50 600.0 Tm
 (Two-hand control: a control circuit that requires both hands on separate) Tj
 /F1 9 Tf
-1 0 0 1 50 576.0 Tm
+1 0 0 1 50 588.0 Tm
 (buttons within a short time window before a hazardous motion can start.) Tj
 /F1 9 Tf
-1 0 0 1 50 564.0 Tm
+1 0 0 1 50 576.0 Tm
 (Zero-energy verification tag: the tag fitted after isolation and) Tj
 /F1 9 Tf
-1 0 0 1 50 552.0 Tm
+1 0 0 1 50 564.0 Tm
 (verification to record that the asset is in a de-energised and proven state.) Tj
 /F1 9 Tf
+1 0 0 1 50 552.0 Tm
+() Tj
+/F1 4 Tf
 1 0 0 1 50 540.0 Tm
 () Tj
-/F1 4 Tf
-1 0 0 1 50 528.0 Tm
-() Tj
 /F2 11 Tf
-1 0 0 1 50 516.0 Tm
+1 0 0 1 50 528.0 Tm
 (Revision history) Tj
 /F1 4 Tf
+1 0 0 1 50 514.0 Tm
+() Tj
+/F1 9 Tf
 1 0 0 1 50 502.0 Tm
 () Tj
 /F1 9 Tf
 1 0 0 1 50 490.0 Tm
-() Tj
-/F1 9 Tf
-1 0 0 1 50 478.0 Tm
 (| Revision | Effective date | Summary |) Tj
 /F1 9 Tf
-1 0 0 1 50 466.0 Tm
+1 0 0 1 50 478.0 Tm
 (| --- | --- | --- |) Tj
 /F1 9 Tf
-1 0 0 1 50 454.0 Tm
+1 0 0 1 50 466.0 Tm
 (| Rev A | 2023-03-01 | First controlled issue for ALPHA-HP-200 after the 2023 press rebuild. |) Tj
 /F1 9 Tf
-1 0 0 1 50 442.0 Tm
+1 0 0 1 50 454.0 Tm
 (| Rev B | 2025-06-01 | Structural survey and reliability review. Reduced pressure limits and approach speeds,) Tj
 /F1 9 Tf
-1 0 0 1 50 430.0 Tm
+1 0 0 1 50 442.0 Tm
 (added post weld inspection and tightened maintenance intervals. |) Tj
 ET
 endstream
@@ -1299,12 +1296,12 @@ xref
 0000015456 00000 n 
 0000019994 00000 n 
 0000020132 00000 n 
-0000025037 00000 n 
-0000025175 00000 n 
-0000030313 00000 n 
-0000030451 00000 n 
+0000024981 00000 n 
+0000025119 00000 n 
+0000030273 00000 n 
+0000030411 00000 n 
 trailer
 << /Size 19 /Root 1 0 R >>
 startxref
-33110
+33019
 %%EOF

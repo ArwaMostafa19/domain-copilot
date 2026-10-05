@@ -200,9 +200,14 @@ record set is retained for the life of the crane.
 | Test | Test load | Acceptance criterion | Interval |
 | --- | --- | --- | --- |
 | Static proof load | 6.25 t, 125 percent | No permanent deformation, no cracking | Before first use and after structural work |
-| Dynamic load test | 5.5 t, 110 percent | Smooth operation, brakes hold | Before first use and after hoist work |
 | Brake holding test | 5.0 t rated | Holds without drift for 10 minutes | Every 12 months |
-| Overload device test | 5.25 t, 105 percent | Prevents hoist above the setting | Every 12 months |
+
+The only test load stated in this manual is the static proof load at 125 percent
+of safe working load, together with the annual brake test at 125 percent of
+safe working load. This revision states no dynamic load test load and no
+overload device test load, so neither test is performed under this document. A
+test that applies a different load requires a controlled test procedure that
+states that load before the test is carried out.
 | Limit switch test | Approaching the upper limit | Stops the hoist and allows lowering | Every 3 months |
 
 The static proof load is applied with the crane stationary and the load

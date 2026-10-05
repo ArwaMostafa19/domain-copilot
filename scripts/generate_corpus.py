@@ -35,6 +35,12 @@ MANIFEST_PATH = CORPUS_DIR / "manifest.json"
 GENERATOR_ID = "scripts/generate_corpus.py"
 HAND_WRITTEN_FILES = {".gitkeep", "README.md"}
 
+# PDF export output is written by scripts/export_corpus_pdf.py under this
+# directory. It is generated from the committed Markdown, not by the corpus
+# generator, so it is ignored by --check instead of being reported as an
+# unexpected file in the corpus.
+EXPORT_DIR_NAME = "_export"
+
 # A few documents are also published as PDF next to their Markdown source so the
 # corpus offers a second input format. Markdown stays the source of truth: the
 # PDF files are rendered from it and are verified byte for byte by --check.
@@ -307,7 +313,9 @@ def verify(files: dict[str, str], samples: dict[str, bytes]) -> int:
     present = {
         path.relative_to(CORPUS_DIR).as_posix()
         for path in CORPUS_DIR.rglob("*")
-        if path.is_file() and path.name not in HAND_WRITTEN_FILES
+        if path.is_file()
+        and path.name not in HAND_WRITTEN_FILES
+        and EXPORT_DIR_NAME not in path.relative_to(CORPUS_DIR).parts
     }
     for extra in sorted(present - expected):
         problems.append(f"unexpected file in corpus: {extra}")

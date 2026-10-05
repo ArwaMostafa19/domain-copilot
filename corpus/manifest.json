@@ -49,7 +49,7 @@
         "Appendix: Compressor lubrication and fluid reference",
         "Revision history"
       ],
-      "sha256": "a9df9af3cf5a7f24d0a072b0f965b67d60bfe58525c681809ddc11d61bac7d9f"
+      "sha256": "7849cf52ad55f27da2cceb964bc3add7dc62505cd85b36667fa7686cc4aee28d"
     },
     {
       "doc_id": "ALPHA-TS-CH450-1",
@@ -81,7 +81,7 @@
         "Appendix: Refrigerant, instrumentation and electrical reference",
         "Revision history"
       ],
-      "sha256": "c3cde19dec838f5f40bc7f7ccd157dc13f6507d19d8266cb9e0a57b108addfdd"
+      "sha256": "d2ef622fb20b934636eb9237cdc606ddedd3b20fd8528f13c049b10881f96adf"
     },
     {
       "doc_id": "ALPHA-PM-CV200-1",
@@ -99,7 +99,7 @@
       "sections": [
         "Purpose",
         "Technical data",
-        "Energy isolation for this conveyor",
+        "Safety prerequisites",
         "Belt tensioning and tracking",
         "Gearmotor maintenance",
         "Belt and pulleys",
@@ -109,7 +109,7 @@
         "Appendix: Gearmotor fault diagnosis",
         "Revision history"
       ],
-      "sha256": "96d1f39210d469234d6b3009d907f902a7fa69fa876f10f278d99cf064025c5c"
+      "sha256": "4c76c21b847eb1cbb47164bfef4ab2614ae377c5a96c4f1ee631fb3f351a47ed"
     },
     {
       "doc_id": "ALPHA-DIA-P100-1",
@@ -230,7 +230,7 @@
         "Appendix: Glossary of hydraulic and control terms",
         "Revision history"
       ],
-      "sha256": "619f96daa44e32ae8b6e0fdc2c9330beb75b095a2490d28c8e53fc8df9233a87"
+      "sha256": "e140d8dca9ce53b484cec9f76f4f5f5b16c80b735346184ecd2d1a1473121f3d"
     },
     {
       "doc_id": "ALPHA-PM-HP200-A",
@@ -256,7 +256,7 @@
         "Appendix: Oil condition monitoring and limits",
         "Revision history"
       ],
-      "sha256": "560ed939f47192cd85a9e0bf295fa479a079144f7e6124a709dcf79ba90d030f"
+      "sha256": "4616b8bb56f19adc188eaad9d8332ecd7362d47277f3eb20bb6c188f97d9b4c9"
     },
     {
       "doc_id": "ALPHA-PM-HP200-B",
@@ -283,7 +283,7 @@
         "Appendix: Verification and documentation requirements",
         "Revision history"
       ],
-      "sha256": "921ec5f007e25e82365f43f81b6eab4d46bde3d673387b5c1566079094cb244c"
+      "sha256": "bdfa864c63c436ae6086f762cdaf9405220e2305db666b8202fc74a9e277a930"
     },
     {
       "doc_id": "ALPHA-TS-HP200-1",
@@ -347,7 +347,7 @@
         "Appendix: Lubricant, coolant and grease reference",
         "Revision history"
       ],
-      "sha256": "734610e8c3c5922ddec0090c0c63b28c3322bc34f8fd0cd078302f31ccd9c4b3"
+      "sha256": "4a65c97fe4f8710f8f7cbdf8b1571acccd4b03d81ea4f1e573a6c61a653d458c"
     },
     {
       "doc_id": "ALPHA-SAF-OC5T-INS-1",
@@ -405,7 +405,7 @@
         "Appendix: Wire rope and hook inspection criteria",
         "Revision history"
       ],
-      "sha256": "811670b3b6d24d1f3dc4e669030ad7f79782067f2920cd88ffb24e85f917900c"
+      "sha256": "a3522309327cb52fe77f0478cfe3420830e3e21983a7de075bb66411e632ab5a"
     },
     {
       "doc_id": "ALPHA-MAN-OC5T-B",
@@ -490,7 +490,7 @@
         "Appendix: Compressor lubrication and fluid reference",
         "Revision history"
       ],
-      "sha256": "03d722175be48d059bb4ea2051d5086a07c34b1163afd4a298639145b4511811"
+      "sha256": "93a106600869a5c02f14b74a01b0deeb495f7280abadf506fc5d7ad29eafc9f7"
     },
     {
       "doc_id": "BETA-TS-CH450-1",
@@ -539,7 +539,7 @@
       "sections": [
         "Purpose",
         "Technical data",
-        "Energy isolation for this conveyor",
+        "Safety prerequisites",
         "Belt tensioning and tracking",
         "Gearmotor maintenance",
         "Belt and pulleys",
@@ -549,7 +549,7 @@
         "Appendix: Gearmotor fault diagnosis",
         "Revision history"
       ],
-      "sha256": "20c8d2be8716a8ead8d79e42749d6cd1ee88e0fa135af4d3c0628f93d7f196ed"
+      "sha256": "19a707622d38bb1dca102021a859563e60a3faeca3f4848a8231d017f15922a1"
     },
     {
       "doc_id": "BETA-DIA-P100-1",
@@ -671,7 +671,7 @@
         "Appendix: Glossary of hydraulic and control terms",
         "Revision history"
       ],
-      "sha256": "d3d8867d3e803e7eca872a7edd985eba8ec3e4fc9ebf7ff3687156dcd5150a09"
+      "sha256": "0a5a813aae37196cf61d5f9979586b791fa1b6b918380dbb9debef39818cbe07"
     },
     {
       "doc_id": "BETA-PM-HP200-A",
@@ -697,7 +697,7 @@
         "Appendix: Oil condition monitoring and limits",
         "Revision history"
       ],
-      "sha256": "fbce57220c03a6a7b1d6ea69a660faf189c00a393b3584776544735106a59b40"
+      "sha256": "23d076733eecfb7277d1f8141d05d3439e66424a463aefe3b3127dffde28aa87"
     },
     {
       "doc_id": "BETA-PM-HP200-B",
@@ -724,7 +724,7 @@
         "Appendix: Verification and documentation requirements",
         "Revision history"
       ],
-      "sha256": "4ef21c6d1b6ab0c80777ea50e7e8b23431c613e861c604010952e31aabf134db"
+      "sha256": "5854fb084fd0d37aa485c11f045ebbf5d79b93f6e055ecb6d5136acf1ea829fc"
     },
     {
       "doc_id": "BETA-TS-HP200-1",
@@ -789,7 +789,7 @@
         "Appendix: Lubricant, coolant and grease reference",
         "Revision history"
       ],
-      "sha256": "7953e1457e56e1e0acab11709c6aa8240f6581dbb6ba6defad7e5743778a33df"
+      "sha256": "acd42a2c7a023ecfcd2ef9e92ec0e2c265214a065f5d9e1b0b33cf9bcf3d0a6a"
     },
     {
       "doc_id": "BETA-SAF-OC5T-INS-1",
@@ -847,7 +847,7 @@
         "Appendix: Wire rope and hook inspection criteria",
         "Revision history"
       ],
-      "sha256": "0b328f91f4f50d2cc2fb0cc6d1aa61abeb646d8a819ff80d02b25de9754afa84"
+      "sha256": "aa07ebfe91ca9533a2823bb5f24fbb51aeed77d826508190402730d9bed181ad"
     },
     {
       "doc_id": "BETA-MAN-OC5T-B",
@@ -927,7 +927,7 @@
       "document_format": "pdf",
       "path": "tenant-alpha/hydraulic-press-manual-rev-b.pdf",
       "source_path": "tenant-alpha/hydraulic-press-manual-rev-b.md",
-      "sha256": "01394c58d58af1065328492931da4ea1dc53e185634e2feed4caa828d196e189"
+      "sha256": "9a0184497576e70f467538e65f4d86ec1f0465444df03956528f913ef79d19ec"
     },
     {
       "doc_id": "ALPHA-SAF-HP200-LOTO-1",
@@ -949,7 +949,7 @@
       "document_format": "pdf",
       "path": "tenant-beta/hydraulic-press-manual-rev-b.pdf",
       "source_path": "tenant-beta/hydraulic-press-manual-rev-b.md",
-      "sha256": "7a52a2bee9e205445db64c7226f1204c726abdd7cf1d1554f5bf8acdb6b8b977"
+      "sha256": "9de9f1a1741b02c15c9e997ce2056f94f706e75468b5b0d3c21e0cf326ccf8f5"
     },
     {
       "doc_id": "BETA-SAF-HP200-ECP-1",

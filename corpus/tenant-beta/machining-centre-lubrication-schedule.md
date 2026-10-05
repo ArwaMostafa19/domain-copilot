@@ -64,16 +64,16 @@ Documentation gaps.
 
 ## Safety prerequisites
 
-- Never lubricate with the spindle running. Lock the spindle from the control
+1. Never lubricate with the spindle running. Lock the spindle from the control
   panel and confirm the lock is active before opening the enclosure.
-- After a power failure or an emergency stop the spindle coasts down for up to
+2. After a power failure or an emergency stop the spindle coasts down for up to
   6 minutes on this machine. Do not open the enclosure until the spindle has
   been at rest for 8 minutes, confirmed through the window.
-- Never put a hand or a tool into the side magazine while it is indexing, and
+3. Never put a hand or a tool into the side magazine while it is indexing, and
   never while the magazine door is open.
-- The coolant tank is pressurised by a pump. Depressurise before opening the
+4. The coolant tank is pressurised by a pump. Depressurise before opening the
   tank lid.
-- Swarf is sharp. Gloves and eye protection for any manual greasing point.
+5. Swarf is sharp. Gloves and eye protection for any manual greasing point.
 
 ## Way lubrication system
 
