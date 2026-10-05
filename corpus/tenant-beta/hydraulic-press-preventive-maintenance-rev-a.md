@@ -185,11 +185,11 @@ task states the action, the acceptance criterion and the evidence required.
 
 | Frequency | Task | Acceptance criterion | Evidence |
 | --- | --- | --- | --- |
-| 500 h | Change the return filter element | New element, no bypass indicator | Filter part number |
-| 500 h | Sample hydraulic oil | Within ISO 4406 18/16/13 | Laboratory report number |
+| 4000 h | Change the return filter element | New element, no bypass indicator | Filter part number |
+| 1000 h | Sample hydraulic oil | Within ISO 4406 20/18/16 | Laboratory report number |
 | 1000 h | Clean the suction strainer | No debris, element undamaged | Photograph |
 | 1000 h | Check ram drift with the pump stopped | Less than 0.04 in in 5 minutes | Measured value |
-| 2000 h | Re-torque the tie-rod nuts | 1330 lbf.ft, witness marks aligned | Torque certificate |
+| 3000 h | Re-torque the tie-rod nuts | 2200 lbf.ft, witness marks aligned | Torque certificate |
 | 2000 h | Replace the accumulator bladder | Pre-charge 72 psi | Pre-charge pressure |
 | 4000 h | Overhaul the main relief valve | Lifts at 2000 psi, reseats below | Bench record |
 | 4000 h | Flush the hydraulic circuit | Cleanliness within specification | Particle count |
@@ -208,7 +208,7 @@ press is at working temperature.
 
 | Parameter | Limit | Action if exceeded |
 | --- | --- | --- |
-| Particle count (ISO 4406) | 18/16/13 or better | Change oil and filter, find the ingress path |
+| Particle count (ISO 4406) | 20/18/16 or cleaner | Change oil and filter, find the ingress path |
 | Water content | 200 ppm maximum | Change oil, inspect the breather |
 | Viscosity at 104 degF | 46 cSt, plus or minus 10 percent | Change oil |
 | Acid number | 0.5 mg KOH/g maximum | Change oil |

@@ -261,7 +261,7 @@ damage.
 
 ## Appendix: Revision B change impact assessment
 
-Revision B changed three technical values and one inspection interval from
+Revision B changed one technical value and two inspection intervals from
 Revision A. This appendix records the impact of each change so that a
 technician holding an older work order can see what must be re-checked.
 
@@ -270,7 +270,6 @@ technician holding an older work order can see what must be re-checked.
 | Main relief set point | 240 bar | 210 bar | Reduce the setting and re-seal; retrain operators |
 | Oil analysis interval | 500 running hours | 300 running hours | Update the PM schedule and the oil budget |
 | Tie-rod re-torque interval | 4000 running hours | 2000 running hours | Update the PM schedule; re-torque at next stop |
-| Accumulator pre-charge | 5 bar | 5 bar | No change |
 
 The relief valve change is the significant one. A press that is still set to
 240 bar after the revision takes effect will exceed the maximum permissible

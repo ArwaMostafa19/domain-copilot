@@ -221,14 +221,14 @@ This procedure does not specify:
 
 ## Appendix: Revised interval ladder and task mapping
 
-Revision B shortens two intervals and adds one task. The table maps the old
-schedule to the new one so that a technician working from a Revision A work
-order can see what has changed.
+Revision B shortens seven intervals and adds four tasks, as listed in the
+interval summary above. The table maps the affected tasks so that a technician
+working from a Revision A work order can see what has changed.
 
 | Task | Revision A interval | Revision B interval | Change |
 | --- | --- | --- | --- |
 | Oil analysis | 500 h | 300 h | Shortened |
-| Return filter change | 500 h | 500 h | Unchanged |
+| Return filter change | 2000 h | 2000 h | Unchanged |
 | Tie-rod re-torque | 4000 h | 2000 h | Shortened |
 | Ram drift check | 1000 h | 1000 h | Unchanged |
 | Relief valve overhaul | 4000 h | 4000 h | Unchanged |

@@ -196,9 +196,9 @@ to close each task.
 
 | Component | Interval | Acceptance criterion | Evidence |
 | --- | --- | --- | --- |
-| Gearmotor lubricant | 5000 h or 12 months | Correct grade and level | Product and volume |
+| Gearmotor lubricant | 6000 h or 12 months | Correct grade and level | Product and volume |
 | Gearmotor breather | 2000 h | Clean and clear | Part number |
-| Belt tracking | Weekly | Belt centred within 10 mm | Photograph |
+| Belt tracking | Weekly | Belt centred within 5 mm | Photograph |
 | Belt tension | Monthly | Within the deflection limit | Measured deflection |
 | Belt condition | Monthly | No splits, no exposed plies | Photograph |
 | Roller bearings | 4000 h | Free rotation, no noise | Grease record |

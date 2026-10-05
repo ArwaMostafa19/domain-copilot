@@ -89,9 +89,10 @@ total the exporter prints:
 python scripts/export_corpus_pdf.py
 ```
 
-The current run prints `30 documents, 150 pages`. The 30 Markdown documents
-contain 65,259 words. Page count depends on the exporter layout, while the word
-count is the layout-independent measure.
+The current run prints `30 documents, 151 pages`. The 30 Markdown documents
+contain 65,669 words, counted as whitespace-delimited tokens across the
+generated Markdown (`len(text.split())` per document). Page count depends on the
+exporter layout, while the word count is the layout-independent measure.
 
 ## Revision pairs
 
