@@ -23,15 +23,19 @@ services:
       db:
         condition: service_healthy
 
-  api:
+    api:
     build: .
     ports:
       - "8000:8000"
     environment:
       DATABASE_URL: postgresql://copilot_app:${APP_DB_PASSWORD:?set APP_DB_PASSWORD in .env}@db:5432/${POSTGRES_DB}
+      OLLAMA_BASE_URL: http://host.docker.internal:11434
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./corpus:/app/corpus:ro
     depends_on:
       migrate:
         condition: service_completed_successfully
-
 volumes:
   pgdata:
