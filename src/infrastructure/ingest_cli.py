@@ -1,4 +1,4 @@
-"""Command line entry point for the ingestion dry run.
+"""Command line entry point for the ingestion pipeline.
 
 This is the only module of the pipeline that prints.
 """
@@ -6,22 +6,27 @@ This is the only module of the pipeline that prints.
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 
 from src.application.chunk import DEFAULT_MAX_CHARS, chunk_document
+from src.application.ingest import ingest_files
 from src.application.safety_steps import extract_safety_steps
 from src.domain.documents import DomainError
 from src.infrastructure.extractors import extract
+from src.infrastructure.providers.ollama_embedder import OllamaEmbedder
+from src.infrastructure.repository import PostgresDocumentRepository
 
 SOURCE_SUFFIXES = (".md", ".pdf")
 TENANT_PREFIX = "tenant-"
-DATABASE_NOT_YET = "Database writing arrives in the next change; this run wrote nothing."
 COLUMNS = ("tenant", "file", "format", "revision", "status", "chunks", "min", "avg", "max", "steps")
+INGEST_COLUMNS = ("tenant", "file", "status", "chunks", "steps", "error")
+UNKNOWN_TENANT = "-"
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Run the dry run, or report that database writing is not implemented yet."""
+    """Run the dry run, or ingest every corpus file into PostgreSQL."""
     parser = argparse.ArgumentParser(description="Extract, chunk and read safety steps.")
     parser.add_argument("corpus_dir", type=Path, help="corpus root holding the tenant-* folders")
     parser.add_argument(
@@ -36,10 +41,62 @@ def main(argv: list[str] | None = None) -> int:
         help="largest chunk a section may be packed into (default: %(default)s)",
     )
     args = parser.parse_args(argv)
-    if not args.dry_run:
-        print(DATABASE_NOT_YET)
+    if args.dry_run:
+        return _dry_run(args.corpus_dir, args.max_chars)
+    return _ingest(args.corpus_dir, args.max_chars)
+
+
+def _ingest(corpus_dir: Path, max_chars: int) -> int:
+    """Embed and store every corpus file, then report one row per file."""
+    if not os.environ.get("DATABASE_URL"):
+        print("error: DATABASE_URL is not set")
         return 2
-    return _dry_run(args.corpus_dir, args.max_chars)
+    if not corpus_dir.is_dir():
+        print(f"error: corpus directory does not exist: {corpus_dir.as_posix()}")
+        return 2
+    if not _tenant_folders(corpus_dir):
+        print(
+            f"error: corpus directory holds no {TENANT_PREFIX}* folders: "
+            f"{corpus_dir.as_posix()}"
+        )
+        return 2
+    files = _corpus_files(corpus_dir)
+    if not files:
+        print(
+            f"error: corpus directory holds no {' or '.join(SOURCE_SUFFIXES)} files under its "
+            f"{TENANT_PREFIX}* folders: {corpus_dir.as_posix()}"
+        )
+        return 2
+
+    results = ingest_files(
+        files,
+        OllamaEmbedder(),
+        PostgresDocumentRepository(),
+        max_chars=max_chars,
+    )
+
+    rows: list[tuple[str, ...]] = []
+    counts: dict[str, int] = dict.fromkeys(("ingested", "skipped", "failed"), 0)
+    for path, result in zip(files, results, strict=True):
+        counts[result.status] += 1
+        rows.append(
+            (
+                _tenant_of(path, corpus_dir),
+                path.name,
+                result.status,
+                str(result.chunks),
+                str(result.steps),
+                result.error or "",
+            )
+        )
+    _print_table(INGEST_COLUMNS, rows)
+    print()
+    print(
+        f"totals: ingested={counts['ingested']} skipped={counts['skipped']} "
+        f"failed={counts['failed']}"
+    )
+    return 1 if counts["failed"] else 0
+
 
 
 def _dry_run(corpus_dir: Path, max_chars: int) -> int:
@@ -113,6 +170,15 @@ def _corpus_files(corpus_dir: Path) -> list[Path]:
             if path.is_file() and path.suffix.lower() in SOURCE_SUFFIXES:
                 files.append(path)
     return sorted(files)
+
+
+def _tenant_of(path: Path, corpus_dir: Path) -> str:
+    """The tenant-* folder holding a file, or '-' when the file has none."""
+    try:
+        parts = path.relative_to(corpus_dir).parts
+    except ValueError:
+        return UNKNOWN_TENANT
+    return parts[0] if len(parts) > 1 else UNKNOWN_TENANT
 
 
 def _print_table(columns: tuple[str, ...], rows: list[tuple[str, ...]]) -> None:
