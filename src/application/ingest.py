@@ -11,7 +11,6 @@ from src.application.ports import (
     DocumentRepository,
     Embedder,
     IngestResult,
-    ProviderError,
 )
 from src.application.safety_steps import extract_safety_steps
 from src.domain.documents import (
@@ -19,6 +18,7 @@ from src.domain.documents import (
     ExtractedDocument,
     ExtractionError,
 )
+from src.domain.llm import ProviderResponseError
 
 
 def ingest_file(
@@ -75,13 +75,15 @@ def _check_vectors(
 ) -> None:
     """Reject an embedding answer that does not match the chunks one by one."""
     if len(vectors) != chunks:
-        raise ProviderError(
+        raise ProviderResponseError(
+            embedder.model_name,
             f"embedder {embedder.model_name!r} returned {len(vectors)} vectors "
-            f"for {chunks} chunks"
+            f"for {chunks} chunks",
         )
     for index, vector in enumerate(vectors):
         if len(vector) != embedder.dimension:
-            raise ProviderError(
+            raise ProviderResponseError(
+                embedder.model_name,
                 f"embedder {embedder.model_name!r} vector {index} has "
-                f"{len(vector)} values, expected {embedder.dimension}"
+                f"{len(vector)} values, expected {embedder.dimension}",
             )

@@ -7,8 +7,8 @@ from pathlib import Path
 
 from src.application.chunk import chunk_document
 from src.application.ingest import ingest_file, ingest_files
-from src.application.ports import ProviderError
 from src.application.safety_steps import extract_safety_steps
+from src.domain.llm import ProviderUnavailableError
 from src.infrastructure.extractors import extract
 
 TESTS_ROOT = Path(__file__).resolve().parents[1]
@@ -35,8 +35,8 @@ class ExplodingEmbedder:
     model_name = "exploding-embedder"
     dimension = 768
 
-    def embed(self, texts: list[str]) -> list[list[float]]:
-        raise ProviderError("the provider is down")
+    def embed(self, texts):
+        raise ProviderUnavailableError("fake", "the provider is down")
 
 
 class OneVectorShortEmbedder:
@@ -172,11 +172,11 @@ def test_a_provider_error_marks_the_document_as_failed(tmp_path: Path) -> None:
     result = ingest_file(path, ExplodingEmbedder(), repository)
 
     assert result.status == "failed"
-    assert result.error == "the provider is down"
-    assert [message for _, message in repository.failures] == ["the provider is down"]
+    assert result.error == "[fake] the provider is down"
+    assert [message for _, message in repository.failures] == ["[fake] the provider is down"]
     row = stored_row(repository)
     assert row["ingest_status"] == "failed"
-    assert row["ingest_error"] == "the provider is down"
+    assert row["ingest_error"] == "[fake] the provider is down"
 
 
 def test_a_domain_error_after_extraction_also_marks_the_document_failed(
