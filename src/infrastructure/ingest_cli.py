@@ -11,11 +11,15 @@ import sys
 from pathlib import Path
 
 from src.application.chunk import DEFAULT_MAX_CHARS, chunk_document
+from src.application.embedding import GuardedEmbedder
 from src.application.ingest import ingest_files
 from src.application.safety_steps import extract_safety_steps
 from src.domain.documents import DomainError
+from src.domain.llm import ConfigError, EmbeddingModelMismatchError
+from src.infrastructure.config import load_settings
+from src.infrastructure.embedding_registry import PostgresEmbeddingIndexRegistry
 from src.infrastructure.extractors import extract
-from src.infrastructure.providers.ollama_embedder import OllamaEmbedder
+from src.infrastructure.providers.factory import build_embedding_stack
 from src.infrastructure.repository import PostgresDocumentRepository
 
 SOURCE_SUFFIXES = (".md", ".pdf")
@@ -68,9 +72,20 @@ def _ingest(corpus_dir: Path, max_chars: int) -> int:
         )
         return 2
 
+    try:
+        settings = load_settings(os.environ)
+        provider, guard = build_embedding_stack(
+            settings, PostgresEmbeddingIndexRegistry()
+        )
+        guard.ensure(settings.embedding_spec())
+    except (ConfigError, EmbeddingModelMismatchError) as error:
+        print(f"error: {error}")
+        return 2
+
+    embedder = GuardedEmbedder(provider, guard, settings.embedding_spec())
     results = ingest_files(
         files,
-        OllamaEmbedder(),
+        embedder,
         PostgresDocumentRepository(),
         max_chars=max_chars,
     )
@@ -95,6 +110,7 @@ def _ingest(corpus_dir: Path, max_chars: int) -> int:
         f"totals: ingested={counts['ingested']} skipped={counts['skipped']} "
         f"failed={counts['failed']}"
     )
+    print(f"embedding tokens: {embedder.total_usage.total_tokens}")
     return 1 if counts["failed"] else 0
 
 
