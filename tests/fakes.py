@@ -6,6 +6,7 @@ import hashlib
 
 from src.domain.documents import Chunk, DocumentMeta, SafetyStep
 from src.domain.llm import EmbeddingSpec
+from src.domain.rag import Evidence
 
 
 class FakeEmbedder:
@@ -106,3 +107,29 @@ class InMemoryEmbeddingIndexRegistry:
     def register(self, spec: EmbeddingSpec) -> None:
         if self.spec is None:
             self.spec = spec
+
+
+class FakeChunkSearch:
+    """A ChunkSearch that returns pre-loaded evidence and records every call."""
+
+    def __init__(
+        self,
+        dense: list[Evidence] | None = None,
+        keyword: list[Evidence] | None = None,
+    ) -> None:
+        self.dense = list(dense or [])
+        self.keyword = list(keyword or [])
+        self.dense_calls: list[tuple] = []
+        self.keyword_calls: list[tuple] = []
+
+    def search_dense(self, tenant_id, vector, embedding_model, include_superseded, limit):
+        self.dense_calls.append(
+            (tenant_id, vector, embedding_model, include_superseded, limit)
+        )
+        return list(self.dense[:limit])
+
+    def search_keyword(self, tenant_id, terms, embedding_model, include_superseded, limit):
+        self.keyword_calls.append(
+            (tenant_id, terms, embedding_model, include_superseded, limit)
+        )
+        return list(self.keyword[:limit])

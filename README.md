@@ -62,6 +62,7 @@ by `EMBEDDING_PROVIDER`.
 | `EMBEDDING_DIMENSIONS` | Vector size of the embedding model (default `768`) |
 | `LLM_TIMEOUT_SECONDS` | Timeout of one LLM HTTP request (default `60`; connect timeout is 5s) |
 | `LLM_COOLDOWN_SECONDS` | Seconds a provider is skipped after quota/auth failure (default `60`) |
+| `RETRIEVAL_MIN_SIMILARITY` | Minimum best dense similarity before the model is asked (default `0.55`, to be calibrated) |
 
 Free keys for the hosted providers: create one in the Groq console
 (https://console.groq.com) or in Google AI Studio (https://aistudio.google.com).
@@ -130,5 +131,28 @@ success, 2 on a configuration error, 1 when every provider failed.
 
 Known limits: the cooldown lives inside one process and is not shared between
 workers, and the token estimate is approximate.
+
+## Asking a question
+
+`python -m src.cli.ask --tenant tenant-alpha "question"` embeds the question
+with the index embedding model, runs the hybrid search (dense plus keyword,
+fused with Reciprocal Rank Fusion) and asks the chat fallback chain to answer
+only from the retrieved chunks. It prints the answer, the citations
+(`[chunk:ID]`), the refusal reason when it refuses, and the token usage. It
+refuses without calling the model when nothing is retrieved, or when the best
+dense similarity is below `RETRIEVAL_MIN_SIMILARITY`. Exit code is 2 on a
+configuration error. Load `.env` into the shell first, as with the smoke tool.
+
+```
+python -m src.cli.ask --tenant tenant-alpha "what is the relief set point of the ALPHA-HP-200?"
+python -m src.eval.calibrate   # best dense scores and a suggested threshold
+```
+
+`python -m src.eval.calibrate` runs a list of in-corpus and out-of-corpus
+questions (from `eval/golden.jsonl` once it exists, otherwise a small built-in
+list), prints the similarity of the best hit for each, and suggests a threshold:
+the midpoint between the lowest in-corpus best score and the highest
+out-of-corpus best score, with a warning when the two ranges overlap. It changes
+no setting.
 
 
