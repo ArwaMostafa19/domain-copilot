@@ -113,3 +113,20 @@ def test_a_missing_key_is_named_by_variable_but_no_value_is_leaked() -> None:
     assert "GROQ_API_KEY" in message
     assert "llama-3.3-70b-versatile" not in message
     assert "another-secret-5678" not in message
+
+
+def test_stream_usage_flags_default_to_true_and_accept_words() -> None:
+    assert load_settings({}).groq_stream_usage is True
+    assert load_settings({}).gemini_stream_usage is True
+    assert load_settings({"GROQ_STREAM_USAGE": "false"}).groq_stream_usage is False
+    assert load_settings({"GEMINI_STREAM_USAGE": "0"}).gemini_stream_usage is False
+    assert load_settings({"GROQ_STREAM_USAGE": "TRUE"}).groq_stream_usage is True
+    assert load_settings({"GEMINI_STREAM_USAGE": "1"}).gemini_stream_usage is True
+    assert load_settings({"GROQ_STREAM_USAGE": ""}).groq_stream_usage is True
+
+
+def test_an_invalid_stream_usage_flag_is_rejected() -> None:
+    with pytest.raises(ConfigError, match="GROQ_STREAM_USAGE"):
+        load_settings({"GROQ_STREAM_USAGE": "maybe"})
+    with pytest.raises(ConfigError, match="GEMINI_STREAM_USAGE"):
+        load_settings({"GEMINI_STREAM_USAGE": "yes"})

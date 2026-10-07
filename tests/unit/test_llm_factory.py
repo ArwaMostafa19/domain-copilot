@@ -68,6 +68,23 @@ def failing_client() -> httpx.Client:
     return httpx.Client(base_url=OLLAMA_BASE_URL, transport=httpx.MockTransport(handler))
 
 
+def openai_answering_client(content: str = "from hosted") -> httpx.Client:
+    def handler(request: httpx.Request) -> httpx.Response:
+        body = {
+            "model": "hosted-model",
+            "choices": [
+                {
+                    "message": {"role": "assistant", "content": content},
+                    "finish_reason": "stop",
+                }
+            ],
+            "usage": {"prompt_tokens": 2, "completion_tokens": 1},
+        }
+        return httpx.Response(200, json=body)
+
+    return httpx.Client(transport=httpx.MockTransport(handler))
+
+
 def test_the_chain_keeps_the_configured_order() -> None:
     ollama_first = build_chain(settings(), client=answering_client())
     assert ollama_first.complete(request()).provider == "ollama"
@@ -107,21 +124,6 @@ def test_build_providers_builds_the_chain_and_the_embedder() -> None:
     assert set(providers) == {"ollama", "fake"}
 
 
-def test_groq_raises_not_implemented_once_its_variables_are_present() -> None:
-    built = settings(LLM_CHAIN="groq,fake", GROQ_API_KEY="gsk-fake", GROQ_MODEL="llama-3.3-70b-versatile")
-
-    with pytest.raises(ConfigError, match="not implemented yet") as excinfo:
-        build_chain(built)
-    assert "groq" in str(excinfo.value)
-
-
-def test_gemini_raises_not_implemented_once_its_variables_are_present() -> None:
-    built = settings(LLM_CHAIN="gemini,fake", GEMINI_API_KEY="ai-fake", GEMINI_MODEL="gemini-2.0-flash")
-
-    with pytest.raises(ConfigError, match="not implemented yet"):
-        build_chain(built)
-
-
 def test_a_missing_groq_api_key_names_the_variable_before_anything_else() -> None:
     built = settings(LLM_CHAIN="groq,fake", GROQ_MODEL="llama-3.3-70b-versatile")
 
@@ -133,11 +135,41 @@ def test_a_missing_groq_api_key_names_the_variable_before_anything_else() -> Non
     assert "not implemented" not in message
 
 
-def test_an_embedding_provider_that_does_not_exist_yet_is_rejected() -> None:
-    built = settings(LLM_CHAIN="fake", EMBEDDING_PROVIDER="gemini", GEMINI_API_KEY="ai-fake")
+def test_groq_and_gemini_are_built_in_the_configured_order() -> None:
+    built = settings(
+        LLM_CHAIN="gemini,groq,fake",
+        GEMINI_API_KEY="ai-fake",
+        GEMINI_MODEL="gemini-2.0-flash",
+        GROQ_API_KEY="gsk-fake",
+        GROQ_MODEL="llama-3.3-70b-versatile",
+    )
 
-    with pytest.raises(ConfigError, match="not implemented yet"):
-        build_embedding_stack(built, InMemoryEmbeddingIndexRegistry())
+    chain = build_chain(built, client=openai_answering_client())
+
+    result = chain.complete(request("hello"))
+
+    assert result.provider == "gemini"
+    assert result.content == "from hosted"
+    assert result.model == "hosted-model"
+
+
+def test_a_missing_gemini_model_names_the_variable() -> None:
+    built = settings(LLM_CHAIN="gemini,fake", GEMINI_API_KEY="ai-fake")
+
+    with pytest.raises(ConfigError) as excinfo:
+        build_chain(built)
+
+    assert "GEMINI_MODEL" in str(excinfo.value)
+
+
+def test_gemini_embeddings_are_built_without_a_chat_model() -> None:
+    built = settings(
+        LLM_CHAIN="fake", EMBEDDING_PROVIDER="gemini", GEMINI_API_KEY="ai-fake"
+    )
+
+    provider, _guard = build_embedding_stack(built, InMemoryEmbeddingIndexRegistry())
+
+    assert provider.name == "gemini"
 
 
 def test_the_same_business_code_runs_under_two_configurations() -> None:

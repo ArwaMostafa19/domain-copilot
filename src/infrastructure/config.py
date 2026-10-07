@@ -49,6 +49,8 @@ class Settings:
     embedding_dimensions: int
     llm_timeout_seconds: float
     llm_cooldown_seconds: float
+    groq_stream_usage: bool
+    gemini_stream_usage: bool
 
     def embedding_spec(self) -> EmbeddingSpec:
         """The model and size the embedding index must be built with."""
@@ -93,6 +95,8 @@ def load_settings(environ: Mapping[str, str]) -> Settings:
         llm_cooldown_seconds=_read_float(
             environ, "LLM_COOLDOWN_SECONDS", DEFAULT_LLM_COOLDOWN_SECONDS
         ),
+        groq_stream_usage=_read_bool(environ, "GROQ_STREAM_USAGE", True),
+        gemini_stream_usage=_read_bool(environ, "GEMINI_STREAM_USAGE", True),
     )
 
 
@@ -161,3 +165,15 @@ def _read_float(environ: Mapping[str, str], name: str, default: float) -> float:
         return float(value)
     except ValueError:
         raise ConfigError(f"{name} must be a number") from None
+
+
+def _read_bool(environ: Mapping[str, str], name: str, default: bool) -> bool:
+    """One flag; blank means the default, anything else must be a known word."""
+    value = environ.get(name, "").strip().lower()
+    if not value:
+        return default
+    if value in ("true", "1"):
+        return True
+    if value in ("false", "0"):
+        return False
+    raise ConfigError(f"{name} must be true, false, 1 or 0")
