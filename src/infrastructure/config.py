@@ -7,6 +7,7 @@ so ingestion works without GROQ_API_KEY and GEMINI_API_KEY.
 
 from __future__ import annotations
 
+import os
 from collections.abc import Mapping
 from dataclasses import dataclass, fields
 
@@ -24,6 +25,7 @@ DEFAULT_EMBEDDING_MODEL = "nomic-embed-text"
 DEFAULT_EMBEDDING_DIMENSIONS = 768
 DEFAULT_LLM_TIMEOUT_SECONDS = 60.0
 DEFAULT_LLM_COOLDOWN_SECONDS = 60.0
+DEFAULT_RETRIEVAL_MIN_SIMILARITY = 0.55
 
 # Fixed for every provider: opening the TCP connection never waits longer.
 CONNECT_TIMEOUT_SECONDS = 5.0
@@ -51,6 +53,7 @@ class Settings:
     llm_cooldown_seconds: float
     groq_stream_usage: bool
     gemini_stream_usage: bool
+    retrieval_min_similarity: float
 
     def embedding_spec(self) -> EmbeddingSpec:
         """The model and size the embedding index must be built with."""
@@ -97,7 +100,19 @@ def load_settings(environ: Mapping[str, str]) -> Settings:
         ),
         groq_stream_usage=_read_bool(environ, "GROQ_STREAM_USAGE", True),
         gemini_stream_usage=_read_bool(environ, "GEMINI_STREAM_USAGE", True),
+        retrieval_min_similarity=_read_unit_float(
+            environ, "RETRIEVAL_MIN_SIMILARITY", DEFAULT_RETRIEVAL_MIN_SIMILARITY
+        ),
     )
+
+
+def load_settings_from_environ() -> Settings:
+    """Load the settings from the process environment.
+
+    This is the single entry point for the command line tools, so they never
+    read ``os.environ`` themselves.
+    """
+    return load_settings(os.environ)
 
 
 def _read(environ: Mapping[str, str], name: str, default: str = "") -> str:
@@ -165,6 +180,18 @@ def _read_float(environ: Mapping[str, str], name: str, default: float) -> float:
         return float(value)
     except ValueError:
         raise ConfigError(f"{name} must be a number") from None
+
+
+def _read_unit_float(environ: Mapping[str, str], name: str, default: float) -> float:
+    """One variable that must be a number between 0 and 1 inclusive."""
+    value = _read(environ, name, repr(default))
+    try:
+        parsed = float(value)
+    except ValueError:
+        raise ConfigError(f"{name} must be a number between 0 and 1") from None
+    if not 0.0 <= parsed <= 1.0:
+        raise ConfigError(f"{name} must be a number between 0 and 1")
+    return parsed
 
 
 def _read_bool(environ: Mapping[str, str], name: str, default: bool) -> bool:
