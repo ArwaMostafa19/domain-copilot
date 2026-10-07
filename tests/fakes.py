@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 
 from src.domain.documents import Chunk, DocumentMeta, SafetyStep
+from src.domain.llm import EmbeddingSpec
 
 
 class FakeEmbedder:
@@ -91,3 +92,17 @@ class InMemoryRepository:
 def _key(meta: DocumentMeta) -> tuple[str, str, str]:
     """The unique key documents carry in PostgreSQL."""
     return (meta.tenant_id, meta.doc_id, meta.source_format)
+
+
+class InMemoryEmbeddingIndexRegistry:
+    """An EmbeddingIndexRegistry that keeps the first registered spec."""
+
+    def __init__(self) -> None:
+        self.spec: EmbeddingSpec | None = None
+
+    def get(self) -> EmbeddingSpec | None:
+        return self.spec
+
+    def register(self, spec: EmbeddingSpec) -> None:
+        if self.spec is None:
+            self.spec = spec

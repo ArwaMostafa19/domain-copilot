@@ -4,14 +4,18 @@ The application layer only knows these shapes. Real implementations (Ollama,
 PostgreSQL) live in src/infrastructure, and tests plug in fakes.
 """
 
+from collections.abc import Iterator, Sequence
 from dataclasses import dataclass
 from typing import Protocol
 
-from src.domain.documents import Chunk, DocumentMeta, DomainError, SafetyStep
-
-
-class ProviderError(DomainError):
-    """A language model or embedding provider could not answer."""
+from src.domain.documents import Chunk, DocumentMeta, SafetyStep
+from src.domain.llm import (
+    CompletionRequest,
+    CompletionResult,
+    EmbeddingResult,
+    EmbeddingSpec,
+    StreamEvent,
+)
 
 
 class Embedder(Protocol):
@@ -22,6 +26,32 @@ class Embedder(Protocol):
 
     def embed(self, texts: list[str]) -> list[list[float]]:
         """Return one vector of length ``dimension`` for each text, in the same order."""
+        ...
+
+
+class LLMProvider(Protocol):
+    """One interface for completion, streaming, tool calling (request.tools) and embeddings.
+
+    Every result carries token usage. Adapters raise ProviderError subclasses only.
+    A stream() adapter must check the HTTP status before yielding its first event.
+    """
+
+    name: str
+
+    def complete(self, request: CompletionRequest) -> CompletionResult: ...
+
+    def stream(self, request: CompletionRequest) -> Iterator[StreamEvent]: ...
+
+    def embed(self, texts: Sequence[str]) -> EmbeddingResult: ...
+
+
+class EmbeddingIndexRegistry(Protocol):
+    """Remembers which embedding model built the index (one global row)."""
+
+    def get(self) -> EmbeddingSpec | None: ...
+
+    def register(self, spec: EmbeddingSpec) -> None:
+        """Insert if empty. Must NOT overwrite an existing row (ON CONFLICT DO NOTHING)."""
         ...
 
 
@@ -53,7 +83,7 @@ class IngestResult:
     """What happened to one file during ingestion."""
 
     path: str
-    status: str  # "ingested", "skipped" or "failed"
+    status: str  
     chunks: int = 0
     steps: int = 0
     error: str | None = None

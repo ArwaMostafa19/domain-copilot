@@ -15,7 +15,7 @@ import pytest
 
 from src.application.chunk import chunk_document
 from src.application.ingest import ingest_file
-from src.application.ports import ProviderError
+from src.domain.llm import ProviderUnavailableError
 from src.infrastructure.database import tenant_connection
 from src.infrastructure.extractors import extract
 from src.infrastructure.repository import PostgresDocumentRepository
@@ -48,8 +48,8 @@ class FailingEmbedder:
     model_name = "failing-embedder"
     dimension = 768
 
-    def embed(self, texts: list[str]) -> list[list[float]]:
-        raise ProviderError("embedding service is down")
+    def embed(self, texts):
+        raise ProviderUnavailableError("fake", "embedding service is down")
 
 
 @pytest.fixture(autouse=True)
@@ -248,8 +248,8 @@ def test_a_failing_embedder_records_a_failed_document(tmp_path: Path) -> None:
     result = ingest_file(path, FailingEmbedder(), PostgresDocumentRepository())
 
     assert result.status == "failed"
-    assert result.error == "embedding service is down"
-    assert document_row(ALPHA, doc_id) == ("failed", "embedding service is down")
+    assert result.error == "[fake] embedding service is down"
+    assert document_row(ALPHA, doc_id) == ("failed", "[fake] embedding service is down")
     assert chunk_rows(ALPHA, doc_id) == []
     assert step_rows(ALPHA, doc_id) == []
 
@@ -270,7 +270,7 @@ def test_a_failed_reingestion_keeps_the_good_chunks(tmp_path: Path) -> None:
     bad = ingest_file(path, FailingEmbedder(), repository)
 
     assert bad.status == "failed"
-    assert document_row(ALPHA, doc_id) == ("ingested", "embedding service is down")
+    assert document_row(ALPHA, doc_id) == ("ingested", "[fake] embedding service is down")
     rows = chunk_rows(ALPHA, doc_id)
     assert rows == chunks_before
     assert any("old marker" in row[2] for row in rows)
