@@ -13,6 +13,7 @@ from src.domain.llm import ConfigError
 from src.infrastructure.config import Settings
 from src.infrastructure.providers.fake import FakeLLMProvider
 from src.infrastructure.providers.ollama_provider import OllamaProvider
+from src.infrastructure.providers.openai_compatible import OpenAICompatibleProvider
 
 # The environment variables each chat provider needs set before it can run.
 CHAT_VARIABLES: Mapping[str, tuple[str, ...]] = {
@@ -96,7 +97,32 @@ def _build_one(
             embedding_model=settings.embedding_model,
             embedding_dimensions=settings.embedding_dimensions,
         )
-    raise ConfigError(f"provider {name!r} is not implemented yet")
+    if name == "groq":
+        return OpenAICompatibleProvider(
+            name="groq",
+            base_url=settings.groq_base_url,
+            api_key=settings.groq_api_key,
+            model=settings.groq_model or None,
+            timeout=settings.llm_timeout_seconds,
+            client=client,
+            stream_usage_option=settings.groq_stream_usage,
+        )
+    if name == "gemini":
+        return OpenAICompatibleProvider(
+            name="gemini",
+            base_url=settings.gemini_base_url,
+            api_key=settings.gemini_api_key,
+            model=settings.gemini_model or None,
+            embedding_model=(
+                settings.embedding_model
+                if settings.embedding_provider == "gemini"
+                else None
+            ),
+            timeout=settings.llm_timeout_seconds,
+            client=client,
+            stream_usage_option=settings.gemini_stream_usage,
+        )
+    raise ConfigError(f"unknown provider {name!r}")
 
 
 def _require_variables(
