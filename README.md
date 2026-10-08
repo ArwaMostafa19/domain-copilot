@@ -24,9 +24,9 @@
 
 ## Quick start
 
-1. Copy .env.example to .env and fill in every value. Use letters and digits only for the passwords.
+1. Copy .env.example to .env and fill in the database passwords and `AUTH_SECRET` (at least 32 characters). Use letters and digits only for the database passwords.
 2. Run: docker compose up --build
-3. Open http://localhost:8000/health
+3. Open http://localhost:8000/health or browse the interactive API docs at http://localhost:8000/docs.
 
 Two database users are used. The admin user (POSTGRES_USER) only runs the migrations and can bypass Row-Level Security. The application user (copilot_app, password APP_DB_PASSWORD) is what the API uses, and Row-Level Security always applies to it.
 
@@ -41,12 +41,13 @@ Two database users are used. The admin user (POSTGRES_USER) only runs the migrat
 Chat and embeddings are chosen by configuration only. `LLM_CHAIN` is an ordered,
 comma separated list of chat providers: the first one that answers is used, and
 the rest are fallbacks. Allowed names are `groq`, `gemini`, `ollama` and `fake`.
-The default is `groq,gemini,ollama`. Embeddings use exactly one provider, chosen
-by `EMBEDDING_PROVIDER`.
+The Python configuration default is `groq,gemini,ollama`; Docker defaults to
+`ollama` so the bundled local setup works without hosted provider keys.
+Embeddings use exactly one provider, chosen by `EMBEDDING_PROVIDER`.
 
 | Variable | Meaning |
 | --- | --- |
-| `LLM_CHAIN` | Ordered chat providers, comma separated (default `groq,gemini,ollama`) |
+| `LLM_CHAIN` | Ordered chat providers, comma separated (Docker default `ollama`) |
 | `GROQ_API_KEY` | Groq API key (empty until you add one) |
 | `GROQ_BASE_URL` | Groq chat base URL (default `https://api.groq.com/openai/v1`) |
 | `GROQ_MODEL` | Groq chat model; no default, set it yourself |
@@ -60,7 +61,7 @@ by `EMBEDDING_PROVIDER`.
 | `EMBEDDING_PROVIDER` | One of `ollama`, `gemini`, `fake` (default `ollama`) |
 | `EMBEDDING_MODEL` | Embedding model recorded on every chunk (default `nomic-embed-text`) |
 | `EMBEDDING_DIMENSIONS` | Vector size of the embedding model (default `768`) |
-| `LLM_TIMEOUT_SECONDS` | Timeout of one LLM HTTP request (default `60`; connect timeout is 5s) |
+| `LLM_TIMEOUT_SECONDS` | Timeout of one LLM HTTP request (default `180`; connect timeout is 5s) |
 | `LLM_COOLDOWN_SECONDS` | Seconds a provider is skipped after quota/auth failure (default `60`) |
 | `RETRIEVAL_MIN_SIMILARITY` | Minimum best dense similarity before the model is asked (default `0.55`, to be calibrated) |
 
@@ -104,11 +105,27 @@ Local models are slower and weaker than the hosted ones, and tool-calling suppor
 depends on the pulled model. When a provider does not report token usage, the
 count is ESTIMATED (about 4 characters per token) and flagged `estimated`.
 
+## API routes
+
+FastAPI routes are split into modules under `src/api/routers` and included by
+`src/api/main.py`:
+
+| Method | Path | Purpose |
+| --- | --- | --- |
+| `GET` | `/health` | Liveness check |
+| `GET` | `/ready` | Database readiness check |
+| `POST` | `/auth/login` | Log in and receive a bearer token |
+| `GET` | `/me` | Return the authenticated user's profile |
+| `POST` | `/ask` | Get a tenant-scoped, document-grounded answer |
+
+`/ask` takes `{"question":"..."}` and requires `Authorization: Bearer <token>`.
+The tenant comes from the verified token. Workflow request schemas exist, but
+workflow HTTP routes have not been implemented yet.
+
 ### Smoke tool
 
-The smoke tool is the only caller of the fallback chain at the moment; the API
-exposes only `GET /health`. It never loads `.env` itself, so load it into the
-shell first (bash):
+The smoke tool tests the provider chain directly. It never loads `.env` itself,
+so load it into the shell first (bash):
 
 ```
 set -a; source .env; set +a
