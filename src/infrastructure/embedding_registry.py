@@ -14,6 +14,7 @@ REGISTER_SPEC = """
 """
 
 
+
 class PostgresEmbeddingIndexRegistry:
     """Remembers the embedding model; one global row, never overwritten."""
 
