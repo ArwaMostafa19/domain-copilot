@@ -24,6 +24,7 @@ ALLOWED_ENVIRONMENT_READERS = {
     "infrastructure/ingest_cli.py",
     "infrastructure/llm_smoke.py",
     "infrastructure/migrate.py",
+    "infrastructure/seed_users.py",
 }
 
 ENVIRONMENT_NAMES = {"environ", "environb", "getenv"}
