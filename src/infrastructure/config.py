@@ -23,14 +23,14 @@ DEFAULT_OLLAMA_BASE_URL = "http://localhost:11434"
 DEFAULT_EMBEDDING_PROVIDER = "ollama"
 DEFAULT_EMBEDDING_MODEL = "nomic-embed-text"
 DEFAULT_EMBEDDING_DIMENSIONS = 768
-DEFAULT_LLM_TIMEOUT_SECONDS = 60.0
+DEFAULT_LLM_TIMEOUT_SECONDS = 180.0
 DEFAULT_LLM_COOLDOWN_SECONDS = 60.0
 DEFAULT_RETRIEVAL_MIN_SIMILARITY = 0.55
 
 # Fixed for every provider: opening the TCP connection never waits longer.
 CONNECT_TIMEOUT_SECONDS = 5.0
 
-SECRET_FIELDS = ("groq_api_key", "gemini_api_key")
+SECRET_FIELDS = ("groq_api_key", "gemini_api_key", "auth_secret")
 
 
 @dataclass(frozen=True, repr=False)
@@ -54,6 +54,7 @@ class Settings:
     groq_stream_usage: bool
     gemini_stream_usage: bool
     retrieval_min_similarity: float
+    auth_secret: str
 
     def embedding_spec(self) -> EmbeddingSpec:
         """The model and size the embedding index must be built with."""
@@ -103,6 +104,7 @@ def load_settings(environ: Mapping[str, str]) -> Settings:
         retrieval_min_similarity=_read_unit_float(
             environ, "RETRIEVAL_MIN_SIMILARITY", DEFAULT_RETRIEVAL_MIN_SIMILARITY
         ),
+        auth_secret=_read(environ, "AUTH_SECRET"),
     )
 
 

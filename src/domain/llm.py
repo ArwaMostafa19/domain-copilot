@@ -13,7 +13,7 @@ Role = Literal["system", "user", "assistant", "tool"]
 class ToolSpec:
     name: str
     description: str
-    parameters: dict[str, Any] 
+    parameters: dict[str, Any]
 
 
 @dataclass(frozen=True)
@@ -35,7 +35,7 @@ class Message:
 class TokenUsage:
     prompt_tokens: int = 0
     completion_tokens: int = 0
-    estimated: bool = False 
+    estimated: bool = False
 
     @property
     def total_tokens(self) -> int:
@@ -48,7 +48,7 @@ class CompletionRequest:
     tools: tuple[ToolSpec, ...] = ()
     temperature: float = 0.0
     max_tokens: int | None = None
-    correlation_id: str | None = None  
+    correlation_id: str | None = None
 
     def prompt_text(self) -> str:
         return "\n".join(m.content for m in self.messages)
@@ -106,7 +106,7 @@ class LLMError(DomainError):
 
 
 class ProviderError(LLMError):
-    
+
     fallback_allowed: bool = True
 
     def __init__(self, provider: str, message: str) -> None:
