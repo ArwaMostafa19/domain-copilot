@@ -11,6 +11,8 @@ import json
 from collections.abc import Sequence
 
 from src.application.ports import (
+    AskLogRecord,
+    AskLogRepository,
     AuditLog,
     RunRecord,
     RunRepository,
@@ -197,6 +199,99 @@ class PgRunRepository(RunRepository):
                     status=row[4],
                     total_tokens=row[5] or 0,
                     estimated_tokens=row[6] or False,
+                )
+            )
+        return out
+
+    def list_for_tenant(
+        self, tenant_id: str, status: str | None = None
+    ) -> list[RunRecord]:
+        with tenant_connection(tenant_id) as conn:
+            if status:
+                rows = conn.execute(
+                    """
+                    SELECT id, tenant_id, user_id, question, status, total_tokens, estimated_tokens
+                    FROM runs WHERE status=%s ORDER BY created_at DESC
+                    """,
+                    (status,),
+                ).fetchall()
+            else:
+                rows = conn.execute(
+                    """
+                    SELECT id, tenant_id, user_id, question, status, total_tokens, estimated_tokens
+                    FROM runs ORDER BY created_at DESC
+                    """
+                ).fetchall()
+        out: list[RunRecord] = []
+        for row in rows:
+            out.append(
+                RunRecord(
+                    id=str(row[0]),
+                    tenant_id=row[1],
+                    user_id=row[2],
+                    question=row[3],
+                    status=row[4],
+                    total_tokens=row[5] or 0,
+                    estimated_tokens=row[6] or False,
+                )
+            )
+        return out
+
+
+class PgAskLogRepository(AskLogRepository):
+    def save(self, tenant_id: str, record: AskLogRecord) -> int:
+        with tenant_connection(tenant_id) as conn:
+            row = conn.execute(
+                """
+                INSERT INTO ask_log
+                    (tenant_id, user_id, correlation_id, question, answer_text, refused,
+                     reason, citations, prompt_tokens, completion_tokens, estimated)
+                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                RETURNING id
+                """,
+                (
+                    tenant_id,
+                    record.user_id,
+                    record.correlation_id,
+                    record.question,
+                    record.answer_text,
+                    record.refused,
+                    record.reason,
+                    json.dumps(record.citations),
+                    record.prompt_tokens,
+                    record.completion_tokens,
+                    record.estimated,
+                ),
+            ).fetchone()
+            return row[0]
+
+    def list_for_user(self, tenant_id: str, user_id: int) -> list[AskLogRecord]:
+        with tenant_connection(tenant_id) as conn:
+            rows = conn.execute(
+                """
+                SELECT id, tenant_id, user_id, correlation_id, question, answer_text,
+                       refused, reason, citations, prompt_tokens, completion_tokens, estimated, created_at
+                FROM ask_log WHERE user_id=%s ORDER BY created_at DESC
+                """,
+                (user_id,),
+            ).fetchall()
+        out: list[AskLogRecord] = []
+        for row in rows:
+            out.append(
+                AskLogRecord(
+                    id=row[0],
+                    tenant_id=row[1],
+                    user_id=row[2],
+                    correlation_id=row[3],
+                    question=row[4],
+                    answer_text=row[5],
+                    refused=row[6],
+                    reason=row[7],
+                    citations=row[8] if isinstance(row[8], list) else [],
+                    prompt_tokens=row[9] or 0,
+                    completion_tokens=row[10] or 0,
+                    estimated=row[11] or False,
+                    created_at=str(row[12]) if row[12] is not None else None,
                 )
             )
         return out
