@@ -36,9 +36,18 @@ def test_audit_log_cannot_be_updated_or_deleted():
 
 def test_tenant_isolation_on_runs_and_ask_log():
     with tenant_connection("tenant-alpha") as conn:
+        user_id = conn.execute(
+            """
+            INSERT INTO users (tenant_id, username, role, password_hash)
+            VALUES (%s, %s, %s, %s)
+            ON CONFLICT (tenant_id, username) DO UPDATE SET active = true
+            RETURNING id
+            """,
+            ("tenant-alpha", "workflow-isolation-test", "technician", "test-only"),
+        ).fetchone()[0]
         conn.execute(
             "INSERT INTO runs (tenant_id, user_id, question, status) VALUES (%s, %s, %s, %s)",
-            ("tenant-alpha", 1, "alpha question", "running"),
+            ("tenant-alpha", user_id, "alpha question", "running"),
         )
         conn.execute(
             "INSERT INTO ask_log (tenant_id, question, answer_text) VALUES (%s, %s, %s)",
