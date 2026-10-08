@@ -9,7 +9,6 @@ from src.domain.llm import (
 )
 
 
-
 class EmbeddingGuard:
     """Makes sure one embedding model (name + size) is used for the whole index."""
 

@@ -22,7 +22,6 @@ from src.infrastructure.extractors import extract
 from src.infrastructure.providers.factory import build_embedding_stack
 from src.infrastructure.repository import PostgresDocumentRepository
 
-
 SOURCE_SUFFIXES = (".md", ".pdf")
 TENANT_PREFIX = "tenant-"
 COLUMNS = ("tenant", "file", "format", "revision", "status", "chunks", "min", "avg", "max", "steps")
