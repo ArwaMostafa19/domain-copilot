@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain Copilot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">D</span>
+      <div><h1>Domain Copilot</h1><p>Maintenance knowledge and guided workflows</p></div>
+    </div>
+    <div id="user-status" class="user-status">
+      <span id="user-info-text">Not logged in</span>
+      <button id="logout-btn" style="display: none;">Logout</button>
+    </div>
+  </header>
+
+  <nav id="nav-tabs" class="nav-tabs">
+    <button class="tab-btn active" data-tab="login-tab">Login</button>
+    <button class="tab-btn" data-tab="ask-tab">Ask Question</button>
+    <button class="tab-btn" data-tab="workflow-tab">Workflow Run</button>
+    <button class="tab-btn" data-tab="runs-tab">Runs & Trace</button>
+    <button class="tab-btn supervisor-only" data-tab="review-tab" style="display: none;">Review Queue</button>
+    <button class="tab-btn" data-tab="documents-tab">Documents</button>
+    <button class="tab-btn" data-tab="usage-tab">Usage</button>
+  </nav>
+
+  <main>
+    <!-- Login Tab -->
+    <section id="login-tab" class="tab-content active">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="tenant-select">Tenant:</label>
+          <select id="tenant-select" required>
+            <option value="tenant-alpha">Tenant Alpha</option>
+            <option value="tenant-beta">Tenant Beta</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="username-input">Username:</label>
+          <input type="text" id="username-input" placeholder="alpha-tech or alpha-sup" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+        </div>
+        <div class="form-group">
+          <label for="password-input">Password:</label>
+          <input type="password" id="password-input" autocomplete="current-password" required>
+        </div>
+        <button type="submit" id="login-submit-btn">Login</button>
+      </form>
+      <div id="login-error" class="error-msg"></div>
+    </section>
+
+    <!-- Ask Tab -->
+    <section id="ask-tab" class="tab-content">
+      <h2>Grounded Answering</h2>
+      <div class="form-group">
+        <label for="ask-input">Question:</label>
+        <textarea id="ask-input" rows="3" placeholder="Enter maintenance question..."></textarea>
+      </div>
+      <button id="ask-submit-btn">Submit Question</button>
+      <button id="refresh-asks-btn">Load Saved Questions</button>
+
+      <div id="ask-output" class="output-panel" aria-live="polite" aria-atomic="true"></div>
+      <div id="ask-history" class="output-panel"></div>
+    </section>
+
+    <!-- Workflow Run Tab -->
+    <section id="workflow-tab" class="tab-content">
+      <h2>Interactive Workflow Run</h2>
+      <div class="form-group">
+        <label for="symptoms-input">Symptoms / Problem Description:</label>
+        <textarea id="symptoms-input" rows="3" placeholder="Describe symptoms..."></textarea>
+      </div>
+      <div class="form-group">
+        <label for="revision-input">Installed Revision (Optional):</label>
+        <input type="text" id="revision-input" placeholder="e.g. Rev A">
+      </div>
+      <button id="start-run-btn">Start Workflow</button>
+      <button id="cancel-run-btn" disabled>Cancel Active Run</button>
+
+      <div id="run-progress" class="output-panel"></div>
+
+      <div id="safety-gate-panel" style="display: none;" class="card">
+        <h3>Safety Prerequisites Checklist</h3>
+        <p>Acknowledge each required safety step before proceeding to generation:</p>
+        <div id="safety-checklist"></div>
+        <button id="acknowledge-btn">Submit Acknowledgements</button>
+      </div>
+
+      <div id="work-order-result" class="output-panel"></div>
+    </section>
+
+    <!-- Runs & Trace Tab -->
+    <section id="runs-tab" class="tab-content">
+      <h2>Workflow Runs & Execution Traces</h2>
+      <button id="refresh-runs-btn">Refresh Runs</button>
+      <table id="runs-table">
+        <thead>
+          <tr>
+            <th>Run ID</th>
+            <th>Question/Symptoms</th>
+            <th>Status</th>
+            <th>Total Tokens</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="runs-tbody"></tbody>
+      </table>
+      <div id="run-trace-detail" class="output-panel"></div>
+    </section>
+
+    <!-- Review Queue Tab -->
+    <section id="review-tab" class="tab-content">
+      <h2>Supervisor Review Queue</h2>
+      <button id="refresh-review-btn">Refresh Queue</button>
+      <div id="review-list"></div>
+    </section>
+
+    <!-- Documents Tab -->
+    <section id="documents-tab" class="tab-content">
+      <h2>Tenant Documents</h2>
+      <button id="refresh-docs-btn">Refresh Documents</button>
+      <button id="ingest-btn" class="supervisor-only" style="display: none;">Re-ingest Corpus</button>
+      <table id="docs-table">
+        <thead>
+          <tr>
+            <th>Doc ID</th>
+            <th>Title</th>
+            <th>Equipment</th>
+            <th>Revision</th>
+            <th>Status</th>
+            <th>Chunks</th>
+          </tr>
+        </thead>
+        <tbody id="docs-tbody"></tbody>
+      </table>
+    </section>
+
+    <!-- Usage Tab -->
+    <section id="usage-tab" class="tab-content">
+      <h2>Token Usage & Analytics</h2>
+      <button id="refresh-usage-btn">Refresh Usage</button>
+      <div id="usage-panel" class="output-panel"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

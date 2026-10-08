@@ -16,4 +16,7 @@ def test_the_embedding_stack_does_not_build_the_chat_chain():
 
     provider, _guard = build_embedding_stack(settings, _EmptyRegistry())
 
-    assert isinstance(provider, OllamaProvider)
+    from src.application.redaction import RedactingProvider
+
+    assert isinstance(provider, RedactingProvider)
+    assert isinstance(provider._provider, OllamaProvider)

@@ -166,6 +166,10 @@ class RunRepository(Protocol):
 
     def list_for_user(self, tenant_id: str, user_id: int) -> list[RunRecord]: ...
 
+    def list_for_tenant(
+        self, tenant_id: str, status: str | None = None
+    ) -> list[RunRecord]: ...
+
 
 class WorkOrderRepository(Protocol):
     """Persistence for work orders; a new draft always increments the version."""
@@ -207,3 +211,31 @@ class UserRepository(Protocol):
     def get_by_username(self, tenant_id: str, username: str) -> UserRecord | None: ...
 
     def get(self, tenant_id: str, user_id: int) -> UserRecord | None: ...
+
+
+@dataclass(frozen=True)
+class AskLogRecord:
+    """One user question and answer interaction log entry."""
+
+    id: int | None
+    tenant_id: str
+    user_id: int | None
+    correlation_id: str | None
+    question: str
+    answer_text: str
+    refused: bool
+    reason: str | None
+    citations: Sequence[dict[str, object]]
+    prompt_tokens: int
+    completion_tokens: int
+    estimated: bool
+    created_at: str | None = None
+
+
+class AskLogRepository(Protocol):
+    """Persistence for user question ask history."""
+
+    def save(self, tenant_id: str, record: AskLogRecord) -> int: ...
+
+    def list_for_user(self, tenant_id: str, user_id: int) -> list[AskLogRecord]: ...
+

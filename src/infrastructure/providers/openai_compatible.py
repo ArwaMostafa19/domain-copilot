@@ -80,7 +80,7 @@ class OpenAICompatibleProvider:
                 response = client.post(
                     f"{self.base_url}{CHAT_ENDPOINT}",
                     json=payload,
-                    headers=self._headers(),
+                    headers=self._headers(request.correlation_id),
                     timeout=self._timeout(),
                 )
             except httpx.TransportError as error:
@@ -105,7 +105,7 @@ class OpenAICompatibleProvider:
                     "POST",
                     f"{self.base_url}{CHAT_ENDPOINT}",
                     json=payload,
-                    headers=self._headers(),
+                    headers=self._headers(request.correlation_id),
                     timeout=self._timeout(),
                 ) as response:
                     if not 200 <= response.status_code < 300:
@@ -181,6 +181,18 @@ class OpenAICompatibleProvider:
             usage=self._embedding_usage(body, batch),
             provider=self.name,
         )
+
+    def healthcheck(self) -> bool:
+        with self._open_client() as client:
+            try:
+                response = client.get(
+                    f"{self.base_url}/models",
+                    headers=self._headers(),
+                    timeout=httpx.Timeout(min(self.timeout, 5.0), connect=CONNECT_TIMEOUT_SECONDS),
+                )
+            except httpx.TransportError:
+                return False
+        return 200 <= response.status_code < 300
 
     def _chat_payload(
         self, request: CompletionRequest, model: str, *, stream: bool
@@ -554,8 +566,11 @@ class OpenAICompatibleProvider:
                 return error
         return None
 
-    def _headers(self) -> dict[str, str]:
-        return {"Authorization": f"Bearer {self._api_key}"}
+    def _headers(self, correlation_id: str | None = None) -> dict[str, str]:
+        headers = {"Authorization": f"Bearer {self._api_key}"}
+        if correlation_id:
+            headers["X-Correlation-ID"] = correlation_id
+        return headers
 
     def _timeout(self) -> httpx.Timeout:
         return httpx.Timeout(self.timeout, connect=CONNECT_TIMEOUT_SECONDS)

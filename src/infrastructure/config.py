@@ -26,6 +26,12 @@ DEFAULT_EMBEDDING_DIMENSIONS = 768
 DEFAULT_LLM_TIMEOUT_SECONDS = 180.0
 DEFAULT_LLM_COOLDOWN_SECONDS = 60.0
 DEFAULT_RETRIEVAL_MIN_SIMILARITY = 0.55
+DEFAULT_RUN_MAX_MODEL_CALLS = 6
+DEFAULT_RUN_TOKEN_BUDGET = 20000
+DEFAULT_RUN_TIMEOUT_SECONDS = 120.0
+DEFAULT_RUN_STEP_TIMEOUT_SECONDS = 45.0
+DEFAULT_TOKEN_TTL_SECONDS = 28800
+DEFAULT_MAX_INGEST_FILE_BYTES = 10 * 1024 * 1024
 
 # Fixed for every provider: opening the TCP connection never waits longer.
 CONNECT_TIMEOUT_SECONDS = 5.0
@@ -55,6 +61,13 @@ class Settings:
     gemini_stream_usage: bool
     retrieval_min_similarity: float
     auth_secret: str
+    run_max_model_calls: int = DEFAULT_RUN_MAX_MODEL_CALLS
+    run_token_budget: int = DEFAULT_RUN_TOKEN_BUDGET
+    run_timeout_seconds: float = DEFAULT_RUN_TIMEOUT_SECONDS
+    run_step_timeout_seconds: float = DEFAULT_RUN_STEP_TIMEOUT_SECONDS
+    token_ttl_seconds: int = DEFAULT_TOKEN_TTL_SECONDS
+    cors_origins: tuple[str, ...] = ()
+    max_ingest_file_bytes: int = DEFAULT_MAX_INGEST_FILE_BYTES
 
     def embedding_spec(self) -> EmbeddingSpec:
         """The model and size the embedding index must be built with."""
@@ -105,6 +118,29 @@ def load_settings(environ: Mapping[str, str]) -> Settings:
             environ, "RETRIEVAL_MIN_SIMILARITY", DEFAULT_RETRIEVAL_MIN_SIMILARITY
         ),
         auth_secret=_read(environ, "AUTH_SECRET"),
+        run_max_model_calls=_read_positive_int(
+            environ, "RUN_MAX_MODEL_CALLS", DEFAULT_RUN_MAX_MODEL_CALLS
+        ),
+        run_token_budget=_read_positive_int(
+            environ, "RUN_TOKEN_BUDGET", DEFAULT_RUN_TOKEN_BUDGET
+        ),
+        run_timeout_seconds=_read_positive_float(
+            environ, "RUN_TIMEOUT_SECONDS", DEFAULT_RUN_TIMEOUT_SECONDS
+        ),
+        run_step_timeout_seconds=_read_positive_float(
+            environ, "RUN_STEP_TIMEOUT_SECONDS", DEFAULT_RUN_STEP_TIMEOUT_SECONDS
+        ),
+        token_ttl_seconds=_read_positive_int(
+            environ, "TOKEN_TTL_SECONDS", DEFAULT_TOKEN_TTL_SECONDS
+        ),
+        cors_origins=tuple(
+            origin.strip().rstrip("/")
+            for origin in _read(environ, "CORS_ORIGINS").split(",")
+            if origin.strip()
+        ),
+        max_ingest_file_bytes=_read_positive_int(
+            environ, "MAX_INGEST_FILE_BYTES", DEFAULT_MAX_INGEST_FILE_BYTES
+        ),
     )
 
 

@@ -25,6 +25,16 @@ services:
       db:
         condition: service_healthy
 
+  seed-users:
+    build: .
+    command: ["python", "-m", "src.infrastructure.seed_users"]
+    environment:
+      DATABASE_URL: postgresql://copilot_app:${APP_DB_PASSWORD:?set APP_DB_PASSWORD in .env}@db:5432/${POSTGRES_DB}
+      DEMO_USER_PASSWORD: ${DEMO_USER_PASSWORD:?set DEMO_USER_PASSWORD in .env}
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+
   api:
     build: .
     ports:
@@ -49,12 +59,20 @@ services:
       LLM_COOLDOWN_SECONDS: ${LLM_COOLDOWN_SECONDS:-60}
       RETRIEVAL_MIN_SIMILARITY: ${RETRIEVAL_MIN_SIMILARITY:-0.55}
       OLLAMA_CHAT_MODEL: ${OLLAMA_CHAT_MODEL:-llama3.2:3b}
+      RUN_MAX_MODEL_CALLS: ${RUN_MAX_MODEL_CALLS:-6}
+      RUN_TOKEN_BUDGET: ${RUN_TOKEN_BUDGET:-20000}
+      RUN_TIMEOUT_SECONDS: ${RUN_TIMEOUT_SECONDS:-120}
+      RUN_STEP_TIMEOUT_SECONDS: ${RUN_STEP_TIMEOUT_SECONDS:-45}
+      TOKEN_TTL_SECONDS: ${TOKEN_TTL_SECONDS:-28800}
+      CORS_ORIGINS: ${CORS_ORIGINS:-}
+      MAX_INGEST_FILE_BYTES: ${MAX_INGEST_FILE_BYTES:-10485760}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./corpus:/app/corpus:ro
+      - ./eval:/app/eval
     depends_on:
-      migrate:
+      seed-users:
         condition: service_completed_successfully
 volumes:
   pgdata:

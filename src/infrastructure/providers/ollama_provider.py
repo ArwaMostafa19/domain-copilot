@@ -33,6 +33,10 @@ CHAT_ENDPOINT = "/api/chat"
 EMBED_ENDPOINT = "/api/embed"
 
 
+def _correlation_headers(correlation_id: str | None) -> dict[str, str] | None:
+    return {"X-Correlation-ID": correlation_id} if correlation_id else None
+
+
 class OllamaProvider:
     """Talks to one Ollama server through ``/api/embed`` and ``/api/chat``."""
 
@@ -103,6 +107,17 @@ class OllamaProvider:
             provider=self.name,
         )
 
+    def healthcheck(self) -> bool:
+        with self._open_client() as client:
+            try:
+                response = client.get(
+                    f"{self.base_url}/api/tags",
+                    timeout=httpx.Timeout(min(self.timeout, 5.0), connect=CONNECT_TIMEOUT_SECONDS),
+                )
+            except httpx.TransportError:
+                return False
+        return 200 <= response.status_code < 300
+
     def complete(self, request: CompletionRequest) -> CompletionResult:
         """Answer one request in a single non-streaming HTTP call."""
         payload = self._chat_payload(request, stream=False)
@@ -112,6 +127,7 @@ class OllamaProvider:
                 CHAT_ENDPOINT,
                 payload,
                 unreachable=self._unreachable_hint(),
+                headers=_correlation_headers(request.correlation_id),
             )
             self._raise_for_status(response, payload["model"])
             body = self._read_object(response.text)
@@ -138,6 +154,7 @@ class OllamaProvider:
                     "POST",
                     f"{self.base_url}{CHAT_ENDPOINT}",
                     json=payload,
+                    headers=_correlation_headers(request.correlation_id),
                     timeout=self._timeout(),
                 ) as response:
                     if response.status_code != 200:
@@ -363,11 +380,13 @@ class OllamaProvider:
         payload: dict[str, Any],
         *,
         unreachable: str,
+        headers: dict[str, str] | None = None,
     ) -> httpx.Response:
         try:
             return client.post(
                 f"{self.base_url}{path}",
                 json=payload,
+                headers=headers,
                 timeout=self._timeout(),
             )
         except httpx.HTTPError as error:
