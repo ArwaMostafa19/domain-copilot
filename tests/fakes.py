@@ -159,7 +159,7 @@ class InMemoryRunRepository:
         from src.application.ports import RunRecord, RunStepRecord
 
         self.runs: dict[tuple[str, str], RunRecord] = {}
-        self.steps: dict[tuple[str, str], list[RunStepRecord]] = {}
+        self.step_rows: dict[tuple[str, str], list[RunStepRecord]] = {}
         self._ids = []
 
     def create(self, tenant_id, user_id, question):
@@ -176,7 +176,7 @@ class InMemoryRunRepository:
             estimated_tokens=False,
         )
         self.runs[(tenant_id, rid)] = rec
-        self.steps[(tenant_id, rid)] = []
+        self.step_rows[(tenant_id, rid)] = []
         return rid
 
     def get(self, tenant_id, run_id):
@@ -195,10 +195,10 @@ class InMemoryRunRepository:
             )
 
     def add_step(self, tenant_id, run_id, step):
-        self.steps.setdefault((tenant_id, run_id), []).append(step)
+            self.step_rows.setdefault((tenant_id, run_id), []).append(step)
 
     def steps(self, tenant_id, run_id):
-        return list(self.steps.get((tenant_id, run_id), []))
+        return list(self.step_rows.get((tenant_id, run_id), []))
 
     def list_for_user(self, tenant_id, user_id):
         return [r for r in self.runs.values() if r.tenant_id == tenant_id and r.user_id == user_id]
