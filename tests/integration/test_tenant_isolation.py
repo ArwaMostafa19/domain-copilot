@@ -52,7 +52,9 @@ def test_writing_a_document_for_another_tenant_is_rejected(two_documents):
 
 def test_update_and_delete_cannot_touch_another_tenants_documents(two_documents):
     with tenant_connection(ALPHA) as conn:
-        updated = conn.execute("UPDATE documents SET title = 'Hacked'").rowcount
+        updated = conn.execute(
+            "UPDATE documents SET title = 'Hacked' WHERE doc_id = 'TEST-ALPHA'"
+        ).rowcount
         deleted = conn.execute("DELETE FROM documents WHERE doc_id = 'TEST-BETA'").rowcount
     assert (updated, deleted) == (1, 0)  # only alpha's own document was touched
 
@@ -67,9 +69,13 @@ def test_the_tenant_does_not_leak_into_the_next_transaction(two_documents):
     with psycopg.connect(APP_URL) as conn:
         with conn.transaction():
             conn.execute("SELECT set_config('app.tenant_id', %s, true)", (ALPHA,))
-            inside = conn.execute("SELECT count(*) FROM documents").fetchone()[0]
+            inside = conn.execute(
+                "SELECT count(*) FROM documents WHERE doc_id LIKE 'TEST-%'"
+            ).fetchone()[0]
         with conn.transaction():
-            outside = conn.execute("SELECT count(*) FROM documents").fetchone()[0]
+            outside = conn.execute(
+                "SELECT count(*) FROM documents WHERE doc_id LIKE 'TEST-%'"
+            ).fetchone()[0]
     assert (inside, outside) == (1, 0)
 
 

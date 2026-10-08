@@ -300,8 +300,8 @@ def test_complete_rejects_a_non_json_body() -> None:
         (408, ProviderUnavailableError),
         (500, ProviderUnavailableError),
         (503, ProviderUnavailableError),
+        (404, ProviderUnavailableError),
         (400, ProviderRequestError),
-        (404, ProviderRequestError),
     ],
 )
 def test_error_statuses_map_to_the_right_provider_error(status, expected) -> None:

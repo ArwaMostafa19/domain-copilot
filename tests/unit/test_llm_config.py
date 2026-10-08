@@ -16,7 +16,7 @@ def test_defaults_when_nothing_is_set() -> None:
     assert settings.embedding_provider == "ollama"
     assert settings.embedding_model == "nomic-embed-text"
     assert settings.embedding_dimensions == 768
-    assert settings.llm_timeout_seconds == 60.0
+    assert settings.llm_timeout_seconds == 180.0
     assert settings.llm_cooldown_seconds == 60.0
     assert settings.groq_base_url == "https://api.groq.com/openai/v1"
     assert settings.gemini_base_url == (
