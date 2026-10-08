@@ -87,3 +87,5 @@ def _check_vectors(
                 f"embedder {embedder.model_name!r} vector {index} has "
                 f"{len(vector)} values, expected {embedder.dimension}",
             )
+
+

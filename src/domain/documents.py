@@ -60,3 +60,5 @@ class SafetyStep:
 
     step_no: int
     text: str
+
+

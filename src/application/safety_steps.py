@@ -28,6 +28,7 @@ def extract_safety_steps(doc: ExtractedDocument) -> list[SafetyStep]:
     return steps
 
 
+
 def _steps_of(text: str) -> list[SafetyStep]:
     steps: list[SafetyStep] = []
     for block in text.split(BLOCK_SEPARATOR):

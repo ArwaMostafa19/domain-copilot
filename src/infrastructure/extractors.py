@@ -20,6 +20,7 @@ from src.domain.documents import (
     Section,
 )
 
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 MANIFEST_NAME = "manifest.json"
 FRONT_MATTER_DELIMITER = "---"
