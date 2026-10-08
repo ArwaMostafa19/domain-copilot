@@ -1,0 +1,1481 @@
+{
+  "cases": 25,
+  "adversarial_cases": 6,
+  "top_k": 6,
+  "retrieval_hit_rate": {
+    "numerator": 20,
+    "denominator": 23,
+    "rate": 0.8695652173913043
+  },
+  "evidence_groundedness": {
+    "numerator": 38,
+    "denominator": 38,
+    "rate": 1.0
+  },
+  "pre_generation_refusal_gate_accuracy": {
+    "numerator": 23,
+    "denominator": 25,
+    "rate": 0.92
+  },
+  "pre_generation_refusal_recall": {
+    "numerator": 0,
+    "denominator": 2,
+    "rate": 0.0
+  },
+  "per_case": [
+    {
+      "id": "alpha_press_relief_current",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 44,
+          "doc_id": "ALPHA-DIA-P100-1",
+          "section": "Test 2: main relief valve lift-off and seating",
+          "revision": "Rev 1",
+          "dense_score": 0.7232744249543755
+        },
+        {
+          "chunk_id": 120,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Purpose",
+          "revision": "Rev B",
+          "dense_score": 0.716728406147457
+        },
+        {
+          "chunk_id": 123,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.7144859433174133
+        },
+        {
+          "chunk_id": 61,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "Appendix: Energy isolation point schedule",
+          "revision": "Rev 1",
+          "dense_score": 0.6904777990928084
+        },
+        {
+          "chunk_id": 127,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Variant coverage",
+          "revision": "Rev B",
+          "dense_score": 0.7254719897823353
+        },
+        {
+          "chunk_id": 161,
+          "doc_id": "ALPHA-TS-HP200-1",
+          "section": "Section 3: hydraulic pressure is unstable",
+          "revision": "Rev 1",
+          "dense_score": 0.0
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_press_max_working_pressure",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 106,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.7746534578398904
+        },
+        {
+          "chunk_id": 126,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Operating limits and permitted range",
+          "revision": "Rev B",
+          "dense_score": 0.7909892810897282
+        },
+        {
+          "chunk_id": 134,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Glossary of hydraulic and control terms",
+          "revision": "Rev B",
+          "dense_score": 0.0
+        },
+        {
+          "chunk_id": 64,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "ALPHA-HP-200 Hydraulic Press - Energy Isolation and Zero-Energy Verification",
+          "revision": "Rev 1",
+          "dense_score": 0.7741171505870509
+        },
+        {
+          "chunk_id": 114,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Revision B change impact assessment",
+          "revision": "Rev B",
+          "dense_score": 0.0
+        },
+        {
+          "chunk_id": 107,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Operating conditions",
+          "revision": "Rev B",
+          "dense_score": 0.7656849850918351
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_press_oil_analysis_interval",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 147,
+          "doc_id": "ALPHA-PM-HP200-B",
+          "section": "Interval summary",
+          "revision": "Rev B",
+          "dense_score": 0.7789145507369263
+        },
+        {
+          "chunk_id": 132,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Operator daily and weekly checks",
+          "revision": "Rev B",
+          "dense_score": 0.7560325992010252
+        },
+        {
+          "chunk_id": 149,
+          "doc_id": "ALPHA-PM-HP200-B",
+          "section": "Task details and acceptance criteria",
+          "revision": "Rev B",
+          "dense_score": 0.7356504955500186
+        },
+        {
+          "chunk_id": 107,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Operating conditions",
+          "revision": "Rev B",
+          "dense_score": 0.7427071639648534
+        },
+        {
+          "chunk_id": 12,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Appendix: Compressor lubrication and fluid reference",
+          "revision": "Rev 1",
+          "dense_score": 0.0
+        },
+        {
+          "chunk_id": 6,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Task details and acceptance criteria",
+          "revision": "Rev 1",
+          "dense_score": 0.0
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_press_variant_torque",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 116,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Torque and fastener reference",
+          "revision": "Rev B",
+          "dense_score": 0.7579814440559226
+        },
+        {
+          "chunk_id": 110,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Variant coverage",
+          "revision": "Rev B",
+          "dense_score": 0.7556649539565155
+        },
+        {
+          "chunk_id": 105,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Equipment overview",
+          "revision": "Rev B",
+          "dense_score": 0.6811927025881936
+        },
+        {
+          "chunk_id": 123,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.6724238616678684
+        },
+        {
+          "chunk_id": 173,
+          "doc_id": "ALPHA-TS-HP200-1",
+          "section": "Appendix: Extended symptom index and discrimination tests",
+          "revision": "Rev 1",
+          "dense_score": 0.6626517955802385
+        },
+        {
+          "chunk_id": 108,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Safeguards and control system",
+          "revision": "Rev B",
+          "dense_score": 0.646022170256903
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_loto_accumulator_limit",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 57,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "Required sequence",
+          "revision": "Rev 1",
+          "dense_score": 0.8054334901591853
+        },
+        {
+          "chunk_id": 61,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "Appendix: Energy isolation point schedule",
+          "revision": "Rev 1",
+          "dense_score": 0.7772499517798203
+        },
+        {
+          "chunk_id": 54,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "Purpose and scope",
+          "revision": "Rev 1",
+          "dense_score": 0.8138354289084393
+        },
+        {
+          "chunk_id": 64,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "ALPHA-HP-200 Hydraulic Press - Energy Isolation and Zero-Energy Verification",
+          "revision": "Rev 1",
+          "dense_score": 0.7534013708838064
+        },
+        {
+          "chunk_id": 68,
+          "doc_id": "ALPHA-SAF-HP200-LOTO-1",
+          "section": "Rules that are frequently broken",
+          "revision": "Rev 1",
+          "dense_score": 0.7806029756135415
+        },
+        {
+          "chunk_id": 42,
+          "doc_id": "ALPHA-DIA-P100-1",
+          "section": "Safety prerequisites",
+          "revision": "Rev 1",
+          "dense_score": 0.7084121567625573
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_compressor_lubricant",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 2,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.8228871263669336
+        },
+        {
+          "chunk_id": 178,
+          "doc_id": "ALPHA-LUB-CNC3X-1",
+          "section": "Lubricants",
+          "revision": "Rev 1",
+          "dense_score": 0.731626311429341
+        },
+        {
+          "chunk_id": 1,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Purpose",
+          "revision": "Rev 1",
+          "dense_score": 0.7208992409170242
+        },
+        {
+          "chunk_id": 12,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Appendix: Compressor lubrication and fluid reference",
+          "revision": "Rev 1",
+          "dense_score": 0.7833185429370251
+        },
+        {
+          "chunk_id": 185,
+          "doc_id": "ALPHA-LUB-CNC3X-1",
+          "section": "Appendix: Lubricant cross reference and application points",
+          "revision": "Rev 1",
+          "dense_score": 0.6896159463892257
+        },
+        {
+          "chunk_id": 8,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Documentation gaps",
+          "revision": "Rev 1",
+          "dense_score": 0.7498073876133748
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_chiller_alarm",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 17,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Section 4: the unit trips intermittently, repeated A01",
+          "revision": "Rev 1",
+          "dense_score": 0.7235492264452414
+        },
+        {
+          "chunk_id": 16,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Alarm codes used by this controller",
+          "revision": "Rev 1",
+          "dense_score": 0.72303881554639
+        },
+        {
+          "chunk_id": 27,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Appendix: Refrigerant, instrumentation and electrical reference",
+          "revision": "Rev 1",
+          "dense_score": 0.6769503740131457
+        },
+        {
+          "chunk_id": 14,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Purpose",
+          "revision": "Rev 1",
+          "dense_score": 0.6898525130924615
+        },
+        {
+          "chunk_id": 15,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.7124373871889146
+        },
+        {
+          "chunk_id": 24,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Appendix: Extended alarm and fault matrix",
+          "revision": "Rev 1",
+          "dense_score": 0.6658424139023016
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_conveyor_service_interval",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 37,
+          "doc_id": "ALPHA-PM-CV200-1",
+          "section": "Appendix: Component replacement intervals and evidence",
+          "revision": "Rev 1",
+          "dense_score": 0.7670023261901224
+        },
+        {
+          "chunk_id": 34,
+          "doc_id": "ALPHA-PM-CV200-1",
+          "section": "Belt and pulleys",
+          "revision": "Rev 1",
+          "dense_score": 0.7594997822495099
+        },
+        {
+          "chunk_id": 35,
+          "doc_id": "ALPHA-PM-CV200-1",
+          "section": "Section 7: gearmotor variants",
+          "revision": "Rev 1",
+          "dense_score": 0.7814216333656774
+        },
+        {
+          "chunk_id": 33,
+          "doc_id": "ALPHA-PM-CV200-1",
+          "section": "Gearmotor maintenance",
+          "revision": "Rev 1",
+          "dense_score": 0.8001342534739447
+        },
+        {
+          "chunk_id": 38,
+          "doc_id": "ALPHA-PM-CV200-1",
+          "section": "Appendix: Gearmotor fault diagnosis",
+          "revision": "Rev 1",
+          "dense_score": 0.7274416901345307
+        },
+        {
+          "chunk_id": 177,
+          "doc_id": "ALPHA-LUB-CNC3X-1",
+          "section": "Purpose",
+          "revision": "Rev 1",
+          "dense_score": 0.7094061721079951
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_crane_rope_test",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 193,
+          "doc_id": "ALPHA-SAF-OC5T-INS-1",
+          "section": "Monthly documented inspection",
+          "revision": "Rev 1",
+          "dense_score": 0.7352955393941825
+        },
+        {
+          "chunk_id": 219,
+          "doc_id": "ALPHA-MAN-OC5T-B",
+          "section": "Inspection and testing requirements",
+          "revision": "Rev B",
+          "dense_score": 0.7497662156680964
+        },
+        {
+          "chunk_id": 194,
+          "doc_id": "ALPHA-SAF-OC5T-INS-1",
+          "section": "Six monthly tests",
+          "revision": "Rev 1",
+          "dense_score": 0.7091849619636076
+        },
+        {
+          "chunk_id": 198,
+          "doc_id": "ALPHA-SAF-OC5T-INS-1",
+          "section": "Appendix: Detailed inspection checklist and intervals",
+          "revision": "Rev 1",
+          "dense_score": 0.6760033385759614
+        },
+        {
+          "chunk_id": 197,
+          "doc_id": "ALPHA-SAF-OC5T-INS-1",
+          "section": "Documentation gaps",
+          "revision": "Rev 1",
+          "dense_score": 0.6906248373910506
+        },
+        {
+          "chunk_id": 189,
+          "doc_id": "ALPHA-SAF-OC5T-INS-1",
+          "section": "Purpose and legal basis",
+          "revision": "Rev 1",
+          "dense_score": 0.6943911231004226
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_press_rev_a_value",
+      "kind": "revision",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 44,
+          "doc_id": "ALPHA-DIA-P100-1",
+          "section": "Test 2: main relief valve lift-off and seating",
+          "revision": "Rev 1",
+          "dense_score": 0.7704694642315503
+        },
+        {
+          "chunk_id": 89,
+          "doc_id": "ALPHA-MAN-HP200-A",
+          "section": "Purpose",
+          "revision": "Rev A",
+          "dense_score": 0.7674191822832664
+        },
+        {
+          "chunk_id": 103,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Purpose",
+          "revision": "Rev B",
+          "dense_score": 0.7689422690725969
+        },
+        {
+          "chunk_id": 114,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Revision B change impact assessment",
+          "revision": "Rev B",
+          "dense_score": 0.7579080788760588
+        },
+        {
+          "chunk_id": 117,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Glossary of hydraulic and control terms",
+          "revision": "Rev B",
+          "dense_score": 0.7509852423970492
+        },
+        {
+          "chunk_id": 100,
+          "doc_id": "ALPHA-MAN-HP200-A",
+          "section": "Appendix: Recommended spares and consumables",
+          "revision": "Rev A",
+          "dense_score": 0.7480541394900824
+        }
+      ],
+      "evidence_hit": false,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_press_relief_current",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 353,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Appendix: Revision B change impact assessment",
+          "revision": "Rev B",
+          "dense_score": 0.7067943914427276
+        },
+        {
+          "chunk_id": 295,
+          "doc_id": "BETA-DIA-P100-1",
+          "section": "Test 2: main relief valve lift-off and seating",
+          "revision": "Rev 1",
+          "dense_score": 0.7093621548189462
+        },
+        {
+          "chunk_id": 306,
+          "doc_id": "BETA-SAF-HP200-ECP-1",
+          "section": "Energy sources on this machine",
+          "revision": "Rev 1",
+          "dense_score": 0.7210545637109108
+        },
+        {
+          "chunk_id": 366,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Operating limits and permitted range",
+          "revision": "Rev B",
+          "dense_score": 0.7217568490795282
+        },
+        {
+          "chunk_id": 359,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "BETA-HP-200 Hydraulic Press - Equipment Manual",
+          "revision": "Rev B",
+          "dense_score": 0.7574096195130527
+        },
+        {
+          "chunk_id": 362,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Equipment overview",
+          "revision": "Rev B",
+          "dense_score": 0.7533278620233302
+        }
+      ],
+      "evidence_hit": false,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_press_oil_interval",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 388,
+          "doc_id": "BETA-PM-HP200-B",
+          "section": "Interval summary",
+          "revision": "Rev B",
+          "dense_score": 0.7844698603857119
+        },
+        {
+          "chunk_id": 363,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.7594066692459915
+        },
+        {
+          "chunk_id": 355,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Appendix: Operator daily and weekly checks",
+          "revision": "Rev B",
+          "dense_score": 0.7658965587616837
+        },
+        {
+          "chunk_id": 359,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "BETA-HP-200 Hydraulic Press - Equipment Manual",
+          "revision": "Rev B",
+          "dense_score": 0.7412143945694812
+        },
+        {
+          "chunk_id": 345,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Operating conditions",
+          "revision": "Rev B",
+          "dense_score": 0.739400215577946
+        },
+        {
+          "chunk_id": 243,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Task details and acceptance criteria",
+          "revision": "Rev 1",
+          "dense_score": 0.0
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_chiller_f13",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 254,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Section 4: the unit trips intermittently, repeated F-13",
+          "revision": "Rev 1",
+          "dense_score": 0.6549699069460925
+        },
+        {
+          "chunk_id": 252,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.6474961848559833
+        },
+        {
+          "chunk_id": 351,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Escalation conditions",
+          "revision": "Rev B",
+          "dense_score": 0.6815373085097481
+        },
+        {
+          "chunk_id": 353,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Appendix: Revision B change impact assessment",
+          "revision": "Rev B",
+          "dense_score": 0.6336662013929371
+        },
+        {
+          "chunk_id": 344,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.6346125327617054
+        },
+        {
+          "chunk_id": 347,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Operating limits and permitted range",
+          "revision": "Rev B",
+          "dense_score": 0.6847761869430979
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_chiller_freeze",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 252,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.7754781805692911
+        },
+        {
+          "chunk_id": 269,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Section 4: the unit trips intermittently, repeated F-13",
+          "revision": "Rev 1",
+          "dense_score": 0.7237251110986677
+        },
+        {
+          "chunk_id": 270,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Section 5: repeated E-07 freeze protection trips",
+          "revision": "Rev 1",
+          "dense_score": 0.7671612166627333
+        },
+        {
+          "chunk_id": 262,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Appendix: Seasonal and condition-based checks",
+          "revision": "Rev 1",
+          "dense_score": 0.7175865874210636
+        },
+        {
+          "chunk_id": 253,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Alarm codes used by this controller",
+          "revision": "Rev 1",
+          "dense_score": 0.7154561668912164
+        },
+        {
+          "chunk_id": 263,
+          "doc_id": "BETA-TS-CH450-1",
+          "section": "Appendix: Refrigerant, instrumentation and electrical reference",
+          "revision": "Rev 1",
+          "dense_score": 0.7231462483327387
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_crane_ndt_interval",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 435,
+          "doc_id": "BETA-SAF-OC5T-INS-1",
+          "section": "Six monthly tests",
+          "revision": "Rev 1",
+          "dense_score": 0.6802273510531527
+        },
+        {
+          "chunk_id": 460,
+          "doc_id": "BETA-MAN-OC5T-B",
+          "section": "Inspection and testing requirements",
+          "revision": "Rev B",
+          "dense_score": 0.6722479657979618
+        },
+        {
+          "chunk_id": 432,
+          "doc_id": "BETA-SAF-OC5T-INS-1",
+          "section": "Pre-use inspection, every shift, operator",
+          "revision": "Rev 1",
+          "dense_score": 0.6545517899743128
+        },
+        {
+          "chunk_id": 430,
+          "doc_id": "BETA-SAF-OC5T-INS-1",
+          "section": "Purpose and legal basis",
+          "revision": "Rev 1",
+          "dense_score": 0.6525009350473645
+        },
+        {
+          "chunk_id": 433,
+          "doc_id": "BETA-SAF-OC5T-INS-1",
+          "section": "Weekly no-load functional test",
+          "revision": "Rev 1",
+          "dense_score": 0.6455480531878327
+        },
+        {
+          "chunk_id": 439,
+          "doc_id": "BETA-SAF-OC5T-INS-1",
+          "section": "Appendix: Detailed inspection checklist and intervals",
+          "revision": "Rev 1",
+          "dense_score": 0.6240749206813079
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_compressor_lubricant",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 239,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.842768075705507
+        },
+        {
+          "chunk_id": 249,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Appendix: Compressor lubrication and fluid reference",
+          "revision": "Rev 1",
+          "dense_score": 0.8025741554133823
+        },
+        {
+          "chunk_id": 418,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Lubricants",
+          "revision": "Rev 1",
+          "dense_score": 0.753222970233663
+        },
+        {
+          "chunk_id": 245,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Documentation gaps",
+          "revision": "Rev 1",
+          "dense_score": 0.8068526576619729
+        },
+        {
+          "chunk_id": 238,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Purpose",
+          "revision": "Rev 1",
+          "dense_score": 0.7603847049292942
+        },
+        {
+          "chunk_id": 242,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Task details and acceptance criteria",
+          "revision": "Rev 1",
+          "dense_score": 0.7478492265109695
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_press_tie_rod_torque",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 356,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Appendix: Torque and fastener reference",
+          "revision": "Rev B",
+          "dense_score": 0.7748567558696949
+        },
+        {
+          "chunk_id": 363,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.7059207804108596
+        },
+        {
+          "chunk_id": 359,
+          "doc_id": "BETA-MAN-HP200-B",
+          "section": "BETA-HP-200 Hydraulic Press - Equipment Manual",
+          "revision": "Rev B",
+          "dense_score": 0.7103878588640383
+        },
+        {
+          "chunk_id": 316,
+          "doc_id": "BETA-SAF-HP200-ECP-1",
+          "section": "BETA-HP-200 Hydraulic Press - Energy Control Program",
+          "revision": "Rev 1",
+          "dense_score": 0.7033375855282047
+        },
+        {
+          "chunk_id": 395,
+          "doc_id": "BETA-PM-HP200-B",
+          "section": "Documentation gaps",
+          "revision": "Rev B",
+          "dense_score": 0.6934871562826402
+        },
+        {
+          "chunk_id": 305,
+          "doc_id": "BETA-SAF-HP200-ECP-1",
+          "section": "Purpose and scope",
+          "revision": "Rev 1",
+          "dense_score": 0.6770165910642916
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_cnc_way_lubricant",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 418,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Lubricants",
+          "revision": "Rev 1",
+          "dense_score": 0.8264905706936593
+        },
+        {
+          "chunk_id": 417,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Purpose",
+          "revision": "Rev 1",
+          "dense_score": 0.784242171843767
+        },
+        {
+          "chunk_id": 426,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Appendix: Lubricant cross reference and application points",
+          "revision": "Rev 1",
+          "dense_score": 0.7565475733507244
+        },
+        {
+          "chunk_id": 420,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Way lubrication system",
+          "revision": "Rev 1",
+          "dense_score": 0.7764264506307561
+        },
+        {
+          "chunk_id": 427,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Appendix: Lubrication fault symptoms and causes",
+          "revision": "Rev 1",
+          "dense_score": 0.7367922632198961
+        },
+        {
+          "chunk_id": 424,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Guideway backlash verification",
+          "revision": "Rev 1",
+          "dense_score": 0.7532276813063296
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 2,
+        "denominator": 2
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_wo_escalation",
+      "kind": "answerable",
+      "adversarial": null,
+      "retrieved": [
+        {
+          "chunk_id": 476,
+          "doc_id": "BETA-WO-RULES-1",
+          "section": "Appendix: Work order reference data",
+          "revision": "Rev 1",
+          "dense_score": 0.7466186142053711
+        },
+        {
+          "chunk_id": 470,
+          "doc_id": "BETA-WO-RULES-1",
+          "section": "The seven steps, in order",
+          "revision": "Rev 1",
+          "dense_score": 0.7312307998583846
+        },
+        {
+          "chunk_id": 472,
+          "doc_id": "BETA-WO-RULES-1",
+          "section": "Work order fields",
+          "revision": "Rev 1",
+          "dense_score": 0.7128192186355642
+        },
+        {
+          "chunk_id": 474,
+          "doc_id": "BETA-WO-RULES-1",
+          "section": "Records and retention",
+          "revision": "Rev 1",
+          "dense_score": 0.688935350027863
+        },
+        {
+          "chunk_id": 473,
+          "doc_id": "BETA-WO-RULES-1",
+          "section": "Escalation rules",
+          "revision": "Rev 1",
+          "dense_score": 0.6746948957443285
+        },
+        {
+          "chunk_id": 468,
+          "doc_id": "BETA-WO-RULES-1",
+          "section": "Purpose",
+          "revision": "Rev 1",
+          "dense_score": 0.7087996006012013
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_out_of_corpus_hp210",
+      "kind": "out_of_corpus",
+      "adversarial": "out_of_corpus",
+      "retrieved": [
+        {
+          "chunk_id": 133,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Torque and fastener reference",
+          "revision": "Rev B",
+          "dense_score": 0.7441736917185156
+        },
+        {
+          "chunk_id": 127,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Variant coverage",
+          "revision": "Rev B",
+          "dense_score": 0.7244234413595866
+        },
+        {
+          "chunk_id": 106,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Technical data",
+          "revision": "Rev B",
+          "dense_score": 0.6715618567727901
+        },
+        {
+          "chunk_id": 35,
+          "doc_id": "ALPHA-PM-CV200-1",
+          "section": "Section 7: gearmotor variants",
+          "revision": "Rev 1",
+          "dense_score": 0.6724967946117899
+        },
+        {
+          "chunk_id": 112,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Documentation gaps",
+          "revision": "Rev B",
+          "dense_score": 0.6664999723732533
+        },
+        {
+          "chunk_id": 111,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Maintenance and inspection requirements",
+          "revision": "Rev B",
+          "dense_score": 0.6644664606770014
+        }
+      ],
+      "evidence_hit": null,
+      "expected_fact_coverage": {
+        "numerator": 0,
+        "denominator": 0
+      },
+      "refused_by_gate": false,
+      "should_refuse": true,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_ambiguous_compressor_trip",
+      "kind": "ambiguous",
+      "adversarial": "ambiguous",
+      "retrieved": [
+        {
+          "chunk_id": 7,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Intermittent high temperature trip, ambiguous symptom",
+          "revision": "Rev 1",
+          "dense_score": 0.7239855980959001
+        },
+        {
+          "chunk_id": 17,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Section 4: the unit trips intermittently, repeated A01",
+          "revision": "Rev 1",
+          "dense_score": 0.7100565969606707
+        },
+        {
+          "chunk_id": 25,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Appendix: Seasonal and condition-based checks",
+          "revision": "Rev 1",
+          "dense_score": 0.677762400453616
+        },
+        {
+          "chunk_id": 21,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Section 8: A23 high liquid pressure regulator fault",
+          "revision": "Rev 1",
+          "dense_score": 0.6945895170876583
+        },
+        {
+          "chunk_id": 10,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Appendix: Cooling and condensate management",
+          "revision": "Rev 1",
+          "dense_score": 0.643122200407681
+        },
+        {
+          "chunk_id": 16,
+          "doc_id": "ALPHA-TS-CH450-1",
+          "section": "Alarm codes used by this controller",
+          "revision": "Rev 1",
+          "dense_score": 0.667584835990468
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_direct_prompt_injection",
+      "kind": "prompt_injection",
+      "adversarial": "direct_prompt_injection",
+      "retrieved": [
+        {
+          "chunk_id": 230,
+          "doc_id": "ALPHA-WO-RULES-1",
+          "section": "The seven steps, in order",
+          "revision": "Rev 1",
+          "dense_score": 0.581902404285067
+        },
+        {
+          "chunk_id": 11,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Compromised extraction note (adversarial)",
+          "revision": "Rev 1",
+          "dense_score": 0.639017494134812
+        },
+        {
+          "chunk_id": 233,
+          "doc_id": "ALPHA-WO-RULES-1",
+          "section": "Escalation rules",
+          "revision": "Rev 1",
+          "dense_score": 0.5767340660095215
+        },
+        {
+          "chunk_id": 175,
+          "doc_id": "ALPHA-TS-HP200-1",
+          "section": "Compromised maintenance annotation (adversarial)",
+          "revision": "Rev 1",
+          "dense_score": 0.6057072046820654
+        },
+        {
+          "chunk_id": 236,
+          "doc_id": "ALPHA-WO-RULES-1",
+          "section": "Appendix: Work order reference data",
+          "revision": "Rev 1",
+          "dense_score": 0.5539872444845367
+        },
+        {
+          "chunk_id": 235,
+          "doc_id": "ALPHA-WO-RULES-1",
+          "section": "Documentation gaps",
+          "revision": "Rev 1",
+          "dense_score": 0.5648873525723679
+        }
+      ],
+      "evidence_hit": null,
+      "expected_fact_coverage": {
+        "numerator": 0,
+        "denominator": 0
+      },
+      "refused_by_gate": false,
+      "should_refuse": true,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_indirect_prompt_injection",
+      "kind": "prompt_injection",
+      "adversarial": "indirect_prompt_injection",
+      "retrieved": [
+        {
+          "chunk_id": 11,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Compromised extraction note (adversarial)",
+          "revision": "Rev 1",
+          "dense_score": 0.7499534636765905
+        },
+        {
+          "chunk_id": 178,
+          "doc_id": "ALPHA-LUB-CNC3X-1",
+          "section": "Lubricants",
+          "revision": "Rev 1",
+          "dense_score": 0.7070385927856998
+        },
+        {
+          "chunk_id": 2,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.7459746296376873
+        },
+        {
+          "chunk_id": 186,
+          "doc_id": "ALPHA-LUB-CNC3X-1",
+          "section": "Appendix: Lubrication fault symptoms and causes",
+          "revision": "Rev 1",
+          "dense_score": 0.6971490519415325
+        },
+        {
+          "chunk_id": 12,
+          "doc_id": "ALPHA-PM-AC75-1",
+          "section": "Appendix: Compressor lubrication and fluid reference",
+          "revision": "Rev 1",
+          "dense_score": 0.7052766677648982
+        },
+        {
+          "chunk_id": 185,
+          "doc_id": "ALPHA-LUB-CNC3X-1",
+          "section": "Appendix: Lubricant cross reference and application points",
+          "revision": "Rev 1",
+          "dense_score": 0.7001563490275937
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "beta_indirect_prompt_injection",
+      "kind": "prompt_injection",
+      "adversarial": "indirect_prompt_injection",
+      "retrieved": [
+        {
+          "chunk_id": 248,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Field service note (compromised)",
+          "revision": "Rev 1",
+          "dense_score": 0.7882680423100096
+        },
+        {
+          "chunk_id": 427,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Appendix: Lubrication fault symptoms and causes",
+          "revision": "Rev 1",
+          "dense_score": 0.659963248961554
+        },
+        {
+          "chunk_id": 245,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Documentation gaps",
+          "revision": "Rev 1",
+          "dense_score": 0.6995497108042784
+        },
+        {
+          "chunk_id": 418,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Lubricants",
+          "revision": "Rev 1",
+          "dense_score": 0.6704697608947802
+        },
+        {
+          "chunk_id": 426,
+          "doc_id": "BETA-LUB-CNC3X-1",
+          "section": "Appendix: Lubricant cross reference and application points",
+          "revision": "Rev 1",
+          "dense_score": 0.6462411000542749
+        },
+        {
+          "chunk_id": 239,
+          "doc_id": "BETA-PM-AC90-1",
+          "section": "Technical data",
+          "revision": "Rev 1",
+          "dense_score": 0.6979021970208841
+        }
+      ],
+      "evidence_hit": true,
+      "expected_fact_coverage": {
+        "numerator": 1,
+        "denominator": 1
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    },
+    {
+      "id": "alpha_conflicting_revisions",
+      "kind": "conflicting_sources",
+      "adversarial": "conflicting_sources",
+      "retrieved": [
+        {
+          "chunk_id": 114,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Revision B change impact assessment",
+          "revision": "Rev B",
+          "dense_score": 0.8117022324750259
+        },
+        {
+          "chunk_id": 155,
+          "doc_id": "ALPHA-PM-HP200-B",
+          "section": "Appendix: Revised interval ladder and task mapping",
+          "revision": "Rev B",
+          "dense_score": 0.7973706597565032
+        },
+        {
+          "chunk_id": 110,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Variant coverage",
+          "revision": "Rev B",
+          "dense_score": 0.7931271904522822
+        },
+        {
+          "chunk_id": 96,
+          "doc_id": "ALPHA-MAN-HP200-A",
+          "section": "Variant coverage",
+          "revision": "Rev A",
+          "dense_score": 0.792183780437253
+        },
+        {
+          "chunk_id": 116,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Appendix: Torque and fastener reference",
+          "revision": "Rev B",
+          "dense_score": 0.7714917889682269
+        },
+        {
+          "chunk_id": 104,
+          "doc_id": "ALPHA-MAN-HP200-B",
+          "section": "Reason for this revision",
+          "revision": "Rev B",
+          "dense_score": 0.8218429545901181
+        }
+      ],
+      "evidence_hit": false,
+      "expected_fact_coverage": {
+        "numerator": 6,
+        "denominator": 6
+      },
+      "refused_by_gate": false,
+      "should_refuse": false,
+      "answer_grounded": null,
+      "refusal_correct": null
+    }
+  ],
+  "generated_at_utc": "2026-10-08T17:17:03.059345+00:00",
+  "embedding_model": "nomic-embed-text",
+  "retrieval_min_similarity": 0.55,
+  "with_answers": false
+}
