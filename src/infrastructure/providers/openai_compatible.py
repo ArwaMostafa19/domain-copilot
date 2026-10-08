@@ -523,7 +523,10 @@ class OpenAICompatibleProvider:
             return QuotaExceededError(self.name, detail)
         if status in (401, 403):
             return ProviderAuthError(self.name, detail)
-        if status == 408 or status >= 500:
+        # A 404 from a hosted model API commonly means that the configured
+        # model is retired or unavailable to this account. The fallback chain
+        # can still answer with another provider, so treat it as unavailable.
+        if status in (404, 408) or status >= 500:
             return ProviderUnavailableError(self.name, detail)
         return ProviderRequestError(self.name, detail)
 

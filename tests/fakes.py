@@ -133,3 +133,110 @@ class FakeChunkSearch:
             (tenant_id, terms, embedding_model, include_superseded, limit)
         )
         return list(self.keyword[:limit])
+
+
+class InMemoryUserRepository:
+    def __init__(self) -> None:
+        from src.application.ports import UserRecord
+
+        self.users: dict[tuple[str, str], UserRecord] = {}
+        self.by_id: dict[tuple[str, int], UserRecord] = {}
+
+    def add(self, record) -> None:
+        self.users[(record.tenant_id, record.username)] = record
+        self.by_id[(record.tenant_id, record.id)] = record
+
+    def get_by_username(self, tenant_id, username):
+        return self.users.get((tenant_id, username))
+
+    def get(self, tenant_id, user_id):
+        return self.by_id.get((tenant_id, user_id))
+
+
+class InMemoryRunRepository:
+    def __init__(self) -> None:
+
+        from src.application.ports import RunRecord, RunStepRecord
+
+        self.runs: dict[tuple[str, str], RunRecord] = {}
+        self.steps: dict[tuple[str, str], list[RunStepRecord]] = {}
+        self._ids = []
+
+    def create(self, tenant_id, user_id, question):
+        import uuid
+
+        rid = str(uuid.uuid4())
+        rec = __import__("src.application.ports", fromlist=["RunRecord"]).RunRecord(
+            id=rid,
+            tenant_id=tenant_id,
+            user_id=user_id,
+            question=question,
+            status="running",
+            total_tokens=0,
+            estimated_tokens=False,
+        )
+        self.runs[(tenant_id, rid)] = rec
+        self.steps[(tenant_id, rid)] = []
+        return rid
+
+    def get(self, tenant_id, run_id):
+        return self.runs.get((tenant_id, run_id))
+
+    def set_status(self, tenant_id, run_id, status, total_tokens=None, estimated_tokens=None, finished=False):
+        rec = self.runs.get((tenant_id, run_id))
+        if rec:
+            from dataclasses import replace
+
+            self.runs[(tenant_id, run_id)] = replace(
+                rec,
+                status=status,
+                total_tokens=total_tokens if total_tokens is not None else rec.total_tokens,
+                estimated_tokens=estimated_tokens if estimated_tokens is not None else rec.estimated_tokens,
+            )
+
+    def add_step(self, tenant_id, run_id, step):
+        self.steps.setdefault((tenant_id, run_id), []).append(step)
+
+    def steps(self, tenant_id, run_id):
+        return list(self.steps.get((tenant_id, run_id), []))
+
+    def list_for_user(self, tenant_id, user_id):
+        return [r for r in self.runs.values() if r.tenant_id == tenant_id and r.user_id == user_id]
+
+
+class InMemoryWorkOrderRepository:
+    def __init__(self) -> None:
+
+        self.orders = []
+
+    def create_draft(self, tenant_id, run_id, content):
+        version = 1
+        self.orders.append((tenant_id, run_id, version, content))
+        return content
+
+    def latest(self, tenant_id, run_id):
+        from src.application.ports import WorkOrderRecord
+
+        for o in reversed(self.orders):
+            if o[0] == tenant_id and o[1] == run_id:
+                return WorkOrderRecord(id="wo", run_id=run_id, version=o[2], status="draft", content=o[3])
+        return None
+
+    def set_status(self, tenant_id, work_order_id, status):
+        pass
+
+
+class InMemoryAuditLog:
+    def __init__(self) -> None:
+        self.events = []
+
+    def record(self, tenant_id, actor_user_id, action, subject_type, subject_id, detail=None):
+        self.events.append((tenant_id, actor_user_id, action, subject_type, subject_id, detail))
+
+
+class InMemorySafetyRepository:
+    def __init__(self, items=None) -> None:
+        self.items = list(items or [])
+
+    def required_for_documents(self, tenant_id, doc_ids):
+        return list(self.items)

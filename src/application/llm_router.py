@@ -81,7 +81,7 @@ class FallbackChain:
     def _candidates(self) -> list[LLMProvider]:
         now = self._clock()
         ready = [p for p in self._providers if self._blocked_until.get(p.name, 0.0) <= now]
-        return ready or list(self._providers)  
+        return ready or list(self._providers)
     def _record_failure(self, provider: LLMProvider, exc: ProviderError) -> None:
         logger.warning("provider %s failed (%s); trying next", provider.name, type(exc).__name__)
         if isinstance(exc, _COOLDOWN_ERRORS):

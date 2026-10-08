@@ -20,7 +20,7 @@ class EmbeddingGuard:
         recorded = self._registry.get()
         if recorded is None:
             self._registry.register(configured)
-            recorded = self._registry.get()  
+            recorded = self._registry.get()
         if recorded != configured:
             raise EmbeddingModelMismatchError(
                 f"index was built with {recorded.model} ({recorded.dimensions}d) but "

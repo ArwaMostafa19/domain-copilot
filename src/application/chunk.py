@@ -10,6 +10,7 @@ DEFAULT_MAX_CHARS = 1800
 BLOCK_SEPARATOR = "\n\n"
 
 
+
 def chunk_document(doc: ExtractedDocument, max_chars: int = DEFAULT_MAX_CHARS) -> list[Chunk]:
     """Split every non-empty section of the document into chunks.
 

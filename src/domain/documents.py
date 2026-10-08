@@ -17,10 +17,10 @@ class DocumentMeta:
     doc_id: str
     title: str
     revision: str
-    status: str 
-    source_format: str  
+    status: str
+    source_format: str
     source_path: str
-    content_sha256: str  
+    content_sha256: str
     equipment: str | None = None
     document_type: str | None = None
 
@@ -31,7 +31,7 @@ class Section:
 
     title: str
     text: str
-    page: int | None = None  
+    page: int | None = None
 
 
 @dataclass(frozen=True)
@@ -46,10 +46,10 @@ class ExtractedDocument:
 class Chunk:
     """A piece of text that is stored, searched and cited on its own."""
 
-    ordinal: int  
-    section: str  
-    context: str 
-    text: str  
+    ordinal: int
+    section: str
+    context: str
+    text: str
     revision: str
     page: int | None = None
 
@@ -60,3 +60,5 @@ class SafetyStep:
 
     step_no: int
     text: str
+
+

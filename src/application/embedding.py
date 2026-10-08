@@ -14,6 +14,7 @@ class GuardedEmbedder:
     ingestion stores and validates against the same spec the guard checked.
     """
 
+
     def __init__(self, provider: LLMProvider, guard: EmbeddingGuard, spec: EmbeddingSpec) -> None:
         self._provider = provider
         self._guard = guard
