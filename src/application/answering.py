@@ -9,7 +9,8 @@ from __future__ import annotations
 
 import logging
 import re
-from dataclasses import dataclass
+from collections.abc import Iterator
+from dataclasses import dataclass, replace
 from pathlib import Path
 
 from src.application.ports import Embedder, LLMProvider
@@ -44,7 +45,7 @@ def load_system_prompt(path: Path = SYSTEM_PROMPT_PATH) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def answer_question(question: str, tenant_id: str, deps: AnswerDeps) -> Answer:
+def answer_question(question: str, tenant_id: str, deps: AnswerDeps, correlation_id: str | None = None) -> Answer:
     """Retrieve evidence and answer, or refuse before or after the model call."""
     evidence = retrieve(question, tenant_id, deps.embedder, deps.search, deps.settings)
     refusal = _refusal_gate(evidence, deps.settings.retrieval_min_similarity)
@@ -57,8 +58,39 @@ def answer_question(question: str, tenant_id: str, deps: AnswerDeps) -> Answer:
             Message(role="user", content=_user_message(question, evidence)),
         )
     )
+    request = replace(request, max_tokens=2048, correlation_id=correlation_id)
     result = deps.chain.complete(request)
     return _validate(result.content, result.usage, evidence)
+
+
+def stream_answer_question(question: str, tenant_id: str, deps: AnswerDeps, correlation_id: str | None = None) -> Iterator[dict[str, object]]:
+    """Stream progress and model tokens, then emit the grounded final answer."""
+    evidence = retrieve(question, tenant_id, deps.embedder, deps.search, deps.settings)
+    refusal = _refusal_gate(evidence, deps.settings.retrieval_min_similarity)
+    if refusal is not None:
+        answer = _refusal(refusal, evidence, TokenUsage())
+        yield {"event": "done", "answer": answer}
+        return
+    yield {"event": "progress", "stage": "evidence_found", "count": len(evidence)}
+    request = CompletionRequest(
+        messages=(
+            Message(role="system", content=load_system_prompt()),
+            Message(role="user", content=_user_message(question, evidence)),
+        )
+    )
+    request = replace(request, max_tokens=2048, correlation_id=correlation_id)
+    content: list[str] = []
+    usage = TokenUsage()
+    for event in deps.chain.stream(request):
+        if event.kind == "token":
+            content.append(event.text)
+            yield {"event": "token", "text": event.text}
+        elif event.result is not None:
+            usage = event.result.usage
+            if not content:
+                content.append(event.result.content)
+    answer = _validate("".join(content), usage, evidence)
+    yield {"event": "done", "answer": answer}
 
 
 def _refusal_gate(evidence: list[Evidence], min_similarity: float) -> str | None:

@@ -9,6 +9,7 @@ import httpx
 from src.application.embedding_guard import EmbeddingGuard
 from src.application.llm_router import FallbackChain
 from src.application.ports import EmbeddingIndexRegistry, LLMProvider
+from src.application.redaction import RedactingProvider
 from src.domain.llm import ConfigError
 from src.infrastructure.config import Settings
 from src.infrastructure.providers.fake import FakeLLMProvider
@@ -61,7 +62,9 @@ def build_chain(
     ordered = [providers[name] for name in settings.llm_chain]
     embedder = providers[settings.embedding_provider]
     return FallbackChain(
-        ordered, embedder, cooldown_seconds=settings.llm_cooldown_seconds
+        [RedactingProvider(provider) for provider in ordered],
+        RedactingProvider(embedder),
+        cooldown_seconds=settings.llm_cooldown_seconds,
     )
 
 
@@ -77,7 +80,7 @@ def build_embedding_stack(
     required = EMBEDDING_VARIABLES.get(settings.embedding_provider, ())
     _require_variables(settings, settings.embedding_provider, required)
     provider = _build_one(settings.embedding_provider, settings, client)
-    return provider, EmbeddingGuard(registry)
+    return RedactingProvider(provider), EmbeddingGuard(registry)
 
 
 def _build_one(

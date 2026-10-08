@@ -13,6 +13,7 @@ from src.application.answering import (
     AnswerDeps,
     answer_question,
     load_system_prompt,
+    stream_answer_question,
 )
 from src.domain.rag import Evidence, RefusalReason
 from src.infrastructure.providers.fake import FakeLLMProvider
@@ -63,6 +64,19 @@ def test_a_valid_citation_is_accepted() -> None:
     assert [citation.chunk_id for citation in answer.citations] == [1]
     assert answer.citations[0].revision == "Rev B"
     assert answer.usage.total_tokens > 0
+
+
+def test_streaming_answer_emits_progress_tokens_and_grounded_citations() -> None:
+    deps, _, _ = make_deps(
+        dense=[ev(1, dense=0.9)], script=["Answer [chunk:1]"]
+    )
+
+    events = list(stream_answer_question("question", "tenant-alpha", deps))
+
+    assert events[0] == {"event": "progress", "stage": "evidence_found", "count": 1}
+    assert any(item["event"] == "token" for item in events)
+    assert events[-1]["event"] == "done"
+    assert events[-1]["answer"].citations[0].chunk_id == 1
 
 
 def test_an_invented_citation_is_refused() -> None:

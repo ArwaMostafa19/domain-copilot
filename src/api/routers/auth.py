@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 
 from src.api import schemas
 from src.api.deps import get_auth_secret, get_current_user, get_user_repo
@@ -16,17 +16,18 @@ router = APIRouter()
 @router.post("/auth/login", response_model=schemas.LoginResponse)
 def login(
     body: schemas.LoginRequest,
+    request: Request,
     user_repo: Annotated[UserRepository, Depends(get_user_repo)],
     secret: Annotated[str, Depends(get_auth_secret)],
 ):
     try:
         return auth.login(
             tenant_id=body.tenant_id,
-            username=body.username,
+            username=body.username.strip(),
             password=body.password,
             user_repo=user_repo,
             secret=secret,
-            ttl_seconds=28800,
+            ttl_seconds=request.app.state.settings.token_ttl_seconds,
         )
     except AuthError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="invalid credentials") from None

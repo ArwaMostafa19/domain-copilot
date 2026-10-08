@@ -78,6 +78,17 @@ class FallbackChain:
     def embed(self, texts: Sequence[str]) -> EmbeddingResult:
         return self._embedder.embed(texts)
 
+    def healthcheck(self) -> bool:
+        """Check provider endpoints without submitting a prompt or embedding."""
+        chat_available = any(
+            bool(getattr(provider, "healthcheck", lambda: True)())
+            for provider in self._providers
+        )
+        embedding_available = bool(
+            getattr(self._embedder, "healthcheck", lambda: True)()
+        )
+        return chat_available and embedding_available
+
     def _candidates(self) -> list[LLMProvider]:
         now = self._clock()
         ready = [p for p in self._providers if self._blocked_until.get(p.name, 0.0) <= now]
