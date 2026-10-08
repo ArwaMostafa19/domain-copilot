@@ -25,6 +25,7 @@ ALLOWED_ENVIRONMENT_READERS = {
     "infrastructure/llm_smoke.py",
     "infrastructure/migrate.py",
     "infrastructure/seed_users.py",
+    "cli/copilot.py",
 }
 
 ENVIRONMENT_NAMES = {"environ", "environb", "getenv"}
