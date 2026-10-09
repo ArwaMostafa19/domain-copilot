@@ -163,13 +163,16 @@ configuration error. Load `.env` into the shell first, as with the smoke tool.
 ```
 python -m src.cli.ask --tenant tenant-alpha "what is the relief set point of the ALPHA-HP-200?"
 python -m src.eval.calibrate   # best dense scores and a suggested threshold
+python -m src.eval.run         # retrieval metrics for the golden set
 ```
 
-`python -m src.eval.calibrate` runs a list of in-corpus and out-of-corpus
-questions (from `eval/golden.jsonl` once it exists, otherwise a small built-in
-list), prints the similarity of the best hit for each, and suggests a threshold:
+`python -m src.eval.calibrate` runs answerable, revision and out-of-corpus
+questions from `eval/golden.jsonl` (or a small built-in list if the file has no
+calibration questions), prints the similarity of the best hit for each, and suggests a threshold:
 the midpoint between the lowest in-corpus best score and the highest
 out-of-corpus best score, with a warning when the two ranges overlap. It changes
-no setting.
+no setting. `python -m src.eval.run --with-answers` runs the full golden-set
+evaluation; see [docs/EVALUATION.md](docs/EVALUATION.md) for setup, metric
+definitions and baseline recording.
 
 
