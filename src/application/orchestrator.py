@@ -176,7 +176,7 @@ class WorkflowOrchestrator(AgentToolAccess):
         step_started = time.monotonic()
         plan = self.planner.run(
             DiagnosticSafetyPlannerInput(
-                match_res.match, installed_revision, tenant_id, match_res.evidence
+                match_res.match, installed_revision, tenant_id, match_res.evidence, symptoms
             ),
             self.safety_repo,
         )
@@ -272,7 +272,7 @@ class WorkflowOrchestrator(AgentToolAccess):
         )
         plan = self.planner.run(
             DiagnosticSafetyPlannerInput(
-                match_res.match, None, tenant_id, match_res.evidence
+                match_res.match, None, tenant_id, match_res.evidence, symptoms
             ),
             self.safety_repo,
         )
