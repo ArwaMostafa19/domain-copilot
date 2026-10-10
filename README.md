@@ -2,7 +2,7 @@
 
 # 
 
-# An agentic RAG platform for field maintenance.
+An agentic RAG platform for field maintenance.
 
 # 
 
@@ -32,9 +32,15 @@ Two database users are used. The admin user (POSTGRES_USER) only runs the migrat
 
 ## Status
 
-# 
+The core API, tenant-scoped grounded Q&A, maintenance workflow, supervisor
+review UI, and retrieval evaluation are implemented. See
+[IMPLEMENTATION-AND-HANDOFF.md](IMPLEMENTATION-AND-HANDOFF.md) for the current
+implementation gaps, verification record, and proposed Git/PR handoff.
 
-# Work in progress. Quick start, environment variables and the demo path will be added as features land.
+## Demo videos
+
+1. **Slide presentation** — [https://drive.google.com/drive/folders/1ztD-UBLIeWyhsi1Jy4G-9TIYv6M7YKfD?usp=sharing](#)
+2. **Project demo** — [https://drive.google.com/drive/folders/1SAxbr6ZxXGkH3hb_B8sA4PW2r4YBUUxU?usp=sharing](#)
 
 ## Switching LLM providers
 
@@ -119,8 +125,9 @@ FastAPI routes are split into modules under `src/api/routers` and included by
 | `POST` | `/ask` | Get a tenant-scoped, document-grounded answer |
 
 `/ask` takes `{"question":"..."}` and requires `Authorization: Bearer <token>`.
-The tenant comes from the verified token. Workflow request schemas exist, but
-workflow HTTP routes have not been implemented yet.
+The tenant comes from the verified token. Maintenance workflow routes support
+runs, acknowledgements, approval/rejection, cancellation, document listing,
+ingestion, and usage. See `/docs` for current route schemas.
 
 ### Smoke tool
 
