@@ -107,13 +107,13 @@ def answer_question(question: str, tenant_id: str, deps: AnswerDeps, correlation
             RefusalReason.EQUIPMENT_NOT_IN_TENANT, [], TokenUsage()
         )
     evidence = retrieve(question, tenant_id, deps.embedder, deps.search, deps.settings)
-    if _is_prompt_extraction_request(question) or (
-        evidence and not _has_topic_overlap(question, evidence)
-    ):
+    if _is_prompt_extraction_request(question):
         return _refusal(RefusalReason.OUT_OF_SCOPE, evidence, TokenUsage())
     refusal = _refusal_gate(evidence, deps.settings.retrieval_min_similarity)
     if refusal is not None:
         return _refusal(refusal, evidence, TokenUsage())
+    if not _has_topic_overlap(question, evidence):
+        return _refusal(RefusalReason.OUT_OF_SCOPE, evidence, TokenUsage())
 
     request = CompletionRequest(
         messages=(
@@ -163,15 +163,17 @@ def stream_answer_question(question: str, tenant_id: str, deps: AnswerDeps, corr
         yield {"event": "done", "answer": answer}
         return
     evidence = retrieve(question, tenant_id, deps.embedder, deps.search, deps.settings)
-    if _is_prompt_extraction_request(question) or (
-        evidence and not _has_topic_overlap(question, evidence)
-    ):
+    if _is_prompt_extraction_request(question):
         answer = _refusal(RefusalReason.OUT_OF_SCOPE, evidence, TokenUsage())
         yield {"event": "done", "answer": answer}
         return
     refusal = _refusal_gate(evidence, deps.settings.retrieval_min_similarity)
     if refusal is not None:
         answer = _refusal(refusal, evidence, TokenUsage())
+        yield {"event": "done", "answer": answer}
+        return
+    if not _has_topic_overlap(question, evidence):
+        answer = _refusal(RefusalReason.OUT_OF_SCOPE, evidence, TokenUsage())
         yield {"event": "done", "answer": answer}
         return
     yield {"event": "progress", "stage": "evidence_found", "count": len(evidence)}
@@ -247,7 +249,9 @@ def _has_topic_overlap(question: str, evidence: list[Evidence]) -> bool:
         if len(term) > 2 and term.casefold() not in MEANINGFUL_STOP_WORDS
     }
     if not question_terms:
-        return False
+        # Generic prompts such as 'question' have no useful topic signal.
+        # Let retrieval strength and citation validation decide these cases.
+        return True
     evidence_terms = {
         term.casefold()
         for item in evidence

@@ -13,7 +13,7 @@ from src.domain.rag import Evidence
 from src.infrastructure.database import tenant_connection
 
 DENSE_SQL = """
-    SELECT c.id, d.doc_id, d.title, c.section, c.revision, d.status, c.page,
+    SELECT c.id, d.doc_id, d.title, d.equipment, c.section, c.revision, d.status, c.page,
            c.content, 1 - (c.embedding <=> %(q)s::vector) AS score
     FROM chunks c
     JOIN documents d ON d.id = c.document_id
@@ -25,7 +25,7 @@ DENSE_SQL = """
 """
 
 KEYWORD_SQL = """
-    SELECT c.id, d.doc_id, d.title, c.section, c.revision, d.status, c.page,
+    SELECT c.id, d.doc_id, d.title, d.equipment, c.section, c.revision, d.status, c.page,
            c.content, ts_rank_cd(c.tsv, query) AS score
     FROM chunks c
     JOIN documents d ON d.id = c.document_id,
@@ -89,11 +89,11 @@ class PostgresChunkSearch:
 
 
 def _dense_evidence(row: tuple) -> Evidence:
-    return _evidence(row, dense_score=row[8])
+    return _evidence(row, dense_score=row[9])
 
 
 def _keyword_evidence(row: tuple) -> Evidence:
-    return _evidence(row, keyword_score=row[8])
+    return _evidence(row, keyword_score=row[9])
 
 
 def _evidence(
@@ -102,7 +102,7 @@ def _evidence(
     dense_score: float = 0.0,
     keyword_score: float = 0.0,
 ) -> Evidence:
-    chunk_id, doc_id, title, section, revision, status, page, content, _score = row
+    chunk_id, doc_id, title, equipment, section, revision, status, page, content, _score = row
     return Evidence(
         chunk_id=chunk_id,
         doc_id=doc_id,
@@ -114,6 +114,7 @@ def _evidence(
         text=content,
         dense_score=dense_score,
         keyword_score=keyword_score,
+        equipment=equipment,
     )
 
 

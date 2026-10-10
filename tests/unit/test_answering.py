@@ -37,7 +37,7 @@ def ev(chunk_id: int, *, dense: float = 0.0, section: str = "Section") -> Eviden
         revision="Rev B",
         doc_status="current",
         page=None,
-        text=f"text of chunk {chunk_id}",
+        text=f"interval details in text of chunk {chunk_id}",
         dense_score=dense,
     )
 
@@ -80,13 +80,16 @@ def test_streaming_answer_emits_progress_tokens_and_grounded_citations() -> None
 
 
 def test_an_invented_citation_is_refused() -> None:
-    deps, _, _ = make_deps(dense=[ev(1, dense=0.9)], script=["Answer [chunk:99]"])
+    deps, _, _ = make_deps(
+        dense=[ev(1, dense=0.9)],
+        script=["Answer [chunk:99]", "Still unsupported [chunk:99]"],
+    )
 
     answer = answer_question("q", "tenant-alpha", deps)
 
     assert answer.refused is True
     assert answer.reason == RefusalReason.INVALID_CITATION
-    assert answer.text == REFUSAL_TEXT
+    assert "couldn't verify" in answer.text
 
 
 def test_an_answer_with_no_citation_is_refused() -> None:
@@ -97,7 +100,7 @@ def test_an_answer_with_no_citation_is_refused() -> None:
     answer = answer_question("q", "tenant-alpha", deps)
 
     assert answer.refused is True
-    assert answer.reason == RefusalReason.INVALID_CITATION
+    assert answer.reason == RefusalReason.MISSING_CITATION
 
 
 def test_no_evidence_refuses_without_calling_the_model() -> None:
@@ -107,6 +110,16 @@ def test_no_evidence_refuses_without_calling_the_model() -> None:
 
     assert answer.refused is True
     assert answer.reason == RefusalReason.NO_EVIDENCE
+    assert chain.calls == []
+
+
+def test_unrelated_question_is_refused_without_calling_the_model() -> None:
+    deps, _, chain = make_deps(dense=[ev(1, dense=0.9)], script=["unused [chunk:1]"])
+
+    answer = answer_question("how do I bake a cake", "tenant-alpha", deps)
+
+    assert answer.refused is True
+    assert answer.reason == RefusalReason.OUT_OF_SCOPE
     assert chain.calls == []
 
 
@@ -131,7 +144,7 @@ def test_the_canary_token_is_refused_and_never_logged(caplog) -> None:
         answer = answer_question("q", "tenant-alpha", deps)
 
     assert answer.refused is True
-    assert answer.reason == RefusalReason.INVALID_CITATION
+    assert answer.reason == RefusalReason.UNSAFE_OUTPUT
     assert "canary" in caplog.text
     assert CANARY_TOKEN not in caplog.text
 
@@ -145,7 +158,7 @@ def test_the_injection_marker_is_refused() -> None:
     answer = answer_question("q", "tenant-alpha", deps)
 
     assert answer.refused is True
-    assert answer.reason == RefusalReason.INVALID_CITATION
+    assert answer.reason == RefusalReason.UNSAFE_OUTPUT
 
 
 def test_evidence_is_wrapped_as_data_before_the_question() -> None:
