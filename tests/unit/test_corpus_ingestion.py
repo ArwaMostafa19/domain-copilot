@@ -39,7 +39,6 @@ EXPECTED_SAFETY_STEPS = {
 
 EXPECTED_INJECTION_FILES = {
     "tenant-alpha": (
-        "air-compressor-preventive-maintenance",
         "chiller-alarm-troubleshooting-guide",
         "hydraulic-press-troubleshooting-guide",
     ),

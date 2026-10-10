@@ -45,11 +45,10 @@
         "Documentation gaps",
         "Appendix: Compressor service task detail",
         "Appendix: Cooling and condensate management",
-        "Compromised extraction note (adversarial)",
         "Appendix: Compressor lubrication and fluid reference",
         "Revision history"
       ],
-      "sha256": "7849cf52ad55f27da2cceb964bc3add7dc62505cd85b36667fa7686cc4aee28d"
+      "sha256": "c69b2f2f6ec339e433260dce5c147a3c1698adea5c1bb0583694cc756e5f9692"
     },
     {
       "doc_id": "ALPHA-TS-CH450-1",
