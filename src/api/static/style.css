@@ -136,12 +136,20 @@ button:not(.tab-btn):focus-visible { outline: 3px solid rgba(37, 99, 235, .35); 
 button:disabled { opacity: .5; cursor: not-allowed; box-shadow: none; }
 #logout-btn, #cancel-run-btn { background: #fff; color: #475569; border-color: var(--border); box-shadow: none; }
 #logout-btn:hover:not(:disabled), #cancel-run-btn:hover:not(:disabled) { color: var(--danger); background: #fff7f6; border-color: #fecaca; box-shadow: none; }
-#refresh-asks-btn, #refresh-runs-btn, #refresh-review-btn, #refresh-docs-btn, #refresh-usage-btn { color: #334155; background: #fff; border-color: var(--border); box-shadow: none; }
-#refresh-asks-btn:hover, #refresh-runs-btn:hover, #refresh-review-btn:hover, #refresh-docs-btn:hover, #refresh-usage-btn:hover { color: var(--primary); background: #f8fafc; border-color: #bfdbfe; box-shadow: none; }
+#refresh-asks-btn, #refresh-runs-btn, #refresh-review-btn, #refresh-docs-btn { color: #334155; background: #fff; border-color: var(--border); box-shadow: none; }
+#refresh-asks-btn:hover, #refresh-runs-btn:hover, #refresh-review-btn:hover, #refresh-docs-btn:hover { color: var(--primary); background: #f8fafc; border-color: #bfdbfe; box-shadow: none; }
+
+.usage-card { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .55rem 1rem; margin-top: 1.2rem; padding: 1rem 1.1rem; background: linear-gradient(115deg, #eff6ff, #f0fdfa); border: 1px solid #dbeafe; border-radius: 14px; }
+.usage-card h3 { margin: 0; color: #1e3a5f; font-size: .95rem; }
+.usage-card p { margin: .1rem 0 0; color: var(--muted); font-size: .8rem; }
+.usage-summary { flex: 1 1 100%; color: #334155; font-size: .86rem; }
+.ask-usage-card { max-width: 760px; }
 
 .output-panel, .card { margin-top: 1.1rem; padding: clamp(1rem, 3vw, 1.4rem); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 5px 18px rgba(24, 39, 75, .045); white-space: pre-wrap; overflow-wrap: anywhere; }
-#ask-output:empty, #ask-history:empty, #run-progress:empty, #work-order-result:empty, #run-trace-detail:empty, #usage-panel:empty { display: none; }
+#ask-output:empty, #ask-history:empty, #run-progress:empty, #work-order-result:empty, #run-trace-detail:empty { display: none; }
 #ask-output { white-space: normal; }
+.refusal-card { background: #fffbeb; border-color: #fde68a; }
+.refusal-card .answer-copy { color: #713f12; }
 .answer-copy { margin: 0; color: #243247; font-size: 1.04rem; line-height: 1.8; }
 .answer-copy p { margin: 0 0 .8rem; }
 .answer-copy p:last-child { margin-bottom: 0; }

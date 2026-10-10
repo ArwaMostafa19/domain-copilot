@@ -17,6 +17,16 @@ def test_ui_index_served():
     assert res.status_code == 200
 
 
+def test_ui_logout_and_workflow_rendering_hooks_are_present():
+    res = client.get("/static/app.js")
+    assert res.status_code == 200
+    script = res.text
+    assert "clearUserContent();" in script
+    assert "showTab('login-tab');" in script
+    assert "${step.doc_id} — step ${step.step_no}: ${step.text}" in script
+    assert "Acknowledge Safety Step ID" not in script
+
+
 def test_security_headers_and_csp_present():
     res = client.get("/health")
     assert "X-Correlation-ID" in res.headers

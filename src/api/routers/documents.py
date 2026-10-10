@@ -18,8 +18,8 @@ def list_documents(
     with tenant_connection(tenant_id) as conn:
         rows = conn.execute(
             """
-            SELECT d.id, d.doc_id, d.title, d.equipment_id, d.revision, d.status,
-                   d.fingerprint, d.ingest_error, COUNT(c.id) as chunk_count
+            SELECT d.id, d.doc_id, d.title, d.equipment, d.revision, d.status,
+                   d.content_sha256, d.ingest_error, COUNT(c.id) as chunk_count
             FROM documents d
             LEFT JOIN chunks c ON c.document_id = d.id
             GROUP BY d.id
@@ -52,8 +52,8 @@ def get_document(
     with tenant_connection(tenant_id) as conn:
         row = conn.execute(
             """
-            SELECT d.id, d.doc_id, d.title, d.equipment_id, d.revision, d.status,
-                   d.fingerprint, d.ingest_error, COUNT(c.id) as chunk_count
+            SELECT d.id, d.doc_id, d.title, d.equipment, d.revision, d.status,
+                   d.content_sha256, d.ingest_error, COUNT(c.id) as chunk_count
             FROM documents d
             LEFT JOIN chunks c ON c.document_id = d.id
             WHERE d.doc_id = %s OR d.id::text = %s

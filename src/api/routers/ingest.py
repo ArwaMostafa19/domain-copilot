@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 from pathlib import Path
 from typing import Annotated
 
@@ -14,6 +15,7 @@ from src.infrastructure.providers.factory import build_embedding_stack
 from src.infrastructure.repository import PostgresDocumentRepository
 
 router = APIRouter()
+logger = logging.getLogger(__name__)
 
 
 @router.post("/ingest/corpus")
@@ -41,17 +43,27 @@ def trigger_ingest(
 
     def event_stream():
         yield f"data: {json.dumps({'event': 'started', 'tenant_id': tenant_id})}\n\n"
-        allowed_extensions = {".md", ".pdf"}
-        max_bytes = request.app.state.settings.max_ingest_file_bytes
-        files = [
-            p for p in corpus_dir.rglob("*")
-            if p.is_file()
-            and p.suffix.lower() in allowed_extensions
-            and p.stat().st_size <= max_bytes
-        ]
-        results = ingest_files(files, provider, doc_repo)
-        for res in results:
-            yield f"data: {json.dumps({'event': 'document', 'path': res.path, 'status': res.status, 'chunks': res.chunks, 'steps': res.steps, 'error': res.error})}\n\n"
-        yield f"data: {json.dumps({'event': 'completed', 'tenant_id': tenant_id, 'total_files': len(results)})}\n\n"
+        try:
+            if not corpus_dir.is_dir():
+                raise FileNotFoundError(f"tenant corpus directory is missing: {corpus_dir}")
+            allowed_extensions = {".md", ".pdf"}
+            max_bytes = request.app.state.settings.max_ingest_file_bytes
+            files = sorted(
+                (
+                    path
+                    for path in corpus_dir.rglob("*")
+                    if path.is_file()
+                    and path.suffix.lower() in allowed_extensions
+                    and path.stat().st_size <= max_bytes
+                ),
+                key=lambda path: path.as_posix(),
+            )
+            results = ingest_files(files, provider, doc_repo)
+            for result in results:
+                yield f"data: {json.dumps({'event': 'document', 'path': result.path, 'status': result.status, 'chunks': result.chunks, 'steps': result.steps, 'error': result.error})}\n\n"
+            yield f"data: {json.dumps({'event': 'completed', 'tenant_id': tenant_id, 'total_files': len(results)})}\n\n"
+        except (OSError, RuntimeError, ValueError) as exc:
+            logger.exception("corpus ingestion failed for tenant %s", tenant_id)
+            yield f"data: {json.dumps({'event': 'error', 'detail': f'{type(exc).__name__}: {exc}'})}\n\n"
 
     return StreamingResponse(event_stream(), media_type="text/event-stream")

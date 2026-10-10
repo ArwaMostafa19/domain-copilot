@@ -389,7 +389,7 @@ class PgSafetyPrerequisiteRepository(SafetyPrerequisiteRepository):
                 FROM safety_prerequisites sp
                 JOIN documents d ON d.id = sp.document_id
                 WHERE d.doc_id = ANY(%s)
-                ORDER BY sp.step_no
+                ORDER BY d.doc_id, sp.step_no
                 """,
                 (list(doc_ids),),
             ).fetchall()
@@ -397,3 +397,24 @@ class PgSafetyPrerequisiteRepository(SafetyPrerequisiteRepository):
         for row in rows:
             out.append(SafetyStepRecord(id=row[0], step_no=row[1], text=row[2], doc_id=row[3]))
         return out
+
+    def required_by_ids(
+        self, tenant_id: str, step_ids: Sequence[int]
+    ) -> list[SafetyStepRecord]:
+        if not step_ids:
+            return []
+        with tenant_connection(tenant_id) as conn:
+            rows = conn.execute(
+                """
+                SELECT sp.id, sp.step_no, sp.step_text, d.doc_id
+                FROM safety_prerequisites sp
+                JOIN documents d ON d.id = sp.document_id
+                WHERE sp.id = ANY(%s)
+                ORDER BY array_position(%s::integer[], sp.id)
+                """,
+                (list(step_ids), list(step_ids)),
+            ).fetchall()
+        return [
+            SafetyStepRecord(id=row[0], step_no=row[1], text=row[2], doc_id=row[3])
+            for row in rows
+        ]

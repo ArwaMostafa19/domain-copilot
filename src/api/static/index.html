@@ -25,7 +25,6 @@
     <button class="tab-btn" data-tab="runs-tab">Runs & Trace</button>
     <button class="tab-btn supervisor-only" data-tab="review-tab" style="display: none;">Review Queue</button>
     <button class="tab-btn" data-tab="documents-tab">Documents</button>
-    <button class="tab-btn" data-tab="usage-tab">Usage</button>
   </nav>
 
   <main>
@@ -42,7 +41,7 @@
         </div>
         <div class="form-group">
           <label for="username-input">Username:</label>
-          <input type="text" id="username-input" placeholder="alpha-tech or alpha-sup" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+          <input type="text" id="username-input" autocomplete="username" autocapitalize="none" spellcheck="false" required>
         </div>
         <div class="form-group">
           <label for="password-input">Password:</label>
@@ -51,6 +50,10 @@
         <button type="submit" id="login-submit-btn">Login</button>
       </form>
       <div id="login-error" class="error-msg"></div>
+      <section class="usage-card" aria-labelledby="login-usage-title">
+        <div><h3 id="login-usage-title">Token usage</h3><p>Sign in to view your usage summary.</p></div>
+        <div id="login-usage-panel" class="usage-summary" aria-live="polite">Usage is available after login.</div>
+      </section>
     </section>
 
     <!-- Ask Tab -->
@@ -63,6 +66,12 @@
       <button id="ask-submit-btn">Submit Question</button>
       <button id="refresh-asks-btn">Load Saved Questions</button>
 
+      <section class="usage-card ask-usage-card" aria-labelledby="ask-usage-title">
+        <div><h3 id="ask-usage-title">Your token usage</h3><p>Daily question and workflow totals.</p></div>
+        <button type="button" id="refresh-usage-btn">Refresh</button>
+        <div id="ask-usage-panel" class="usage-summary" aria-live="polite">Sign in to view usage.</div>
+      </section>
+
       <div id="ask-output" class="output-panel" aria-live="polite" aria-atomic="true"></div>
       <div id="ask-history" class="output-panel"></div>
     </section>
@@ -74,10 +83,6 @@
         <label for="symptoms-input">Symptoms / Problem Description:</label>
         <textarea id="symptoms-input" rows="3" placeholder="Describe symptoms..."></textarea>
       </div>
-      <div class="form-group">
-        <label for="revision-input">Installed Revision (Optional):</label>
-        <input type="text" id="revision-input" placeholder="e.g. Rev A">
-      </div>
       <button id="start-run-btn">Start Workflow</button>
       <button id="cancel-run-btn" disabled>Cancel Active Run</button>
 
@@ -85,10 +90,11 @@
 
       <div id="safety-gate-panel" style="display: none;" class="card">
         <h3>Safety Prerequisites Checklist</h3>
-        <p>Acknowledge each required safety step before proceeding to generation:</p>
+        <p id="safety-prereq-count">Acknowledge each required safety step before proceeding to generation:</p>
         <div id="safety-checklist"></div>
         <button id="acknowledge-btn">Submit Acknowledgements</button>
       </div>
+      <button type="button" id="continue-workflow-btn" style="display: none;">Continue to Work Order</button>
 
       <div id="work-order-result" class="output-panel"></div>
     </section>
@@ -103,7 +109,6 @@
             <th>Run ID</th>
             <th>Question/Symptoms</th>
             <th>Status</th>
-            <th>Total Tokens</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -124,6 +129,7 @@
       <h2>Tenant Documents</h2>
       <button id="refresh-docs-btn">Refresh Documents</button>
       <button id="ingest-btn" class="supervisor-only" style="display: none;">Re-ingest Corpus</button>
+      <div id="docs-status" class="output-panel" role="status" aria-live="polite"></div>
       <table id="docs-table">
         <thead>
           <tr>
@@ -139,12 +145,6 @@
       </table>
     </section>
 
-    <!-- Usage Tab -->
-    <section id="usage-tab" class="tab-content">
-      <h2>Token Usage & Analytics</h2>
-      <button id="refresh-usage-btn">Refresh Usage</button>
-      <div id="usage-panel" class="output-panel"></div>
-    </section>
   </main>
 
   <script src="/static/app.js"></script>

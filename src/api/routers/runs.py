@@ -11,6 +11,7 @@ from fastapi.responses import StreamingResponse
 
 from src.api import schemas
 from src.api.deps import get_current_user
+from src.application.agents import EquipmentNotFoundError, WorkflowInputError
 from src.application.orchestrator import (
     GateNotSatisfiedError,
     WorkflowOrchestrator,
@@ -93,7 +94,10 @@ def create_run(
                 yield f"data: {json.dumps(item)}\n\n"
         except StopIteration as stop:
             result = stop.value
-            yield f"data: {json.dumps({'event': 'done', 'run_id': result.run_id, 'required_safety_step_ids': result.required_safety_step_ids})}\n\n"
+            safety_steps = orch.safety_repo.required_by_ids(
+                str(user["tenant_id"]), result.required_safety_step_ids
+            )
+            yield f"data: {json.dumps({'event': 'done', 'run_id': result.run_id, 'required_safety_step_ids': result.required_safety_step_ids, 'required_safety_steps': [{'id': step.id, 'step_no': step.step_no, 'text': step.text, 'doc_id': step.doc_id} for step in safety_steps]})}\n\n"
         except Exception as exc:  # noqa: BLE001
             try:
                 if current_run_id:
@@ -104,7 +108,12 @@ def create_run(
             except psycopg.Error as persistence_error:
                 logger.error("could not persist failed workflow (%s)", type(persistence_error).__name__)
             logger.error("workflow start failed (%s)", type(exc).__name__, extra={"correlation_id": cid})
-            yield 'data: {"event":"error","detail":"workflow failed"}\n\n'
+            detail = (
+                str(exc)
+                if isinstance(exc, (EquipmentNotFoundError, WorkflowInputError))
+                else "workflow failed"
+            )
+            yield f"data: {json.dumps({'event': 'error', 'detail': detail})}\n\n"
 
     return StreamingResponse(event_stream(), media_type="text/event-stream")
 
@@ -139,9 +148,12 @@ def acknowledge_run(
         except StopIteration as stop:
             wo = stop.value
             yield f"data: {json.dumps({'event': 'done', 'work_order': wo})}\n\n"
-        except Exception as exc:  # noqa: BLE001
-            logger.error("workflow generation failed (%s)", type(exc).__name__, extra={"correlation_id": cid})
-            yield 'data: {"event":"error","detail":"workflow generation failed"}\n\n'
+        except Exception as exc:
+            logger.exception(
+                "workflow generation failed",
+                extra={"correlation_id": cid, "run_id": run_id},
+            )
+            yield f"data: {json.dumps({'event': 'error', 'detail': f'Work order generation failed ({type(exc).__name__}). Reference: {cid}'})}\n\n"
 
     return StreamingResponse(event_stream(), media_type="text/event-stream")
 
