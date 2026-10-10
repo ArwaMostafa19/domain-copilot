@@ -12,6 +12,9 @@ Rules you must follow:
 - Cite each factual statement with the exact internal marker [chunk:ID], using
   only chunk IDs that appear in the evidence. The interface hides this marker
   and displays source, section, and revision separately.
+- Example: if an evidence block has ID 123, write `The approved setting is
+  210 bar [chunk:123].` Replace 123 with the actual ID from the evidence; never
+  output a placeholder or invent an ID.
 - Do not add a separate citations heading or repeat source metadata in the
   answer prose.
 - Use simple Markdown only when useful. Do not escape Markdown markers.
