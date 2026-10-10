@@ -17,7 +17,11 @@ class RefusalReason:
 
     NO_EVIDENCE = "no_evidence"
     WEAK_EVIDENCE = "weak_evidence"
+    OUT_OF_SCOPE = "out_of_scope"
+    EQUIPMENT_NOT_IN_TENANT = "equipment_not_in_tenant"
     INVALID_CITATION = "invalid_citation"
+    MISSING_CITATION = "missing_citation"
+    UNSAFE_OUTPUT = "unsafe_output"
 
 
 @dataclass(frozen=True)
@@ -35,6 +39,7 @@ class Evidence:
     dense_score: float = 0.0
     keyword_score: float = 0.0
     fused_score: float = 0.0
+    equipment: str | None = None
 
 
 @dataclass(frozen=True)
