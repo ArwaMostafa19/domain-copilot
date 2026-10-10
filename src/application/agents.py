@@ -31,6 +31,17 @@ logger = logging.getLogger(__name__)
 
 # Pattern to extract JSON codeblock if LLM wraps output in ```json ... ```
 JSON_BLOCK_PATTERN = re.compile(r"```(?:json)?\s*(\{.*?\})\s*```", re.DOTALL)
+EQUIPMENT_CODE_PATTERN = re.compile(
+    r"\b(?:ALPHA|BETA)-[A-Z]{2,5}-\d+[A-Z]?\b", re.IGNORECASE
+)
+
+
+class EquipmentNotFoundError(ValueError):
+    """The tenant has no retrieved manual for the explicitly named equipment."""
+
+
+class WorkflowInputError(ValueError):
+    """The supplied description cannot be matched to maintenance evidence."""
 
 
 @dataclass
@@ -118,6 +129,7 @@ class DiagnosticSafetyPlannerInput:
     installed_revision: str | None
     tenant_id: str
     evidence: tuple[Evidence, ...]
+    symptoms: str = ""
 
 
 @dataclass(frozen=True)
@@ -179,14 +191,61 @@ class SymptomMatcher(AgentToolAccess):
         self.settings = settings
 
     def run(self, request: SymptomMatcherInput, correlation_id: str | None = None) -> SymptomMatcherResult:
+        if not request.symptoms.strip():
+            raise WorkflowInputError("Describe the equipment and maintenance symptoms to start a workflow.")
         evidence = retrieve(request.symptoms, request.tenant_id, self.embedder, self.search, self.settings)
         if not evidence:
-            raise ValueError("no document evidence found for the reported symptoms")
+            raise WorkflowInputError("No maintenance evidence matched this description. Name the equipment or describe its symptoms.")
+
+        requested_equipment = list(dict.fromkeys(
+            code.upper() for code in EQUIPMENT_CODE_PATTERN.findall(request.symptoms)
+        ))
+        query_terms = {
+            term for term in re.findall(r"[a-z0-9]+", request.symptoms.lower())
+            if len(term) >= 4
+        }
+        stop_words = {
+            "about", "after", "before", "could", "does", "from", "have", "hello",
+            "here", "into", "just", "like", "need", "please", "show", "start",
+            "that", "them", "there", "these", "they", "this", "those", "what",
+            "when", "where", "which", "while", "with", "would", "workflow",
+        }
+        query_terms -= stop_words
+        matched_terms = {
+            term
+            for item in evidence
+            for term in re.findall(
+                r"[a-z0-9]+",
+                " ".join((item.equipment or "", item.title, item.section, item.text)).lower(),
+            )
+        }
+        has_domain_overlap = bool(query_terms & matched_terms)
+        if not requested_equipment and (
+            max(item.dense_score for item in evidence) < self.settings.retrieval_min_similarity
+            or not has_domain_overlap
+        ):
+            raise WorkflowInputError(
+                "I could not find relevant maintenance evidence for this description. "
+                "Name the equipment or describe its symptoms."
+            )
+        available_equipment = {
+            item.equipment.upper()
+            for item in evidence
+            if item.equipment
+        }
+        missing_equipment = [
+            code for code in requested_equipment if code not in available_equipment
+        ]
+        if missing_equipment:
+            raise EquipmentNotFoundError(
+                f"No maintenance information for {missing_equipment[0]} is available "
+                "in this tenant's documents."
+            )
 
         top = evidence[0]
         # Infer equipment and document details from evidence
         match = EquipmentMatch(
-            equipment_id=top.doc_id or "EQ-001",
+            equipment_id=top.equipment or top.title or "Unidentified equipment",
             doc_ids=tuple(dict.fromkeys(item.doc_id for item in evidence if item.doc_id)),
             revision=top.revision or "Rev A",
             revision_status="superseded" if "superseded" in (top.doc_status or "").lower() else "current",
@@ -214,7 +273,62 @@ class DiagnosticSafetyPlanner(AgentToolAccess):
             if doc_id not in doc_ids:
                 doc_ids.append(doc_id)
         safety_steps = safety_repo.required_for_documents(request.tenant_id, doc_ids)
+        if len(safety_steps) > 1 and request.symptoms:
+            safety_steps = _most_relevant_safety_steps(
+                request.symptoms, request.evidence, safety_steps
+            )
         return DiagnosticSafetyPlannerResult(res, tuple(safety_steps))
+
+
+def _most_relevant_safety_steps(
+    symptoms: str,
+    evidence: Sequence[Evidence],
+    safety_steps: Sequence[SafetyStepRecord],
+) -> list[SafetyStepRecord]:
+    """Avoid combining checklists from unrelated procedures in one run.
+
+    Several retrieved documents may describe the same equipment but different
+    tasks (for example, diagnostics and preventive maintenance). Select the
+    safety-bearing document(s) whose evidence and prerequisite wording best
+    match the reported symptoms. Ties remain included for multi-document tasks.
+    """
+    ignored = {
+        "about", "after", "before", "could", "does", "from", "have", "here",
+        "into", "just", "like", "need", "please", "show", "start", "that",
+        "them", "there", "these", "they", "this", "those", "what", "when",
+        "where", "which", "while", "with", "would", "workflow", "safety",
+        "steps", "maintenance", "work", "order", "must", "acknowledged",
+        "drafting", "the", "and", "for", "unit", "has",
+    }
+    terms = {
+        token
+        for token in re.findall(r"[a-z0-9]+", symptoms.lower())
+        if len(token) >= 4 and token not in ignored
+    }
+    if not terms:
+        return list(safety_steps)
+
+    text_by_doc: dict[str, list[str]] = {}
+    for item in evidence:
+        text_by_doc.setdefault(item.doc_id, []).append(
+            " ".join((item.equipment or "", item.title, item.section, item.text))
+        )
+    for step in safety_steps:
+        text_by_doc.setdefault(step.doc_id, []).append(step.text)
+
+    scores: dict[str, int] = {}
+    docs_with_steps = {step.doc_id for step in safety_steps}
+    for doc_id in docs_with_steps:
+        tokens = {
+            token
+            for token in re.findall(r"[a-z0-9]+", " ".join(text_by_doc.get(doc_id, [])).lower())
+        }
+        scores[doc_id] = len(terms & tokens)
+    best_score = max(scores.values(), default=0)
+    if best_score == 0:
+        return list(safety_steps)
+    selected_docs = {doc_id for doc_id, score in scores.items() if score == best_score}
+    return [step for step in safety_steps if step.doc_id in selected_docs]
 
 
 @dataclass(frozen=True)
@@ -325,9 +439,6 @@ class WorkOrderGenerator(AgentToolAccess):
             try:
                 call_count[0] += 1
                 result = self.chain.complete(request)
-                requested_max = request.max_tokens or 100_000
-                if result.usage.total_tokens > requested_max:
-                    raise ValueError("provider exceeded requested token limit")
                 return result
             except ProviderError as exc:
                 last_error = exc

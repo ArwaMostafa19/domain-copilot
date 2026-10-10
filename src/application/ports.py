@@ -204,6 +204,10 @@ class SafetyPrerequisiteRepository(Protocol):
         self, tenant_id: str, doc_ids: Sequence[str]
     ) -> list[SafetyStepRecord]: ...
 
+    def required_by_ids(
+        self, tenant_id: str, step_ids: Sequence[int]
+    ) -> list[SafetyStepRecord]: ...
+
 
 class UserRepository(Protocol):
     """Reads application users (tenant-scoped)."""
